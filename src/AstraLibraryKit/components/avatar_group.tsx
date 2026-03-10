@@ -41,7 +41,7 @@ function AvatarWrapper({ children, size = 'md', onClick }: { children: ReactNode
       </div>
       <div 
         aria-hidden="true" 
-        className="absolute border border-black/15 inset-0 pointer-events-none rounded-full" 
+        className="absolute border border-border-medium inset-0 pointer-events-none rounded-full"
       />
     </div>
   );
@@ -57,15 +57,15 @@ function OverflowIndicator({
   onClick?: () => void 
 }) {
   const sizeStyles = {
-    sm: 'size-[20px] text-[10px]',
-    md: 'size-[24px] text-[14px]',
-    lg: 'size-[28px] text-[16px]'
+    sm: 'size-[20px] text-body-xs',
+    md: 'size-[24px] text-body-md',
+    lg: 'size-[28px] text-body-lg'
   };
 
   return (
     <div 
       className={cn(
-        'bg-[#5250f3] flex items-center justify-center rounded-full shrink-0 text-white font-medium transition-colors hover:bg-[#4240d4] cursor-pointer',
+        'bg-brand flex items-center justify-center rounded-full shrink-0 text-white font-medium transition-colors hover:bg-brand-hover cursor-pointer',
         sizeStyles[size],
         onClick && 'cursor-pointer'
       )}

@@ -1,5 +1,8 @@
-@import '../AdAstraLatest/styles.css';
+@import "tailwindcss";
+@import './figma-tokens.css';
 @custom-variant dark (&:is(.dark *));
+
+
 
 :root {
   --font-size: 16px;
@@ -40,6 +43,44 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Astra brand ── */
+  --brand: #5250f3;
+  --brand-hover: #4240d4;
+  --brand-dark: #3B3AC3;
+  --brand-light: #d1d0f9;
+  --brand-wash: #eaeaff;
+  --brand-muted: #7b7ab8;
+
+  /* ── Semantic status ── */
+  --success: #47fc74;
+  --warning: #f8d33f;
+  --danger: #cf2828;
+
+  /* ── Surfaces ── */
+  --surface-dark: #22222c;
+  --surface-dark-hover: #333341;
+  --surface-darkest: #1e1e1e;
+
+  /* ── Text (opacity-based for consistency across backgrounds) ── */
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.5);
+  --text-tertiary: rgba(0, 0, 0, 0.3);
+
+  /* ── Borders ── */
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-medium: rgba(0, 0, 0, 0.15);
+
+  /* ── Background tints ── */
+  --bg-faint: rgba(0, 0, 0, 0.02);
+  --bg-subtle: rgba(0, 0, 0, 0.05);
+  --bg-hover: rgba(0, 0, 0, 0.08);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ── Toast cancel (dark-on-brand context) ── */
+  --toast-cancel: #093077;
+  --toast-cancel-hover: #0a3a85;
+  --toast-cancel-active: #072961;
 }
 
 .dark {
@@ -59,8 +100,10 @@
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
+  --border: rgba(255, 255, 255, 0.12);
   --input: oklch(0.269 0 0);
+  --input-background: #2a2a35;
+  --switch-background: #44445a;
   --ring: oklch(0.439 0 0);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
@@ -77,6 +120,44 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* ── Astra brand (dark) ── */
+  --brand: #6c6af7;
+  --brand-hover: #5d5be8;
+  --brand-dark: #4f4dd9;
+  --brand-light: #3d3b6e;
+  --brand-wash: #2a2950;
+  --brand-muted: #9594c8;
+
+  /* ── Semantic status (dark) ── */
+  --success: #34d058;
+  --warning: #e5b830;
+  --danger: #e04545;
+
+  /* ── Surfaces (dark) ── */
+  --surface-dark: #1a1a24;
+  --surface-dark-hover: #26263a;
+  --surface-darkest: #111118;
+
+  /* ── Text (dark – inverted to white-based opacity) ── */
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-tertiary: rgba(255, 255, 255, 0.3);
+
+  /* ── Borders (dark) ── */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.15);
+
+  /* ── Background tints (dark – white-based for visibility on dark) ── */
+  --bg-faint: rgba(255, 255, 255, 0.03);
+  --bg-subtle: rgba(255, 255, 255, 0.06);
+  --bg-hover: rgba(255, 255, 255, 0.1);
+  --bg-overlay: rgba(0, 0, 0, 0.65);
+
+  /* ── Toast cancel (dark) ── */
+  --toast-cancel: #1a3f8a;
+  --toast-cancel-hover: #224ba0;
+  --toast-cancel-active: #13326e;
 }
 
 @theme inline {
@@ -118,6 +199,73 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Font ── */
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+
+  /* ── Font weights ── */
+  --font-weight-book: 450;
+  --font-weight-semibold: 550;
+
+  /* ── Type scale (--text-* → text-* utility with paired line-height) ── */
+  --text-caption: 9px;
+  --text-caption--line-height: 14px;
+  --text-body-xs: 10px;
+  --text-body-xs--line-height: 14px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 1.2;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 1.4;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 1.4;
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-heading-sm: 13px;
+  --text-heading-sm--line-height: 22px;
+  --text-heading-md: 15px;
+  --text-heading-md--line-height: 25px;
+  --text-heading-lg: 24px;
+  --text-heading-lg--line-height: 32px;
+  --text-heading-display: 48px;
+  --text-heading-display--line-height: 56px;
+
+  /* ── Astra brand ── */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-light: var(--brand-light);
+  --color-brand-wash: var(--brand-wash);
+  --color-brand-muted: var(--brand-muted);
+
+  /* ── Semantic status ── */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  /* ── Surfaces ── */
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-hover: var(--surface-dark-hover);
+  --color-surface-darkest: var(--surface-darkest);
+
+  /* ── Text ── */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  /* ── Borders ── */
+  --color-border-subtle: var(--border-subtle);
+  --color-border-medium: var(--border-medium);
+
+  /* ── Background tints ── */
+  --color-bg-faint: var(--bg-faint);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-hover: var(--bg-hover);
+  --color-bg-overlay: var(--bg-overlay);
+
+  /* ── Toast cancel ── */
+  --color-toast-cancel: var(--toast-cancel);
+  --color-toast-cancel-hover: var(--toast-cancel-hover);
+  --color-toast-cancel-active: var(--toast-cancel-active);
 }
 
 @layer base {
@@ -186,5 +334,6 @@
 }
 
 html {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: var(--font-size);
 }

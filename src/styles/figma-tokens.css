@@ -10,10 +10,12 @@
   --blue-200: #E5F4FF;
   --bg-warning-tertiary: #FFF1C2;
   --body-medium-lineheight: 16;
+
   /* About text-text-assistive: Pink text used when Figma is assisting you in some way (ex: in auto layout) */
   --text-text-assistive: #EA10AC;
   --heading-large-lineheight: 32;
   --pink-100: #FFF0FE;
+
   /* About bg-bg-danger: Red fill color behind destructive buttons, and error banners. */
   --bg-bg-danger: #F24822;
   --heading-display-fontweight: 450;
@@ -30,25 +32,31 @@
   --heading-large-letterspacing: -1.7000000476837158;
   --heading-medium-lineheight: 25;
   --radius-full: 9999;
+
   /* About bg-bg-warning: Yellow fill color for warning banners */
   --bg-bg-warning: #FFCD29;
   --grey-600: #444;
   --multiplayer-multiplayerblue: #007BE5;
   --text-text-success: #009951;
+
   /* About border-border-strong: A much darker border color that we can use for emphasis around some UI elements. */
   --border-border-strong: #2C2C2C;
+
   /* About icon-icon-assistive: Pink icons used when Figma is assisting you in some way. */
   --icon-icon-assistive: #EA10AC;
   --icon-icon-figjam: #8638E5;
+
   /* About text-text-onbrand: Used for text against a “background with a fill color” (for example, a blue / purple background in our “Share” button) */
   --text-text-onbrand: #FFF;
   --grey-800: #2C2C2C;
   --grey-300: #D9D9D9;
+
   /* About text-text-brand: Text that is tinted to match the current product, typically used for things like links. For specifically referring to concepts in design, we can use color-text-design instead. */
   --text-text-brand: #007BE5;
   --heading-medium-fontweight: 550;
   --spacer-2: 8;
   --green-600: #009951;
+
   /* About bg-bg-selected: A lightly tinted selected fill color for selected elements. */
   --bg-bg-selected: #E5F4FF;
   --icon-icon-onbrand-tertiary: #FFF6;
@@ -60,6 +68,7 @@
   --heading-display-fontfamily: "Whyte";
   --icon-brand-secondary: #80CAFF;
   --blue-300: #BDE3FF;
+
   /* About icon-icon-tertiary: Our tertiary icon color primarily used for carets */
   --icon-icon-tertiary: #0000004D;
   --blue-400: #80CAFF;
@@ -81,9 +90,11 @@
   --body-large-strong-fontfamily: "Inter";
   --heading-medium-fontfamily: "Inter";
   --icon-icon-handoff: #009951;
+
   /* About text-text-tertiary: Primarily used for placeholder text (for example in a search input), or for hierarchy below secondary text. Note that text at this level is below our color contrast threshold, and may not be readable to all users. */
   --text-text-tertiary: #0000004D;
   --text-text-handoff: #009951;
+
   /* About border-border-selected-strong: When presenting a selected border against an already selected background, we sometimes need to increase the prominence of the selected border. */
   --border-border-selected-strong: #007BE5;
   --border-brand-default: #BDE3FF;
@@ -92,8 +103,10 @@
   --body-medium-fontsize: 11;
   --font-weight-default: 450;
   --bg-brand-tertiary: #E5F4FF;
+
   /* About icon-icon-secondary: Our secondary icon color for inactive elements that need to be “lighter” in order to create hierarchy. */
   --icon-icon-secondary: #00000080;
+
   /* About border-border-menu: Used for borders or dividers within a menu element. */
   --border-border-menu: #383838;
   --special-bordertranslucent: #0000001A;
@@ -104,6 +117,7 @@
   --purple-500: #9747FF;
   --spacer-6: 40;
   --body-small-fontsize: 9;
+
   /* About text-text-secondary: Our secondary text color for inactive tabs, labels, timestamps, and other text that needs to be “lighter” in order to create hierarchy. */
   --text-text-secondary: #00000080;
   --spacer-0: 0;
@@ -113,50 +127,64 @@
   --pale-green-700: #517361;
   --spacer-3: 16;
   --body-medium-strong-fontfamily: "Inter";
+
   /* About icon-icon-success: Green icons used for confirmation, and approval. */
   --icon-icon-success: #009951;
   --grey-200: #E6E6E6;
   --spacer-4: 24;
+
   /* About text-text-default: Our default text color for most titles, tabs, and body text. */
   --text-text-default: #000000E5;
   --special-code: #000000E5;
   --fullscreen-special-canvasdefaultfill: #F5F5F5;
   --blue-600: #007BE5;
   --orange-400: #FFC470;
+
   /* About bg-bg-brand: A fill tinted to match the accent color of the current product. */
   --bg-bg-brand: #0D99FF;
   --body-large-fontweight: 450;
   --multiplayer-multiplayeryellow: #FFCD29;
+
   /* About bg-bg-menu: The dark fill color of our menus  */
   --bg-bg-menu: #1E1E1E;
+
   /* About icon-icon-default: Our default icon color */
   --icon-icon-default: #000000E5;
   --border-selected-onselected: #BDE3FF;
   --bg-default-tertiary: #E6E6E6;
   --body-small-fontweight: 450;
+
   /* About icon-icon-danger: Red icons used to alert users about an error. */
   --icon-icon-danger: #DC3412;
   --multiplayer-multiplayergrey: #679;
   --text-default-secondary: #00000080;
+
   /* About icon-icon-onbrand: Icons against a “background with a fill color” (for example, a blue / purple background in our “Share” button) */
   --icon-icon-onbrand: #FFF;
+
   /* About border-border-default: Our default border color used as a divider between sections, or around inputs. */
   --border-border-default: #E6E6E6;
+
   /* About bg-bg-toolbar: The dark fill color of our UI2 editor toolbar */
   --bg-bg-toolbar: #2C2C2C;
   --grey-500: #757575;
+
   /* About bg-bg-handoff: Green fill color used for backgrounds like a button that opens in Dev Mode. */
   --bg-bg-handoff: #14AE5C;
   --green-200: #D5F7DA;
   --heading-large-fontsize: 24;
   --bg-disabled-default: #D9D9D9;
+
   /* About icon-icon-brand: An icon tinted to match the accent color of the current product. */
   --icon-icon-brand: #007BE5;
   --pink-200: #FFE0FC;
+
   /* About bg-bg-default: Our default background color */
   --bg-bg-default: #FFF;
+
   /* About text-text-danger: Red text used to alert users about an error. */
   --text-text-danger: #DC3412;
+
   /* About icon-icon-warning: Yellow icons used to warn users about a potential problem. */
   --icon-icon-warning: #B86200;
   --radius-none: 0;
@@ -164,8 +192,10 @@
   --body-small-fontfamily: "Inter";
   --blue-100: #F2F9FF;
   --spacer-5: 32;
+
   /* About bg-bg-secondary: Our secondary background color for most containers. */
   --bg-bg-secondary: #F5F5F5;
+
   /* About border-border-selected: Default selection border color we use for focused / selected inputs. */
   --border-border-selected: #0D99FF;
   --body-large-fontfamily: "Inter";
@@ -174,14 +204,18 @@
   --spacer-1: 4;
   --bg-component-default: #9747FF;
   --multiplayer-multiplayerpink: #FF24BD;
+
   /* About border-border-onbrand-strong: Used for borders against a bg-brand background */
   --border-border-onbrand-strong: #FFF;
+
   /* About text-text-warning: Yellow text used to warn users about a potential problem. */
   --text-text-warning: #B86200;
   --grey-100: #F5F5F5;
+
   /* About bg-bg-figjam: Purple fill color used for backgrounds like a button that opens in FigJam. */
   --bg-bg-figjam: #9747FF;
   --teal-500: #00A2C2;
+  
   /* About bg-bg-hover: A light grey hover fill color behind icons, and selectable elements. */
   --bg-bg-hover: #F5F5F5;
 }

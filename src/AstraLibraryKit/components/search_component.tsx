@@ -62,7 +62,7 @@ export function SearchComponent({
 
   return (
     <div className={cn('content-stretch flex gap-[8px] items-center', className)}>
-      <div className="bg-[#22222c] box-border content-stretch flex gap-[4px] h-[40px] items-center px-[20px] py-[12px] relative rounded-[64px] shrink-0 w-[177px] focus-within:ring-2 focus-within:ring-white/20 transition-all">
+      <div className="bg-surface-dark box-border content-stretch flex gap-[4px] h-[40px] items-center px-[20px] py-[12px] relative rounded-[64px] shrink-0 w-[177px] focus-within:ring-2 focus-within:ring-white/20 transition-all">
         <input
           type="text"
           value={value}
@@ -70,8 +70,8 @@ export function SearchComponent({
           onKeyDown={handleKeyDown}
           placeholder={value ? placeholder : animatedPlaceholder}
           disabled={disabled}
-          className="bg-transparent font-['Instrument_Sans:Regular',sans-serif] font-normal leading-[1.4] opacity-70 text-[14px] text-white placeholder:text-white placeholder:opacity-70 border-none outline-none w-full"
-          style={{ fontVariationSettings: "'wdth' 100" }}
+          className="bg-transparent font-sans font-normal opacity-70 text-body-md text-white placeholder:text-white placeholder:opacity-70 border-none outline-none w-full"
+
           {...props}
         />
       </div>

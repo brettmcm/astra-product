@@ -44,11 +44,11 @@ export function Avatar({
   if (type === 'initial') {
     return (
       <div
-        className={cn(baseClasses, 'bg-[#5250f3] flex items-center justify-center')}
+        className={cn(baseClasses, 'bg-brand flex items-center justify-center')}
         onClick={onClick}
       >
-        <div className="text-white font-medium text-center leading-none font-['Instrument_Sans:Medium',sans-serif]" style={{ fontVariationSettings: "'wdth' 100" }}>
-          <p className="text-[14px] leading-[1.4]">{initials}</p>
+        <div className="text-white font-medium text-center leading-none font-sans">
+          <p className="text-body-md">{initials}</p>
         </div>
       </div>
     );
@@ -66,7 +66,7 @@ export function Avatar({
       <div
         aria-hidden="true"
         className={cn(
-          'absolute inset-0 border border-[rgba(0,0,0,0.15)] pointer-events-none',
+          'absolute inset-0 border border-border-medium pointer-events-none',
           shapeClasses[shape]
         )}
       />
