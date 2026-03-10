@@ -181,8 +181,8 @@ export function SelectField({
     currentState === "empty" ? "w-[255px]" : "w-[200px]";
   const textColor =
     currentState === "empty"
-      ? "text-[rgba(0,0,0,0.5)]"
-      : "text-[rgba(0,0,0,0.85)]";
+      ? "text-text-secondary"
+      : "text-text-primary";
 
   return (
     <div
@@ -192,10 +192,10 @@ export function SelectField({
       <div className="content-stretch flex flex-col gap-[16px] items-start">
         <div
           className={cn(
-            "bg-[rgba(0,0,0,0.05)] box-border content-stretch flex gap-[8px] items-center p-[12px] rounded-[8px] shrink-0 cursor-pointer transition-colors",
+            "bg-bg-subtle box-border content-stretch flex gap-[8px] items-center p-[12px] rounded-[8px] shrink-0 cursor-pointer transition-colors",
             containerWidth,
             !disabled &&
-              "hover:bg-[rgba(0,0,0,0.08)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1",
+              "hover:bg-bg-hover focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1",
             disabled && "opacity-50 cursor-not-allowed",
           )}
           onClick={() =>
@@ -214,7 +214,7 @@ export function SelectField({
         >
           <p
             className={cn(
-              "flex-[1_0_0] font-sans font-normal leading-[1.4] min-h-px min-w-px relative shrink-0 text-[16px] whitespace-pre-wrap",
+              "flex-[1_0_0] font-sans font-normal min-h-px min-w-px relative shrink-0 text-body-lg whitespace-pre-wrap",
               textColor,
             )}
           >
@@ -235,7 +235,7 @@ export function SelectField({
           ref={optionsRef}
           id="select-list"
           className={cn(
-            "absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-[8px] shadow-lg z-50 overflow-y-auto",
+            "absolute top-full left-0 mt-1 bg-background border border-border-medium rounded-[8px] shadow-lg z-50 overflow-y-auto",
             containerWidth,
             "transition-[opacity,transform] duration-200",
             isClosing
@@ -253,11 +253,11 @@ export function SelectField({
               key={option.value}
               id={`select-opt-${index}`}
               className={cn(
-                "px-3 py-2 cursor-pointer text-[16px] font-sans transition-colors",
-                "hover:bg-gray-100",
-                focusedIndex === index && "bg-gray-100",
+                "px-3 py-2 cursor-pointer text-body-lg font-sans transition-colors",
+                "hover:bg-bg-hover",
+                focusedIndex === index && "bg-bg-hover",
                 value === option.value &&
-                  "bg-blue-50 text-blue-600 font-medium",
+                  "bg-brand-wash text-brand font-medium",
               )}
               onClick={() => handleOptionClick(option.value)}
               onMouseEnter={() => setFocusedIndex(index)}

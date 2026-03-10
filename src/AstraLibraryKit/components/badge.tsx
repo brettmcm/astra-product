@@ -17,21 +17,21 @@ export function Badge({
   className
 }: BadgeProps) {
   const variants = {
-    default: 'bg-[#eaeaff] text-[rgba(0,0,0,0.85)]',
-    success: 'bg-[#47fc74] text-[#1e1e1e]',
-    warning: 'bg-[#f8d33f] text-[#1e1e1e]',
-    danger: 'bg-[#cf2828] text-[#1e1e1e]',
-    brand: 'bg-[#5250f3] text-white',
-    secondary: 'bg-[#d1d0f9] text-[rgba(0,0,0,0.85)]'
+    default: 'bg-brand-wash text-text-primary',
+    success: 'bg-success text-surface-darkest',
+    warning: 'bg-warning text-surface-darkest',
+    danger: 'bg-danger text-surface-darkest',
+    brand: 'bg-brand text-white',
+    secondary: 'bg-brand-light text-text-primary'
   };
 
   const iconColors = {
-    default: 'rgba(0, 0, 0, 0.85)',
-    success: '#1e1e1e',
-    warning: '#1e1e1e', 
-    danger: '#1e1e1e',
+    default: 'var(--text-primary)',
+    success: 'var(--surface-darkest)',
+    warning: 'var(--surface-darkest)',
+    danger: 'var(--surface-darkest)',
     brand: 'white',
-    secondary: 'rgba(0, 0, 0, 0.85)'
+    secondary: 'var(--text-primary)'
   };
 
   const handleRemove = () => {
@@ -46,7 +46,7 @@ export function Badge({
       variants[variant],
       className
     )}>
-      <span className="font-medium text-[14px] leading-[1.4] shrink-0">
+      <span className="font-medium text-body-md shrink-0">
         {label}
       </span>
       {removable && (

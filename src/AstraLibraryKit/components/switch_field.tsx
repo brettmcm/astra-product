@@ -35,12 +35,12 @@ export function SwitchField({
       <div className="flex flex-1 flex-col gap-2 min-h-0 min-w-0">
         <div className="flex flex-col font-medium gap-4 leading-[1.4] text-base w-full">
           {showLabel && (
-            <p className="text-[rgba(0,0,0,0.85)]">
+            <p className="text-text-primary">
               {label}
             </p>
           )}
           {hasDescription && (
-            <p className="text-[rgba(0,0,0,0.5)] min-w-full whitespace-pre-wrap">
+            <p className="text-text-secondary min-w-full whitespace-pre-wrap">
               {description}
             </p>
           )}
@@ -53,11 +53,11 @@ export function SwitchField({
         disabled={disabled}
         className={cn(
           "flex items-center h-[18.389px] w-[31.995px] rounded-[25811100px] transition-all duration-200",
-          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand",
           "disabled:opacity-50 disabled:cursor-not-allowed",
           selected 
-            ? "bg-[#5250f3] pl-[14.767px] pr-[0.769px] py-[0.769px]" 
-            : "bg-[rgba(0,0,0,0.05)] px-[1.769px] py-[0.769px]"
+            ? "bg-brand pl-[14.767px] pr-[0.769px] py-[0.769px]"
+            : "bg-bg-subtle px-[1.769px] py-[0.769px]"
         )}
       >
         <div className="bg-white rounded-[25811100px] size-[15.998px] transition-transform duration-200" />

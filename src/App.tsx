@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { Button } from './AdAstraLatest/components/button';
-import { PromptInput } from './AdAstraLatest/components/prompt_input';
-import { VideoControl } from './AdAstraLatest/components/video_control';
-import { ShareModal } from './AdAstraLatest/components/share_modal';
-import { Home, Film, Book, Folder, Settings, Video, Search, Scissors, Sliders, Type, Wand2, Mic, Music, Upload } from './AdAstraLatest/components/icons';
+import { Button } from './AstraLibraryKit/components/button';
+import { PromptInput } from './AstraLibraryKit/components/prompt_input';
+import { VideoControl } from './AstraLibraryKit/components/video_control';
+import { ShareModal } from './AstraLibraryKit/components/share_modal';
+import { Home, Film, Book, Folder, Settings, Video, Search, Scissors, Sliders, Type, Wand2, Mic, Music, Upload } from './AstraLibraryKit/components/icons';
 import imgVideo from "figma:asset/e92a67f81fd098462003a57e57bc7449739a4a7a.png";
 import imgTypeImageSizeLargeShapeSquare from "figma:asset/11dbcb982f9ba115c7d5cc790cc48a457815fb67.png";
 import { imgGroup14697 } from "./imports/svg-dhq16";
@@ -351,14 +351,13 @@ function Editor() {
         
         <div className="flex gap-[12px] items-center">
           
-          <Button label="Export" variant="Neutral" size="Small" className="!py-[10px]" />
-          <Button 
-            label="Share" 
-            variant="Primary" 
-            size="Small" 
-            className="!py-[10px]" 
+          <Button variant="neutral" size="small" className="!py-[10px]">Export</Button>
+          <Button
+            variant="primary"
+            size="small"
+            className="!py-[10px]"
             onClick={() => setIsShareModalOpen(true)}
-          />
+          >Share</Button>
         </div>
       </div>
 

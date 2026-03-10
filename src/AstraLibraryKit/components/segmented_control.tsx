@@ -20,7 +20,7 @@ export function SegmentedControl({
   return (
     <div
       className={cn(
-        "bg-[#22222c] flex gap-1 items-center px-2 py-1 rounded-[14px] h-14 w-fit",
+        "bg-surface-dark flex gap-1 items-center px-2 py-1 rounded-[14px] h-14 w-fit",
         className,
       )}
     >
@@ -33,7 +33,7 @@ export function SegmentedControl({
             onClick={() => onSegmentChange(segment.id)}
             className={cn(
               "flex items-center justify-center p-3 rounded-lg size-12 transition-colors",
-              isActive ? "bg-[#7b7ab8]" : "hover:bg-[#333341]",
+              isActive ? "bg-brand-muted" : "hover:bg-surface-dark-hover",
             )}
           >
             <div

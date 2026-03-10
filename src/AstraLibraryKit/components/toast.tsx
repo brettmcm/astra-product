@@ -51,17 +51,17 @@ export function Toast({
   }, [useLoop]);
 
   const variants = {
-    default: "bg-[#5250F3]",
-    success: "bg-green-500",
-    error: "bg-red-500",
-    warning: "bg-yellow-500",
+    default: "bg-brand",
+    success: "bg-success",
+    error: "bg-danger",
+    warning: "bg-warning",
   };
 
   const progressVariants = {
-    default: "bg-[#3B3AC3]",
-    success: "bg-green-600",
-    error: "bg-red-600",
-    warning: "bg-yellow-600",
+    default: "bg-brand-dark",
+    success: "bg-success brightness-[0.85]",
+    error: "bg-danger brightness-[0.85]",
+    warning: "bg-warning brightness-[0.85]",
   };
 
   const clampedExternal = Math.min(Math.max(progress, 0), 100);
@@ -92,18 +92,18 @@ export function Toast({
 
       <div className="content-stretch flex gap-[6.772px] items-center relative shrink-0 z-10">
         <div className="content-stretch flex gap-[3.386px] items-center relative shrink-0">
-          <div className="flex flex-col font-['Instrument_Sans',sans-serif] font-[550] justify-center leading-[0] relative shrink-0 text-[9.312px] text-white tracking-[0.0466px] whitespace-nowrap">
-            <p className="leading-[13.545px]">{message}</p>
+          <div className="flex flex-col font-sans font-semibold justify-center relative shrink-0 text-caption text-white tracking-[0.0466px] whitespace-nowrap">
+            <p>{message}</p>
           </div>
         </div>
         {showCancel && (
           <div className="content-stretch flex gap-[3.386px] items-center relative shrink-0">
             <button
               onClick={onCancel}
-              className="bg-[#093077] hover:bg-[#0a3a85] active:bg-[#072961] box-border content-stretch flex h-[20.317px] items-center px-[6.772px] py-[3.386px] relative rounded-[4.13px] shrink-0 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20"
+              className="bg-toast-cancel hover:bg-toast-cancel-hover active:bg-toast-cancel-active box-border content-stretch flex h-[20.317px] items-center px-[6.772px] py-[3.386px] relative rounded-[4.13px] shrink-0 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20"
             >
-              <div className="flex flex-col font-['Inter',sans-serif] font-[450] justify-center leading-[0] not-italic relative shrink-0 text-[9.312px] text-white tracking-[0.0466px] whitespace-nowrap">
-                <p className="leading-[13.545px]">Cancel</p>
+              <div className="flex flex-col font-sans font-book justify-center not-italic relative shrink-0 text-caption text-white tracking-[0.0466px] whitespace-nowrap">
+                <p>Cancel</p>
               </div>
             </button>
           </div>
