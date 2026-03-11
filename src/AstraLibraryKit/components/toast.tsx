@@ -90,9 +90,9 @@ export function Toast({
         style={{ width: `${effectiveProgress}%` }}
       />
 
-      <div className="content-stretch flex gap-[6.772px] items-center relative shrink-0 z-10">
+      <div className="content-stretch flex justify-between items-center relative flex-1 z-10">
         <div className="content-stretch flex gap-[3.386px] items-center relative shrink-0">
-          <div className="flex flex-col font-sans font-semibold justify-center relative shrink-0 text-caption text-white tracking-[0.0466px] whitespace-nowrap">
+          <div className="flex flex-col font-sans font-semibold justify-center relative shrink-0 text-body-sm text-white tracking-[0.0466px] whitespace-nowrap">
             <p>{message}</p>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function Toast({
               onClick={onCancel}
               className="bg-toast-cancel hover:bg-toast-cancel-hover active:bg-toast-cancel-active box-border content-stretch flex h-[20.317px] items-center px-[6.772px] py-[3.386px] relative rounded-[4.13px] shrink-0 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20"
             >
-              <div className="flex flex-col font-sans font-book justify-center not-italic relative shrink-0 text-caption text-white tracking-[0.0466px] whitespace-nowrap">
+              <div className="flex flex-col font-sans font-book justify-center not-italic relative shrink-0 text-body-sm text-white tracking-[0.0466px] whitespace-nowrap">
                 <p>Cancel</p>
               </div>
             </button>

@@ -20,7 +20,7 @@ export function SegmentedControl({
   return (
     <div
       className={cn(
-        "bg-surface-dark flex gap-1 items-center px-2 py-1 rounded-[14px] h-14 w-fit",
+        "bg-bg-faint flex gap-1 items-center px-2 py-1 rounded-[14px] h-14 w-fit",
         className,
       )}
     >
@@ -39,7 +39,7 @@ export function SegmentedControl({
             <div
               className={cn(
                 "size-6 flex items-center justify-center",
-                isActive ? "text-white" : "text-white/50",
+                isActive ? "text-white" : "text-text-secondary",
               )}
             >
               {segment.icon}

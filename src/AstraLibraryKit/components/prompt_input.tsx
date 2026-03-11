@@ -51,7 +51,7 @@ export function PromptInput({
   return (
     <div 
       className={cn(
-        'bg-bg-faint box-border content-stretch flex flex-col items-start justify-between p-[24px] rounded-[24px] w-full relative transition-all duration-300',
+        'bg-white dark:bg-surface-dark box-border content-stretch flex flex-col items-start justify-between p-[24px] rounded-[24px] w-full relative transition-all duration-300',
         attachments.length > 0 ? 'h-[200px]' : 'h-[135px]',
         disabled && 'opacity-50 pointer-events-none',
         className
@@ -106,7 +106,7 @@ export function PromptInput({
       <button
         onClick={handleAttach}
         disabled={disabled}
-        className="absolute left-[10px] bottom-[10px] overflow-clip size-[20px] hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 rounded"
+        className="absolute left-[24px] bottom-[12px] overflow-clip size-[20px] hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 rounded"
       >
         <div className="absolute inset-[5.78%_10.67%_8.34%_8.34%]">
           <div className="absolute inset-[-4.37%_-4.63%]">

@@ -65,13 +65,13 @@ function OverflowIndicator({
   return (
     <div 
       className={cn(
-        'bg-brand flex items-center justify-center rounded-full shrink-0 text-white font-medium transition-colors hover:bg-brand-hover cursor-pointer',
+        'bg-brand flex items-center justify-center rounded-full shrink-0 font-medium transition-colors hover:bg-brand-hover cursor-pointer',
         sizeStyles[size],
         onClick && 'cursor-pointer'
       )}
       onClick={onClick}
     >
-      <span className="leading-none">+{count}</span>
+      <span className="leading-none text-white">+{count}</span>
     </div>
   );
 }
