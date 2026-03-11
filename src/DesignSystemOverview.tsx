@@ -12,10 +12,13 @@ import { SearchComponent } from './AstraLibraryKit/components/search_component'
 import { SegmentedControl } from './AstraLibraryKit/components/segmented_control'
 import { InputField } from './AstraLibraryKit/components/input_field'
 import { SelectField } from './AstraLibraryKit/components/select_field'
+import { SidebarButton } from './AstraLibraryKit/components/sidebar_button'
+import { SidebarNavigation } from './AstraLibraryKit/components/sidebar_navigation'
 import { TextareaField } from './AstraLibraryKit/components/textarea_field'
 import { SwitchField } from './AstraLibraryKit/components/switch_field'
 import { Toast } from './AstraLibraryKit/components/toast'
 import { VideoControl } from './AstraLibraryKit/components/video_control'
+import { Home, Film, Book, Folder, Settings } from './AstraLibraryKit/components/icons'
 
 // ─── Layout helpers ──────────────────────────────────────────────────────────
 
@@ -66,7 +69,7 @@ function TokenSwatch({ color, name, value }: { color: string; name: string; valu
   return (
     <div className="flex items-center gap-3 min-w-[220px]">
       <div
-        className="size-10 rounded-lg border border-border-subtle shrink-0"
+        className="size-10 rounded-lg border border-border-secondary shrink-0"
         style={{ backgroundColor: color }}
       />
       <div>
@@ -102,6 +105,8 @@ const NAV_ITEMS = [
   { id: 'prompt-pane', label: 'Prompt Pane' },
   { id: 'search', label: 'Search' },
   { id: 'segmented-control', label: 'Segmented Control' },
+  { id: 'sidebar-button', label: 'Sidebar Button' },
+  { id: 'sidebar-navigation', label: 'Sidebar Navigation' },
   { id: 'input-field', label: 'Input Field' },
   { id: 'select-field', label: 'Select Field' },
   { id: 'switch-field', label: 'Switch Field' },
@@ -130,7 +135,7 @@ export default function DesignSystemOverview() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-              <path d="M0 12.8C0 8.32 0 6.08.87 4.37A8 8 0 0 1 4.37.87C6.08 0 8.32 0 12.8 0h6.4c4.48 0 6.72 0 8.43.87a8 8 0 0 1 3.5 3.5C32 6.08 32 8.32 32 12.8v6.4c0 4.48 0 6.72-.87 8.43a8 8 0 0 1-3.5 3.5C25.92 32 23.68 32 19.2 32h-6.4c-4.48 0-6.72 0-8.43-.87a8 8 0 0 1-3.5-3.5C0 25.92 0 23.68 0 19.2V12.8Z" fill="var(--brand)" />
+              <path d="M0 12.8C0 8.32 0 6.08.87 4.37A8 8 0 0 1 4.37.87C6.08 0 8.32 0 12.8 0h6.4c4.48 0 6.72 0 8.43.87a8 8 0 0 1 3.5 3.5C32 6.08 32 8.32 32 12.8v6.4c0 4.48 0 6.72-.87 8.43a8 8 0 0 1-3.5 3.5C25.92 32 23.68 32 19.2 32h-6.4c-4.48 0-6.72 0-8.43-.87a8 8 0 0 1-3.5-3.5C0 25.92 0 23.68 0 19.2V12.8Z" fill="var(--brand-primary)" />
               <path d="M16.35 4c1.01 7.28 4.37 10.64 11.65 11.65v.7c-7.28 1.01-10.64 4.37-11.65 11.65h-.7C14.64 20.72 11.28 17.36 4 16.35v-.7C11.28 14.64 14.64 11.28 15.65 4h.7Z" stroke="#fff" />
             </svg>
             <span className="text-[15px] font-semibold text-foreground">Astra UI</span>
@@ -155,7 +160,7 @@ export default function DesignSystemOverview() {
                 onClick={() => {
                   document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="block w-full text-left text-[13px] text-text-secondary hover:text-brand hover:bg-brand-wash rounded-md px-2 py-1.5 transition-colors cursor-pointer"
+                className="block w-full text-left text-[13px] text-text-secondary hover:text-brand-primary hover:bg-brand-tertiary rounded-md px-2 py-1.5 transition-colors cursor-pointer"
               >
                 {item.label}
               </button>
@@ -170,7 +175,7 @@ export default function DesignSystemOverview() {
         <div>
           <h1 className="text-[32px] font-semibold text-foreground tracking-tight leading-tight">Astra Design System</h1>
           <p className="text-[15px] text-text-secondary mt-2 max-w-[600px]">
-            Component and token inventory for <span className="font-mono text-[13px] bg-brand-wash px-1.5 py-0.5 rounded">@brettmcm/astraui v0.1.1</span>. Use this overview to assess design system completeness and guide the authoring of usage guidelines.
+            Component and token inventory for <span className="font-mono text-[13px] bg-brand-tertiary px-1.5 py-0.5 rounded">@brettmcm/astraui v0.1.1</span>. Use this overview to assess design system completeness and guide the authoring of usage guidelines.
           </p>
         </div>
 
@@ -179,15 +184,15 @@ export default function DesignSystemOverview() {
         <Section
           id="colors"
           title="Colors"
-          description="Core palette unified via CSS custom properties. Brand purple (--brand) is the primary interactive color. All components consume tokens from globals.css."
+          description="Core palette unified via CSS custom properties. Brand purple (--brand-primary) is the primary interactive color. All components consume tokens from globals.css."
           status="complete"
         >
           <ExampleRow label="Brand">
-            <TokenSwatch color="var(--brand)" name="--brand" value="bg-brand" />
+            <TokenSwatch color="var(--brand-primary)" name="--brand-primary" value="bg-brand-primary" />
             <TokenSwatch color="var(--brand-hover)" name="--brand-hover" value="bg-brand-hover" />
             <TokenSwatch color="var(--brand-dark)" name="--brand-dark" value="bg-brand-dark" />
-            <TokenSwatch color="var(--brand-light)" name="--brand-light" value="bg-brand-light" />
-            <TokenSwatch color="var(--brand-wash)" name="--brand-wash" value="bg-brand-wash" />
+            <TokenSwatch color="var(--brand-secondary)" name="--brand-secondary" value="bg-brand-secondary" />
+            <TokenSwatch color="var(--brand-tertiary)" name="--brand-tertiary" value="bg-brand-tertiary" />
             <TokenSwatch color="var(--brand-muted)" name="--brand-muted" value="bg-brand-muted" />
           </ExampleRow>
           <ExampleRow label="Status">
@@ -204,15 +209,15 @@ export default function DesignSystemOverview() {
           <ExampleRow label="Text & Borders (opacity-based)">
             <TokenSwatch color="var(--text-primary)" name="--text-primary" value="text-text-primary" />
             <TokenSwatch color="var(--text-secondary)" name="--text-secondary" value="text-text-secondary" />
-            <TokenSwatch color="var(--border-medium)" name="--border-medium" value="border-border-medium" />
-            <TokenSwatch color="var(--border-subtle)" name="--border-subtle" value="border-border-subtle" />
+            <TokenSwatch color="var(--border-primary)" name="--border-primary" value="border-border-primary" />
+            <TokenSwatch color="var(--border-secondary)" name="--border-secondary" value="border-border-secondary" />
             <TokenSwatch color="var(--bg-faint)" name="--bg-faint" value="bg-bg-faint" />
             <TokenSwatch color="var(--bg-subtle)" name="--bg-subtle" value="bg-bg-subtle" />
             <TokenSwatch color="var(--bg-hover)" name="--bg-hover" value="bg-bg-hover" />
           </ExampleRow>
 
           <div className="mt-3 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-[12px] text-emerald-800">
-            <strong>Resolved:</strong> All components now consume CSS custom properties via Tailwind utilities (e.g. <code>bg-brand</code>, <code>text-text-primary</code>). Tokens are defined in <code>globals.css :root</code> and registered in the <code>@theme inline</code> block. styles/figma-tokens.css remains as the Figma reference layer.
+            <strong>Resolved:</strong> All components now consume CSS custom properties via Tailwind utilities (e.g. <code>bg-brand-primary</code>, <code>text-text-primary</code>). Tokens are defined in <code>globals.css :root</code> and registered in the <code>@theme inline</code> block. styles/figma-tokens.css remains as the Figma reference layer.
           </div>
         </Section>
 
@@ -275,7 +280,7 @@ export default function DesignSystemOverview() {
                 { name: 'spacer-6', px: 40 },
               ].map(s => (
                 <div key={s.name} className="flex flex-col items-center gap-1">
-                  <div className="bg-brand rounded-sm" style={{ width: s.px, height: s.px }} />
+                  <div className="bg-brand-primary rounded-sm" style={{ width: s.px, height: s.px }} />
                   <span className="text-[9px] text-text-tertiary font-mono">{s.px}px</span>
                   <span className="text-[9px] text-text-tertiary">{s.name}</span>
                 </div>
@@ -292,7 +297,7 @@ export default function DesignSystemOverview() {
               ].map(r => (
                 <div key={r.name} className="flex flex-col items-center gap-1">
                   <div
-                    className="size-12 border-2 border-brand bg-brand-wash"
+                    className="size-12 border-2 border-brand-primary bg-brand-tertiary"
                     style={{ borderRadius: r.px }}
                   />
                   <span className="text-[10px] text-text-secondary font-medium">{r.name}</span>
@@ -306,7 +311,7 @@ export default function DesignSystemOverview() {
           </div>
         </Section>
 
-        <hr className="border-border-subtle" />
+        <hr className="border-border-secondary" />
 
         {/* ────────────────── COMPONENTS ────────────────── */}
 
@@ -336,7 +341,7 @@ export default function DesignSystemOverview() {
               </div>
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Sidebar:</strong> App icon at the top of the navigation rail</li>
@@ -368,7 +373,7 @@ export default function DesignSystemOverview() {
             <Button iconStart={<span>+</span>}>Add Item</Button>
             <Button variant="neutral" iconEnd={<span>&rarr;</span>}>Next</Button>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Primary:</strong> "Export" and "Share" actions in the editor toolbar</li>
@@ -395,7 +400,7 @@ export default function DesignSystemOverview() {
             <Badge label="Tag" variant="default" removable onRemove={() => {}} />
             <Badge label="Filter" variant="brand" removable onRemove={() => {}} />
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Success/Warning/Danger:</strong> Export status indicators (completed, processing, failed)</li>
@@ -420,7 +425,7 @@ export default function DesignSystemOverview() {
             <Avatar type="initial" size="medium" initials="AK" shape="square" />
             <Avatar type="initial" size="small" initials="Z" />
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Small, circle:</strong> Sidebar navigation footer (current user)</li>
@@ -459,7 +464,7 @@ export default function DesignSystemOverview() {
               spacing="overlap"
             />
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Overlap, maxVisible=3:</strong> Active collaborators indicator in the editor header</li>
@@ -475,13 +480,13 @@ export default function DesignSystemOverview() {
           status="complete"
         >
           <ExampleRow label="Conversation">
-            <div className="w-full max-w-[400px] flex flex-col gap-3 bg-brand-wash rounded-xl p-4">
+            <div className="w-full max-w-[400px] flex flex-col gap-3 bg-brand-tertiary rounded-xl p-4">
               <ChatBubbles type="ai" text="How can I help with your video?" />
               <ChatBubbles type="user" text="Can you add a title overlay at the beginning?" />
               <ChatBubbles type="ai" text="Sure! I'll add a text overlay to the first 3 seconds. What text would you like?" />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>AI + User pair:</strong> Prompt pane conversation in the video editor sidebar</li>
@@ -512,7 +517,7 @@ export default function DesignSystemOverview() {
               <PromptInput disabled placeholder="Waiting for response..." />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Default:</strong> Bottom of the prompt pane for issuing video edit commands</li>
@@ -528,7 +533,7 @@ export default function DesignSystemOverview() {
           status="complete"
         >
           <ExampleRow label="With chat bubbles">
-            <div className="h-[500px] w-[400px] rounded-lg overflow-hidden border border-border-medium">
+            <div className="h-[500px] w-[400px] rounded-lg overflow-hidden border border-border-primary">
               <PromptPane>
                 <ChatBubbles type="ai" text="How can I help?" />
                 <ChatBubbles type="user" text="Can you trim the first 5 seconds?" />
@@ -537,11 +542,11 @@ export default function DesignSystemOverview() {
             </div>
           </ExampleRow>
           <ExampleRow label="Empty (no messages)">
-            <div className="h-[350px] w-[400px] rounded-lg overflow-hidden border border-border-medium">
+            <div className="h-[350px] w-[400px] rounded-lg overflow-hidden border border-border-primary">
               <PromptPane />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Editor sidebar:</strong> AI chat pane for issuing video edit commands and receiving responses</li>
@@ -566,7 +571,7 @@ export default function DesignSystemOverview() {
               />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Toolbar:</strong> Global search in the top navigation bar</li>
@@ -592,11 +597,79 @@ export default function DesignSystemOverview() {
               onSegmentChange={setActiveSegment}
             />
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Timeline view toggle:</strong> Switch between storyboard, timeline, and split views</li>
               <li><strong>Preview modes:</strong> Toggle between preview, split-screen compare, and side-by-side</li>
+            </ul>
+          </div>
+        </Section>
+
+        <Section
+          id="sidebar-button"
+          title="Sidebar Button"
+          description="Icon button for vertical navigation rails. Two states: default (dimmed) and selected (brand-tertiary background)."
+          status="complete"
+        >
+          <ExampleRow label="States">
+            <div className="flex items-center gap-4">
+              <div className="flex flex-col items-center gap-2">
+                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} />
+                <span className="text-body-xs text-text-tertiary">Default</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+                <span className="text-body-xs text-text-tertiary">Selected</span>
+              </div>
+            </div>
+          </ExampleRow>
+          <ExampleRow label="Navigation rail">
+            <div className="bg-surface-bg border border-border-primary rounded-lg flex flex-col items-center gap-2 py-3 w-[60px]">
+              <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+              <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
+              <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
+              <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
+              <SidebarButton icon={<Settings className="size-full" strokeWidth={1.5} />} />
+            </div>
+          </ExampleRow>
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
+            <p className="font-medium text-text-primary mb-1">Example uses</p>
+            <ul className="list-disc pl-4 space-y-1">
+              <li><strong>App sidebar:</strong> Primary navigation between Home, Projects, Library, Assets, Settings</li>
+              <li><strong>Toolbar:</strong> Tool selection in vertical tool palettes</li>
+            </ul>
+          </div>
+        </Section>
+
+        <Section
+          id="sidebar-navigation"
+          title="Sidebar Navigation"
+          description="Vertical navigation rail composing AstraLogo, SidebarButton children, and an optional footer slot for settings and avatar."
+          status="complete"
+        >
+          <ExampleRow label="Default">
+            <div className="h-[500px] rounded-lg overflow-hidden border border-border-primary">
+              <SidebarNavigation
+                footer={
+                  <>
+                    <SidebarButton icon={<Settings className="size-full" strokeWidth={1.5} />} />
+                    <Avatar type="image" src="https://i.pravatar.cc/48?img=5" size="medium" shape="circle" />
+                  </>
+                }
+              >
+                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+                <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
+                <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
+                <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
+              </SidebarNavigation>
+            </div>
+          </ExampleRow>
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
+            <p className="font-medium text-text-primary mb-1">Example uses</p>
+            <ul className="list-disc pl-4 space-y-1">
+              <li><strong>App shell:</strong> Primary navigation rail on the left edge of the editor</li>
+              <li><strong>Slot pattern:</strong> Pass <code>SidebarButton</code> children for nav items; use <code>footer</code> for settings and user avatar</li>
             </ul>
           </div>
         </Section>
@@ -642,7 +715,7 @@ export default function DesignSystemOverview() {
               />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Project settings:</strong> Project name, description, tags</li>
@@ -671,7 +744,7 @@ export default function DesignSystemOverview() {
               />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Export settings:</strong> Resolution, format (MP4 / WebM / MOV), and frame rate selectors</li>
@@ -700,7 +773,7 @@ export default function DesignSystemOverview() {
           <ExampleRow label="Disabled">
             <SwitchField label="Locked" description="This setting is managed by your team admin" disabled />
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Settings panel:</strong> Toggle auto-save, HD preview, audio normalization</li>
@@ -750,7 +823,7 @@ export default function DesignSystemOverview() {
               />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Project settings:</strong> Description, revision notes, metadata</li>
@@ -773,7 +846,7 @@ export default function DesignSystemOverview() {
               <Toast message="Large file may take longer" variant="warning" progress={20} />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Default + progress:</strong> Video export progress indicator</li>
@@ -801,7 +874,7 @@ export default function DesignSystemOverview() {
               />
             </div>
           </ExampleRow>
-          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
             <p className="font-medium text-text-primary mb-1">Example uses</p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Editor:</strong> Main video playback control bar below the preview canvas</li>
@@ -810,7 +883,7 @@ export default function DesignSystemOverview() {
           </div>
         </Section>
 
-        <hr className="border-border-subtle" />
+        <hr className="border-border-secondary" />
 
         {/* ────────────────── COMPLETENESS AUDIT ────────────────── */}
 
@@ -850,14 +923,14 @@ export default function DesignSystemOverview() {
                 <li>Token architecture: <code>:root</code> vars + <code>@theme inline</code> registration = full Tailwind class support</li>
                 <li>Dark mode: complete <code>.dark</code> overrides for all Astra tokens; ThemeProvider with localStorage persistence and system preference detection</li>
                 <li>Semantic type scale: <code>text-caption</code> through <code>text-heading-display</code> with paired line-heights; <code>font-book</code> / <code>font-semibold</code> custom weights</li>
-                <li>Focus rings use <code>focus:ring-brand</code> consistently across all interactive components</li>
+                <li>Focus rings use <code>focus:ring-brand-primary</code> consistently across all interactive components</li>
                 <li>Components support <code>className</code> pass-through for composition</li>
                 <li>Dual ESM/CJS build with type exports</li>
                 <li>SelectField has excellent accessibility: full ARIA roles, keyboard nav (Arrow, Enter, Space, Escape)</li>
                 <li>5 components have Vitest tests (Button, Badge, SwitchField, Toast, cn utility)</li>
                 <li>New form components: InputField, TextareaField, SelectField all share a consistent label/description pattern</li>
                 <li>New composition components: AstraLogo (scalable brand mark), PromptPane (chat sidebar with children slot)</li>
-                <li>Surface tokens (<code>--surface</code>, <code>--surface-hover</code>) support both light and dark modes without conditional classes</li>
+                <li>Surface tokens (<code>--surface-bg</code>, <code>--surface-hover</code>) support both light and dark modes without conditional classes</li>
                 <li>Usage guidelines authored in <code>guidelines/</code> folder (Guidelines.md, Components.md, Tokens.md) for Figma Make transfer</li>
               </ul>
             </div>
@@ -895,11 +968,11 @@ export default function DesignSystemOverview() {
                   </tr>
                   <tr className="border-t border-emerald-200">
                     <td className="py-1.5">Focus ring tokens</td>
-                    <td>All interactive components now use <code>focus:ring-brand</code> instead of generic <code>blue-500</code> / <code>gray-400</code></td>
+                    <td>All interactive components now use <code>focus:ring-brand-primary</code> instead of generic <code>blue-500</code> / <code>gray-400</code></td>
                   </tr>
                   <tr className="border-t border-emerald-200">
                     <td className="py-1.5">Surface tokens</td>
-                    <td>Added <code>--surface</code> and <code>--surface-hover</code> with light/dark values — eliminates conditional <code>bg-white dark:bg-surface-dark</code> patterns</td>
+                    <td>Added <code>--surface-bg</code> and <code>--surface-hover</code> with light/dark values — eliminates conditional <code>bg-white dark:bg-surface-dark</code> patterns</td>
                   </tr>
                   <tr className="border-t border-emerald-200">
                     <td className="py-1.5">Form field pattern</td>
@@ -1008,7 +1081,7 @@ export default function DesignSystemOverview() {
           </div>
         </Section>
 
-        <footer className="text-[11px] text-text-tertiary pt-4 pb-8 border-t border-border-subtle">
+        <footer className="text-[11px] text-text-tertiary pt-4 pb-8 border-t border-border-secondary">
           Astra Design System Overview &middot; @brettmcm/astraui v0.1.1 &middot; Generated {new Date().toLocaleDateString()}
         </footer>
       </main>

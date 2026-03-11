@@ -28,24 +28,25 @@ All design tokens are CSS custom properties defined in the package's CSS. They s
 #### Brand Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--brand` | `#5250f3` | `#6c6af7` |
+| `--brand-primary` | `#5250f3` | `#5250f3` |
 | `--brand-hover` | `#4240d4` | `#5d5be8` |
 | `--brand-dark` | `#3B3AC3` | `#4f4dd9` |
-| `--brand-light` | `#d1d0f9` | `#3d3b6e` |
-| `--brand-wash` | `#eaeaff` | `#2a2950` |
+| `--brand-secondary` | `#d1d0f9` | `#7B7AB8` |
+| `--brand-tertiary` | `#eaeaff` | `#161621` |
 | `--brand-muted` | `#7b7ab8` | `#9594c8` |
 
 #### Status Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--success` | `#47fc74` | `#34d058` |
-| `--warning` | `#f8d33f` | `#e5b830` |
-| `--danger` | `#cf2828` | `#e04545` |
+| `--success` | `#47fc74` | `#47fc74` |
+| `--warning` | `#f8d33f` | `#f8d33f` |
+| `--danger` | `#cf2828` | `#cf2828` |
 
 #### Surface Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--surface` | `#ffffff` | `#22222c` |
+| `--surface-bg` | `#ffffff` | `#161621` |
+| `--surface-secondary-bg` | `rgba(255,255,255,0.5)` | `rgba(255,255,255,0.03)` |
 | `--surface-hover` | `#f5f5f7` | `#2a2a3a` |
 | `--surface-dark` | `#22222c` | `#1a1a24` |
 | `--surface-dark-hover` | `#333341` | `#26263a` |
@@ -54,15 +55,16 @@ All design tokens are CSS custom properties defined in the package's CSS. They s
 #### Text Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--text-primary` | `rgba(0,0,0,0.85)` | `rgba(255,255,255,0.9)` |
-| `--text-secondary` | `rgba(0,0,0,0.5)` | `rgba(255,255,255,0.55)` |
+| `--text-primary` | `rgba(0,0,0,0.85)` | `rgba(255,255,255,0.85)` |
+| `--text-secondary` | `rgba(0,0,0,0.5)` | `rgba(255,255,255,0.5)` |
 | `--text-tertiary` | `rgba(0,0,0,0.3)` | `rgba(255,255,255,0.3)` |
 
 #### Border Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--border-subtle` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.06)` |
-| `--border-medium` | `rgba(0,0,0,0.15)` | `rgba(255,255,255,0.15)` |
+| `--border-secondary` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.05)` |
+| `--border-primary` | `rgba(0,0,0,0.15)` | `rgba(255,255,255,0.15)` |
+| `--border-selected` | `rgba(0,0,0,0.8)` | `rgba(0,0,0,0.8)` |
 
 #### Background Tints
 | Token | Light | Dark |
@@ -70,19 +72,26 @@ All design tokens are CSS custom properties defined in the package's CSS. They s
 | `--bg-faint` | `rgba(0,0,0,0.02)` | `rgba(255,255,255,0.03)` |
 | `--bg-subtle` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.06)` |
 | `--bg-hover` | `rgba(0,0,0,0.08)` | `rgba(255,255,255,0.1)` |
+| `--on-brand` | `#ffffff` | `#ffffff` |
+| `--on-reverse` | `#1e1e1e` | `#1e1e1e` |
+| `--input-bg` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.05)` |
+| `--modal-scrim` | `rgba(0,0,0,0.75)` | `rgba(0,0,0,0.75)` |
 
 ### Tailwind Theme Mapping
 
 These CSS variables are mapped to Tailwind classes via `@theme inline`:
 
 ```
-bg-brand, text-brand, border-brand
-bg-brand-hover, bg-brand-dark, bg-brand-light, bg-brand-wash, bg-brand-muted
+bg-brand-primary, text-brand-primary, border-brand-primary
+bg-brand-hover, bg-brand-dark, bg-brand-secondary, bg-brand-tertiary, bg-brand-muted
 bg-success, bg-warning, bg-danger
 text-text-primary, text-text-secondary, text-text-tertiary
-bg-surface, bg-surface-hover, bg-surface-dark, bg-surface-dark-hover, bg-surface-darkest
-border-border-subtle, border-border-medium
+bg-surface-bg, bg-surface-secondary-bg, bg-surface-hover, bg-surface-dark, bg-surface-dark-hover, bg-surface-darkest
+border-border-secondary, border-border-primary, border-border-selected
 bg-bg-faint, bg-bg-subtle, bg-bg-hover
+text-on-brand, text-on-reverse
+bg-input-bg
+bg-modal-scrim
 ```
 
 ### Typography
@@ -119,7 +128,7 @@ All components are imported from `@brettmcm/astraui`.
 | `size` | `number` | `32` |
 | `className` | `string` | — |
 
-Brand mark rendered as an inline SVG. Uses `var(--brand)` for the background fill so it adapts to light/dark mode.
+Brand mark rendered as an inline SVG. Uses `var(--brand-primary)` for the background fill so it adapts to light/dark mode.
 
 ### Button
 
@@ -307,6 +316,39 @@ Features animated placeholder typing through: 'anything', 'clips', 'audio'.
 | `segments` | `{ id: string, icon: ReactNode }[]` | required |
 | `activeSegment` | `string` | required |
 | `onSegmentChange` | `(segmentId: string) => void` | required |
+
+### SidebarButton
+
+```tsx
+<SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `icon` | `ReactNode` | required |
+| `selected` | `boolean` | `false` |
+| `className` | `string` | — |
+
+Also accepts all native `<button>` HTML attributes. Default state: 50% opacity icon, no background. Selected state: `brand-tertiary` background, 85% opacity icon.
+
+### SidebarNavigation
+
+```tsx
+<SidebarNavigation
+  footer={<><SidebarButton icon={<Settings />} /><Avatar src="/photo.jpg" size="medium" /></>}
+>
+  <SidebarButton icon={<Home />} selected />
+  <SidebarButton icon={<Film />} />
+</SidebarNavigation>
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `children` | `ReactNode` | — |
+| `footer` | `ReactNode` | — |
+| `className` | `string` | — |
+
+Vertical navigation rail. AstraLogo built in at top. Pass `SidebarButton` children for nav items, `footer` for settings/avatar pinned to bottom. Dark surface, 60px wide, full height.
 
 ### SelectField
 

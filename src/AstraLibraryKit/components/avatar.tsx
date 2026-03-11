@@ -44,7 +44,7 @@ export function Avatar({
   if (type === 'initial') {
     return (
       <div
-        className={cn(baseClasses, 'bg-brand flex items-center justify-center')}
+        className={cn(baseClasses, 'bg-brand-primary flex items-center justify-center')}
         onClick={onClick}
       >
         <div className="text-white font-medium text-center leading-none font-sans">
@@ -66,7 +66,7 @@ export function Avatar({
       <div
         aria-hidden="true"
         className={cn(
-          'absolute inset-0 border border-border-medium pointer-events-none',
+          'absolute inset-0 border border-border-primary pointer-events-none',
           shapeClasses[shape]
         )}
       />

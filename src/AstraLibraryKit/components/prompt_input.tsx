@@ -51,13 +51,13 @@ export function PromptInput({
   return (
     <div 
       className={cn(
-        'bg-surface box-border content-stretch flex flex-col items-start justify-between p-[24px] rounded-[24px] w-full relative transition-all duration-300',
+        'bg-surface-bg box-border content-stretch flex flex-col items-start justify-between p-[24px] rounded-[24px] w-full relative transition-all duration-300',
         attachments.length > 0 ? 'h-[200px]' : 'h-[135px]',
         disabled && 'opacity-50 pointer-events-none',
         className
       )}
     >
-      <div className="absolute border border-border-medium border-solid inset-0 pointer-events-none rounded-[24px]" />
+      <div className="absolute border border-border-primary border-solid inset-0 pointer-events-none rounded-[24px]" />
 
       {/* Attachments */}
       {attachments.length > 0 && (
@@ -78,11 +78,11 @@ export function PromptInput({
       <button
         onClick={handleSend}
         disabled={disabled || !inputValue.trim()}
-        className="absolute bottom-[10px] right-[10px] size-[42px] hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 rounded-full"
+        className="absolute bottom-[10px] right-[10px] size-[42px] hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded-full"
       >
         <div className="absolute aspect-[32/32] left-0 right-0 top-0">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 42 42">
-            <circle cx="21" cy="21" fill="var(--brand)" r="21" />
+            <circle cx="21" cy="21" fill="var(--brand-primary)" r="21" />
           </svg>
         </div>
         <div className="absolute left-1/2 overflow-clip size-[20px] top-1/2 translate-x-[-50%] translate-y-[-50%]">
@@ -106,7 +106,7 @@ export function PromptInput({
       <button
         onClick={handleAttach}
         disabled={disabled}
-        className="absolute left-[24px] bottom-[12px] overflow-clip size-[20px] hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 rounded"
+        className="absolute left-[24px] bottom-[12px] overflow-clip size-[20px] hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded"
       >
         <div className="absolute inset-[5.78%_10.67%_8.34%_8.34%]">
           <div className="absolute inset-[-4.37%_-4.63%]">

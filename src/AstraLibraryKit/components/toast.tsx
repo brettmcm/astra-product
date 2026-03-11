@@ -51,7 +51,7 @@ export function Toast({
   }, [useLoop]);
 
   const variants = {
-    default: "bg-brand",
+    default: "bg-brand-primary",
     success: "bg-success",
     error: "bg-danger",
     warning: "bg-warning",

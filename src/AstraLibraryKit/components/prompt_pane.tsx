@@ -26,7 +26,7 @@ export function PromptPane({
   return (
     <div
       className={cn(
-        "bg-[rgba(255,255,255,0.5)] dark:bg-[rgba(255,255,255,0.05)] border-r border-border-medium flex flex-col gap-4 px-4 py-6 h-full w-[400px]",
+        "bg-[rgba(255,255,255,0.5)] dark:bg-[rgba(255,255,255,0.05)] border-r border-border-primary flex flex-col gap-4 px-4 py-6 h-full w-[400px]",
         className,
       )}
     >

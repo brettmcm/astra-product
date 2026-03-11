@@ -208,7 +208,7 @@ export function SelectField({
           ref={optionsRef}
           id="select-list"
           className={cn(
-            "absolute top-full left-0 right-0 mt-1 bg-surface border border-border-medium rounded-lg shadow-lg z-50 overflow-y-auto",
+            "absolute top-full left-0 right-0 mt-1 bg-surface-bg border border-border-primary rounded-lg shadow-lg z-50 overflow-y-auto",
             "transition-[opacity,transform] duration-200",
             isClosing
               ? "opacity-0 -translate-y-1"
@@ -229,7 +229,7 @@ export function SelectField({
                 "hover:bg-bg-hover",
                 focusedIndex === index && "bg-bg-hover",
                 value === option.value &&
-                  "bg-brand-wash text-brand font-medium",
+                  "bg-brand-tertiary text-brand-primary font-medium",
               )}
               onClick={() => handleOptionClick(option.value)}
               onMouseEnter={() => setFocusedIndex(index)}

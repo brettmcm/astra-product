@@ -97,7 +97,7 @@ export function ShareModal({ isOpen, onClose, projectName = 'this project' }: Sh
                   className={`w-full h-[40px] px-[12px] rounded-[8px] border text-[14px] text-text-primary placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
                     emailError
                       ? 'border-danger focus:ring-danger'
-                      : 'border-border-medium focus:ring-brand'
+                      : 'border-border-primary focus:ring-brand-primary'
                   }`}
                 />
                 {emailError && (
@@ -138,7 +138,7 @@ export function ShareModal({ isOpen, onClose, projectName = 'this project' }: Sh
           )}
 
           {/* Info Message */}
-          <div className="bg-brand-wash rounded-[8px] px-[16px] py-[12px]">
+          <div className="bg-brand-tertiary rounded-[8px] px-[16px] py-[12px]">
             <p className="text-[12px] text-text-secondary">
               People you add will be able to view and edit this project
             </p>

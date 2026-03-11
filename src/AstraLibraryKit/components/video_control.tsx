@@ -109,7 +109,7 @@ export function VideoControl({
         onClick={handleProgressClick}
       >
         <div
-          className="absolute bg-brand h-[8px] left-0 rounded-full top-0 transition-all duration-150 ease-out"
+          className="absolute bg-brand-primary h-[8px] left-0 rounded-full top-0 transition-all duration-150 ease-out"
           style={{ width: `${progress}%` }}
         />
         <div
@@ -126,7 +126,7 @@ export function VideoControl({
           <svg className="block w-full h-full" fill="none" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet">
             <g filter="url(#filter0_d_0_13)">
               <circle cx="25" cy="25" fill="white" r="7" />
-              <circle cx="25" cy="25" r="6.5" stroke="var(--border-medium)" strokeWidth="1" />
+              <circle cx="25" cy="25" r="6.5" stroke="var(--border-primary)" strokeWidth="1" />
             </g>
             <defs>
               <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="48.2" id="filter0_d_0_13" width="48.2" x="0.9" y="0.9">

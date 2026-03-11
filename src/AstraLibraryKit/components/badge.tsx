@@ -17,12 +17,12 @@ export function Badge({
   className
 }: BadgeProps) {
   const variants = {
-    default: 'bg-brand-wash text-text-primary',
+    default: 'bg-brand-tertiary text-text-primary',
     success: 'bg-success text-surface-darkest',
     warning: 'bg-warning text-surface-darkest',
     danger: 'bg-danger text-surface-darkest',
-    brand: 'bg-brand text-white',
-    secondary: 'bg-brand-light text-text-primary'
+    brand: 'bg-brand-primary text-white',
+    secondary: 'bg-brand-secondary text-text-primary'
   };
 
   const iconColors = {

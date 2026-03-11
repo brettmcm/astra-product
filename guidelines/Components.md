@@ -202,6 +202,44 @@ Features animated placeholder typing through: 'anything', 'clips', 'audio'.
 | `activeSegment` | `string` | required |
 | `onSegmentChange` | `(segmentId: string) => void` | required |
 
+## SidebarButton
+
+```tsx
+<SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `icon` | `ReactNode` | required |
+| `selected` | `boolean` | `false` |
+| `className` | `string` | — |
+
+Also accepts all native `<button>` HTML attributes. Icon button for vertical navigation rails. Default state shows the icon at 50% opacity; selected state adds a `brand-wash` background and raises opacity to 85%.
+
+## SidebarNavigation
+
+```tsx
+<SidebarNavigation
+  footer={
+    <>
+      <SidebarButton icon={<Settings className="size-full" strokeWidth={1.5} />} />
+      <Avatar type="image" src="/photo.jpg" size="medium" shape="circle" />
+    </>
+  }
+>
+  <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+  <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
+</SidebarNavigation>
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `children` | `ReactNode` | — |
+| `footer` | `ReactNode` | — |
+| `className` | `string` | — |
+
+Vertical navigation rail. AstraLogo is built in at the top. Pass `SidebarButton` components as children for nav items. Use the `footer` slot for settings and user avatar (pinned to the bottom via `mt-auto`). Dark surface background, 60px wide, full height.
+
 ## SelectField
 
 ```tsx

@@ -53,10 +53,10 @@ export function SwitchField({
         disabled={disabled}
         className={cn(
           "flex items-center h-[18.389px] w-[31.995px] rounded-[25811100px] transition-all duration-200",
-          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand",
+          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary",
           "disabled:opacity-50 disabled:cursor-not-allowed",
           selected 
-            ? "bg-brand pl-[14.767px] pr-[0.769px] py-[0.769px]"
+            ? "bg-brand-primary pl-[14.767px] pr-[0.769px] py-[0.769px]"
             : "bg-bg-subtle px-[1.769px] py-[0.769px]"
         )}
       >
