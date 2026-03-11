@@ -108,6 +108,19 @@ bg-bg-faint, bg-bg-subtle, bg-bg-hover
 
 All components are imported from `@brettmcm/astraui`.
 
+### AstraLogo
+
+```tsx
+<AstraLogo size={32} />
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `size` | `number` | `32` |
+| `className` | `string` | — |
+
+Brand mark rendered as an inline SVG. Uses `var(--brand)` for the background fill so it adapts to light/dark mode.
+
 ### Button
 
 ```tsx

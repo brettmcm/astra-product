@@ -1,5 +1,6 @@
 import './styles.css'
 
+export { AstraLogo } from './AstraLibraryKit/components/astra_logo'
 export { Avatar } from './AstraLibraryKit/components/avatar'
 export { AvatarGroup } from './AstraLibraryKit/components/avatar_group'
 export { Badge } from './AstraLibraryKit/components/badge'

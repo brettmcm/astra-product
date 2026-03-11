@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTheme } from './ThemeProvider'
+import { AstraLogo } from './AstraLibraryKit/components/astra_logo'
 import { Avatar } from './AstraLibraryKit/components/avatar'
 import { AvatarGroup } from './AstraLibraryKit/components/avatar_group'
 import { Badge } from './AstraLibraryKit/components/badge'
@@ -91,6 +92,7 @@ const NAV_ITEMS = [
   { id: 'colors', label: 'Colors' },
   { id: 'typography', label: 'Typography' },
   { id: 'spacing', label: 'Spacing & Radius' },
+  { id: 'astra-logo', label: 'Astra Logo' },
   { id: 'button', label: 'Button' },
   { id: 'badge', label: 'Badge' },
   { id: 'avatar', label: 'Avatar' },
@@ -307,6 +309,41 @@ export default function DesignSystemOverview() {
         <hr className="border-border-subtle" />
 
         {/* ────────────────── COMPONENTS ────────────────── */}
+
+        <Section
+          id="astra-logo"
+          title="Astra Logo"
+          description="Brand mark — purple rounded square with a white four-pointed star. Scales via the size prop."
+          status="complete"
+        >
+          <ExampleRow label="Sizes">
+            <div className="flex items-end gap-6">
+              <div className="flex flex-col items-center gap-2">
+                <AstraLogo size={24} />
+                <span className="text-body-xs text-text-tertiary">24</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <AstraLogo size={32} />
+                <span className="text-body-xs text-text-tertiary">32</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <AstraLogo size={48} />
+                <span className="text-body-xs text-text-tertiary">48</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <AstraLogo size={64} />
+                <span className="text-body-xs text-text-tertiary">64</span>
+              </div>
+            </div>
+          </ExampleRow>
+          <div className="mt-2 bg-bg-faint border border-border-subtle rounded-lg p-4 text-[12px] text-text-secondary">
+            <p className="font-medium text-text-primary mb-1">Example uses</p>
+            <ul className="list-disc pl-4 space-y-1">
+              <li><strong>Sidebar:</strong> App icon at the top of the navigation rail</li>
+              <li><strong>Chat bubbles:</strong> AI avatar identifier alongside responses</li>
+            </ul>
+          </div>
+        </Section>
 
         <Section
           id="button"
@@ -787,20 +824,20 @@ export default function DesignSystemOverview() {
             {/* Scoreboard */}
             <div className="grid grid-cols-4 gap-3">
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-center">
-                <p className="text-[28px] font-semibold text-emerald-700">12</p>
+                <p className="text-[28px] font-semibold text-emerald-700">16</p>
                 <p className="text-[11px] text-emerald-600 font-medium">Components</p>
               </div>
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-center">
-                <p className="text-[28px] font-semibold text-emerald-700">6</p>
+                <p className="text-[28px] font-semibold text-emerald-700">7</p>
                 <p className="text-[11px] text-emerald-600 font-medium">Token categories</p>
               </div>
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-center">
                 <p className="text-[28px] font-semibold text-emerald-700">5</p>
                 <p className="text-[11px] text-emerald-600 font-medium">Tested components</p>
               </div>
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
-                <p className="text-[28px] font-semibold text-amber-700">0</p>
-                <p className="text-[11px] text-amber-600 font-medium">Usage guidelines</p>
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-center">
+                <p className="text-[28px] font-semibold text-emerald-700">3</p>
+                <p className="text-[11px] text-emerald-600 font-medium">Guideline files</p>
               </div>
             </div>
 
@@ -808,7 +845,7 @@ export default function DesignSystemOverview() {
             <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
               <p className="font-medium text-[13px] text-emerald-800 mb-2">What's solid</p>
               <ul className="text-[12px] text-emerald-700 list-disc pl-4 space-y-1">
-                <li>All 12 components are functional with well-defined TypeScript interfaces and sensible defaults</li>
+                <li>All 16 components are functional with well-defined TypeScript interfaces and sensible defaults</li>
                 <li>Unified token layer: all components consume CSS custom properties via Tailwind utilities — zero hardcoded hex/rgba values</li>
                 <li>Token architecture: <code>:root</code> vars + <code>@theme inline</code> registration = full Tailwind class support</li>
                 <li>Dark mode: complete <code>.dark</code> overrides for all Astra tokens; ThemeProvider with localStorage persistence and system preference detection</li>
@@ -818,6 +855,10 @@ export default function DesignSystemOverview() {
                 <li>Dual ESM/CJS build with type exports</li>
                 <li>SelectField has excellent accessibility: full ARIA roles, keyboard nav (Arrow, Enter, Space, Escape)</li>
                 <li>5 components have Vitest tests (Button, Badge, SwitchField, Toast, cn utility)</li>
+                <li>New form components: InputField, TextareaField, SelectField all share a consistent label/description pattern</li>
+                <li>New composition components: AstraLogo (scalable brand mark), PromptPane (chat sidebar with children slot)</li>
+                <li>Surface tokens (<code>--surface</code>, <code>--surface-hover</code>) support both light and dark modes without conditional classes</li>
+                <li>Usage guidelines authored in <code>guidelines/</code> folder (Guidelines.md, Components.md, Tokens.md) for Figma Make transfer</li>
               </ul>
             </div>
 
@@ -856,6 +897,22 @@ export default function DesignSystemOverview() {
                     <td className="py-1.5">Focus ring tokens</td>
                     <td>All interactive components now use <code>focus:ring-brand</code> instead of generic <code>blue-500</code> / <code>gray-400</code></td>
                   </tr>
+                  <tr className="border-t border-emerald-200">
+                    <td className="py-1.5">Surface tokens</td>
+                    <td>Added <code>--surface</code> and <code>--surface-hover</code> with light/dark values — eliminates conditional <code>bg-white dark:bg-surface-dark</code> patterns</td>
+                  </tr>
+                  <tr className="border-t border-emerald-200">
+                    <td className="py-1.5">Form field pattern</td>
+                    <td>Consistent label/input/description layout across InputField, TextareaField, and SelectField — shared typography tokens and spacing</td>
+                  </tr>
+                  <tr className="border-t border-emerald-200">
+                    <td className="py-1.5">Missing components</td>
+                    <td>Added InputField, TextareaField, AstraLogo, and PromptPane — reducing component gap</td>
+                  </tr>
+                  <tr className="border-t border-emerald-200">
+                    <td className="py-1.5">Usage guidelines</td>
+                    <td>Three guideline files authored in <code>guidelines/</code> (Guidelines.md, Components.md, Tokens.md) — excluded from npm package</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -879,22 +936,22 @@ export default function DesignSystemOverview() {
                   </tr>
                   <tr className="border-t border-amber-200">
                     <td className="py-1.5">Missing components</td>
-                    <td>No Modal, Tooltip, Dropdown Menu, Tabs, Text Input, Checkbox, Radio</td>
+                    <td>No Modal, Tooltip, Dropdown Menu, Tabs, Checkbox, Radio</td>
                     <td><span className="bg-amber-200 text-amber-700 text-[10px] px-1.5 py-0.5 rounded-full font-medium">Medium</span></td>
                   </tr>
                   <tr className="border-t border-amber-200">
                     <td className="py-1.5">Component states</td>
-                    <td>No loading states on interactive components. No error states on form components. Only SelectField has explicit empty state. AvatarGroup, Badge, SegmentedControl lack disabled state.</td>
+                    <td>No loading states on interactive components. No error states on form components. InputField, TextareaField, and SelectField have empty/default states. AvatarGroup, Badge, SegmentedControl lack disabled state.</td>
                     <td><span className="bg-amber-200 text-amber-700 text-[10px] px-1.5 py-0.5 rounded-full font-medium">Medium</span></td>
                   </tr>
                   <tr className="border-t border-amber-200">
                     <td className="py-1.5">Usage docs</td>
-                    <td>Guidelines.md is a placeholder; no per-component usage docs or accessibility guidelines exist</td>
+                    <td>Guidelines authored (Components.md, Tokens.md) but per-component accessibility guidelines still missing</td>
                     <td><span className="bg-amber-200 text-amber-700 text-[10px] px-1.5 py-0.5 rounded-full font-medium">Medium</span></td>
                   </tr>
                   <tr className="border-t border-amber-200">
                     <td className="py-1.5">Test coverage</td>
-                    <td>5 of 12 components tested (Button, Badge, SwitchField, Toast, cn). Missing: Avatar, AvatarGroup, ChatBubbles, PromptInput, SearchComponent, SegmentedControl, SelectField, VideoControl</td>
+                    <td>5 of 16 components tested (Button, Badge, SwitchField, Toast, cn). Missing: Avatar, AvatarGroup, AstraLogo, ChatBubbles, InputField, PromptInput, PromptPane, SearchComponent, SegmentedControl, SelectField, TextareaField, VideoControl</td>
                     <td><span className="bg-amber-200 text-amber-700 text-[10px] px-1.5 py-0.5 rounded-full font-medium">Medium</span></td>
                   </tr>
                   <tr className="border-t border-amber-200">
@@ -927,6 +984,10 @@ export default function DesignSystemOverview() {
                 <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">VideoControl</span><span className="text-red-600 font-medium">Poor</span></div>
                 <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">ChatBubbles</span><span className="text-red-600 font-medium">Poor</span></div>
                 <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">AvatarGroup</span><span className="text-amber-600 font-medium">Fair</span></div>
+                <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">InputField</span><span className="text-emerald-600 font-medium">Good</span></div>
+                <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">TextareaField</span><span className="text-emerald-600 font-medium">Good</span></div>
+                <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">AstraLogo</span><span className="text-emerald-600 font-medium">Good</span></div>
+                <div className="flex justify-between border-b border-red-100 py-1"><span className="text-red-700">PromptPane</span><span className="text-amber-600 font-medium">Fair</span></div>
               </div>
             </div>
 
@@ -937,9 +998,9 @@ export default function DesignSystemOverview() {
                 <li><strong>Accessibility pass</strong> - Add ARIA roles, keyboard nav, and live regions to SegmentedControl, SwitchField, Toast, VideoControl, ChatBubbles</li>
                 <li><strong>Component states</strong> - Add loading, error, and disabled states where missing</li>
                 <li><strong>Token reference doc</strong> - Canonical color, typography, spacing, and radius values</li>
-                <li><strong>Component guidelines</strong> - Starting with Button, Badge, Toast (most reusable, need variant guidance)</li>
-                <li><strong>Test coverage</strong> - Expand from 5/12 to full coverage, prioritizing interactive components (SelectField, SegmentedControl, VideoControl)</li>
-                <li><strong>Missing components</strong> - Modal, Tooltip, Tabs, Text Input, Checkbox, Radio</li>
+                <li><strong>Component guidelines</strong> - Expand existing guidelines with per-component accessibility docs and variant guidance</li>
+                <li><strong>Test coverage</strong> - Expand from 5/16 to full coverage, prioritizing interactive components (SelectField, InputField, TextareaField, SegmentedControl, VideoControl)</li>
+                <li><strong>Missing components</strong> - Modal, Tooltip, Tabs, Checkbox, Radio</li>
                 <li><strong>Spacing tokens</strong> - Register Figma spacer scale in <code>@theme inline</code></li>
                 <li><strong>Motion tokens</strong> - Define standard durations and easing functions</li>
               </ol>
