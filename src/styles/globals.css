@@ -87,6 +87,20 @@
   --bg-hover: rgba(0, 0, 0, 0.08);
   --modal-scrim: rgba(0, 0, 0, 0.75);
 
+  /* ── Spacing ── */
+  --space-xs: 4px;
+  --space-sm: 6px;
+  --space-md: 8px;
+  --space-lg: 12px;
+  --space-xl: 16px;
+  --space-2xl: 24px;
+
+  /* ── Corner radius ── */
+  --corner-sm: 4px;
+  --corner-md: 8px;
+  --corner-lg: 16px;
+  --corner-full: 999px;
+
   /* ── Toast cancel (dark-on-brand context) ── */
   --toast-cancel: #093077;
   --toast-cancel-hover: #0a3a85;
@@ -219,6 +233,20 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Spacing ── */
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+
+  /* ── Corner radius ── */
+  --radius-corner-sm: var(--corner-sm);
+  --radius-corner-md: var(--corner-md);
+  --radius-corner-lg: var(--corner-lg);
+  --radius-corner-full: var(--corner-full);
 
   /* ── Font families ── */
   --font-sans: 'Instrument Sans', system-ui, sans-serif;

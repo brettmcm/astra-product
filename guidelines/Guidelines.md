@@ -5,6 +5,7 @@
 `@brettmcm/astraui` is a React component library built with Tailwind CSS v4. Components are pre-styled with design tokens and ship with compiled CSS.
 
 For detailed reference, see:
+- **[DesignPrinciples.md](./DesignPrinciples.md)** — Design philosophy, token usage guidelines, and do/don't patterns
 - **[Components.md](./Components.md)** — Component APIs, props, and usage examples
 - **[Tokens.md](./Tokens.md)** — Design tokens, typography, theming, and styling architecture
 
@@ -39,9 +40,9 @@ import { Button } from '@brettmcm/astraui'
 // Icons are used inline within components
 ```
 
-Available icons: `Play`, `Home`, `Film`, `Book`, `Folder`, `Settings`, `Video`, `Search`, `Scissors`, `Sliders`, `Type`, `Wand2`, `Mic`, `Music`, `Upload`, `X`.
+Available icons: `Play`, `Home`, `Film`, `Book`, `Folder`, `Settings`, `Video`, `Search`, `Scissors`, `Sliders`, `Type`, `Wand2`, `Mic`, `Music`, `Upload`, `X`, `MousePointer`, `Crop`, `MessageCircle`, `Star`.
 
-All icons accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`.
+All icons accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`. The `Star` icon also accepts `fill` (default `"none"`).
 
 ## Project Structure
 
@@ -55,10 +56,14 @@ src/
   AstraLibraryKit/
     components/
       avatar.tsx, avatar_group.tsx, badge.tsx, button.tsx,
-      chat_bubbles.tsx, icons.tsx, prompt_input.tsx,
-      search_component.tsx, segmented_control.tsx,
-      select_field.tsx, share_modal.tsx, switch_field.tsx,
-      toast.tsx, video_control.tsx, utils.ts
+      button_group.tsx, chat_bubbles.tsx, checkbox.tsx,
+      duration_badge.tsx, favorite_button.tsx, icons.tsx,
+      input_field.tsx, item_card.tsx, modal.tsx, prompt_input.tsx,
+      prompt_pane.tsx, radio.tsx, search_component.tsx,
+      segmented_control.tsx, select_field.tsx, share_modal.tsx,
+      sidebar_button.tsx, sidebar_navigation.tsx, switch_field.tsx,
+      tabs.tsx, textarea_field.tsx, toast.tsx, toolbar.tsx,
+      toolbar_item.tsx, tooltip.tsx, video_control.tsx, utils.ts
 ```
 
 ## Build
