@@ -4,78 +4,77 @@ These guidelines define how to apply Astra tokens to produce layouts and interfa
 
 ## Core Philosophy
 
-**Clean, branded, progressive.** Astra's identity comes from its purple-tinted surfaces — not just its accent color. Every screen should feel like it belongs to Astra, not like a generic SaaS template with a purple button. Use brand surface colors actively to create that identity.
+**Minimal, clean, simple.** Every decision should reduce visual noise. The UI should feel light, airy, and restrained — generous whitespace, subtle typography, and quiet surfaces. Complexity is revealed progressively, not shown all at once.
+
+Astra's brand identity comes from its background canvas. **`brand-tertiary` is the primary background color for all page content areas.** It's a subtle lavender (#eaeaff in light mode) that gives every screen its Astra identity. Surface colors (`surface-bg`, `bg-faint`, `bg-subtle`) are then layered on top to create content hierarchy — cards, panels, and interactive elements rise off the branded canvas.
 
 ---
 
-## 1. Brand Surfaces Are What Make Astra Feel Like Astra
+## 1. brand-tertiary Is the Page Background
 
-This is the most important principle. Astra does NOT look like a neutral gray/white app with purple accents. It uses **brand-tinted surface colors** throughout the UI to create a cohesive, distinctive feel.
+This is the most important principle. The main content area of every page sits on a `brand-tertiary` background. Content is then elevated using surface colors on top of it.
 
-### The brand surface palette
+### How it works
 
-| Token | Role | When to use |
-|---|---|---|
-| `brand-tertiary` | **Default secondary pane fill** | Chat sidebars, inspector panels, settings panels, any secondary content area. This is the go-to background for anything that isn't the primary workspace. |
-| `brand-secondary` | **Emphasis fill for interactive/highlighted elements** | AI chat bubbles, selected/active item backgrounds, highlighted rows, content blocks on a timeline, notification badges. |
-| `brand-primary` | **Small, high-impact accent** | Primary buttons, active tab underlines, progress bars, seek handles. Never as a large area fill. |
+- **`brand-tertiary`** is the base canvas — the background behind all page content (outside the sidebar nav).
+- **`surface-bg`** is used for elevated content on top of the canvas — cards, panels, form containers, content sections, modals. These white/light surfaces "float" on the lavender background and create hierarchy.
+- **`bg-faint` / `bg-subtle`** are used for recessed or grouped areas within elevated surfaces — input backgrounds, metadata rows, secondary groupings.
 
-### Rules — follow these strictly
+### Rules
 
-- **Secondary panes MUST use `brand-tertiary`** — not `surface-bg`, not `surface-secondary-bg`, not plain white/gray. If a layout has a sidebar, panel, or secondary content area, it gets `brand-tertiary`.
-- **Content blocks and highlighted items use `brand-secondary`** — timeline clips, selected list items, AI chat bubbles, active cards.
-- **Every screen should have visible brand color in its surfaces** — if you've built a screen and it looks like it could belong to any app, you haven't used enough brand surface color.
-- **The workspace/primary content area uses `surface-bg`** — this is the only major area that stays neutral. Everything around it should carry brand tinting.
+- **The page background is `brand-tertiary`** — apply it to the main content wrapper that sits next to `SidebarNavigation`.
+- **Cards, content panels, and interactive areas use `surface-bg`** — they sit on top of the branded background, creating a layered card-on-canvas feel.
+- **`brand-primary` is for small accents only** — buttons, active tab underlines, progress bars. Never as a section background.
+- **`brand-secondary` is for small interactive highlights only** — AI chat bubbles, selected toolbar items. Not for large areas.
+- **Keep it simple and minimal.** The lavender canvas provides brand identity — everything on top of it should be clean, quiet, and restrained.
 
 ### Do
 
 ```
-✓ Chat sidebar with brand-tertiary background
-✓ Settings panel with brand-tertiary background
-✓ AI chat bubbles with brand-secondary background
-✓ Selected list row with brand-secondary background
-✓ Inspector/detail panel with brand-tertiary background
-✓ Content cards on a branded surface with brand-secondary fills
+✓ Page background in brand-tertiary
+✓ Content cards and panels in surface-bg floating on the branded canvas
+✓ Form sections and grouped content elevated in surface-bg containers
+✓ Small brand-primary accents on buttons and indicators
+✓ Clean, minimal layouts with generous whitespace
 ```
 
 ### Don't
 
 ```
-✗ All-white or all-gray layout with brand only on buttons
-✗ Secondary pane using surface-bg or surface-secondary-bg (too neutral)
-✗ Selected states using only gray/opacity changes instead of brand-secondary
-✗ A screen where the only brand color is the logo and one button
+✗ Plain white/gray page backgrounds with no brand-tertiary
+✗ Dark or saturated backgrounds (brand-primary, brand-secondary) on large areas
+✗ Busy, heavy, or visually loud layouts
+✗ Skipping the branded canvas and putting everything on surface-bg
 ```
 
 ---
 
 ## 2. Surface Color Defines Layout — Not Borders
 
-The primary tool for creating visual hierarchy and separating regions is **surface color**, not borders or dividers.
+The primary tool for creating visual hierarchy and separating regions is **surface color**, not borders or dividers. Content hierarchy is created by layering lighter surfaces on top of the `brand-tertiary` canvas.
 
 ### Do
 
 - Use `surface-dark` for persistent navigation (sidebar rail).
-- Use `brand-tertiary` for secondary panes (chat sidebar, inspector panels, settings areas).
-- Use `surface-bg` for the primary content workspace.
-- Let adjacent surfaces with different fills create implicit separation.
+- Use `brand-tertiary` as the page background canvas.
+- Use `surface-bg` for elevated content — cards, panels, form containers, content sections.
+- Let the contrast between the branded canvas and white elevated surfaces create implicit separation.
 
 ### Don't
 
-- Don't wrap layout regions in bordered cards. If two areas need visual separation, give them different surface fills.
+- Don't wrap layout regions in bordered cards when the surface elevation already separates them.
 - Don't use `border-primary` between major layout columns — the surface color change is enough.
-- Don't add background fills to regions that are already distinguished by their position and content.
+- Don't use plain white/gray as the page background — the canvas should always be `brand-tertiary`.
 
-### Surface Hierarchy (back to front)
+### Surface Hierarchy (bottom to top)
 
 ```
-surface-dark          → persistent chrome (sidebar nav)
-brand-tertiary        → secondary panes (chat, inspectors, settings panels)
-surface-bg            → primary workspace
-bg-faint              → recessed areas within the workspace (e.g. empty track regions)
-bg-subtle             → subtle grouping within a surface (e.g. metadata rows, input backgrounds)
-brand-secondary       → highlighted/selected elements within any surface
-surface-hover         → hover state for interactive surface regions
+surface-dark          → persistent chrome (sidebar nav only)
+brand-tertiary        → page background canvas (primary branded surface)
+surface-bg            → elevated content (cards, panels, forms, content sections)
+bg-faint              → recessed areas within elevated surfaces
+bg-subtle             → subtle grouping within elevated surfaces (input backgrounds, metadata)
+surface-hover         → hover state for interactive regions
 ```
 
 ---
@@ -112,50 +111,63 @@ Borders should communicate interactivity or containment within a component — n
 ### Layout structure (left to right)
 
 ```
-[ SidebarNavigation 60px ] [ Secondary pane (optional, 300-400px) ] [ Main workspace (flex) ]
-  surface-dark                 brand-tertiary                            surface-bg
+[ SidebarNavigation 60px ] [ Main content area (flex) ]
+  surface-dark                 brand-tertiary background
+                               └── surface-bg cards/panels float on top
 ```
 
-### Skeleton for every page
+### Standard navigation items
+
+The sidebar always has the same four primary nav items and two footer items. Set `selected` on the item matching the current page.
 
 ```tsx
 <div className="flex h-screen">
-  <SidebarNavigation footer={<>...</>}>
-    <SidebarButton icon={<Home />} selected />
-    <SidebarButton icon={<Film />} />
+  <SidebarNavigation
+    footer={
+      <>
+        <SidebarButton icon={<Settings className="size-full" strokeWidth={1.5} />} />
+        <Avatar type="image" src="/user.jpg" size="medium" shape="circle" />
+      </>
+    }
+  >
+    <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+    <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
+    <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
+    <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
   </SidebarNavigation>
-  <main className="flex-1">
-    {/* page content */}
+  <main className="flex-1 bg-brand-tertiary">
+    {/* surface-bg cards and panels float on the branded canvas */}
   </main>
 </div>
 ```
 
+**Primary nav (top):** Home, Film, Book, Folder — always in this order, always all four present.
+**Footer (bottom):** Settings icon + user Avatar — always both present.
+
 ---
 
-## 5. Brand Color Roles
+## 5. Brand Color Roles — Use Sparingly
 
-`brand-primary` (#5250f3) is a strong, saturated purple. It draws attention and should be used sparingly for maximum impact. The lighter brand tints (`brand-secondary`, `brand-tertiary`) are designed for larger areas.
+Brand color should be used with restraint. Most of the screen should be neutral. The brand palette creates identity through small, intentional touches — not by painting large areas.
 
-### brand-primary — small accent only
+### brand-primary — small accents only
 
 - Primary action buttons (CTA in a modal footer, "Share" button)
 - Active tab underlines
 - Progress indicators (playhead, seek bar fill, progress bars)
 - Focus rings
 
-### brand-secondary — emphasis and selection
+### brand-secondary — small interactive highlights only
 
-- AI chat bubble backgrounds
-- Selected/active item highlights (list rows, timeline clips, toolbar items)
-- Content blocks and media segments
-- Notification or status indicators that need brand association
+- AI chat bubble backgrounds (built into the component)
+- Selected toolbar item backgrounds (built into the component)
+- **Do not use as a background for cards, rows, panels, or large sections**
 
-### brand-tertiary — large area tinting
+### brand-tertiary — secondary pane background only
 
-- Secondary pane backgrounds (chat, inspector, settings)
-- Selected sidebar item wash
-- Card backgrounds on branded surfaces
-- Any panel or region that should feel "Astra" without competing with the content
+- The secondary left-column pane (chat sidebar, inspector, settings panel)
+- **This is the only large branded surface in the layout**
+- Do not apply it to cards, content areas, or multiple panels
 
 ### Don't
 
@@ -251,16 +263,13 @@ All token-based colors flip automatically via the `.dark` class. When building n
 
 | Context | Background | Text | Border |
 |---|---|---|---|
-| Primary workspace | `surface-bg` | `text-primary` | none |
-| Secondary pane (chat, inspector, settings) | **`brand-tertiary`** | `text-primary` | none |
+| **Page canvas** | **`brand-tertiary`** | `text-primary` | none |
 | Navigation rail | `surface-dark` | `on-brand` | none |
-| AI chat bubble | `brand-secondary` | `text-primary` | none |
-| Selected/active list item | `brand-secondary` | `text-primary` | none |
-| Interactive card | `surface-bg` | `text-primary` | `border-primary` |
+| Elevated cards / content panels | `surface-bg` | `text-primary` | optional `border-secondary` or shadow |
 | Input field | `bg-subtle` | `text-primary` | none (border on focus) |
 | Floating toolbar | `surface-bg` | — | `border-primary` + shadow |
 | Modal | `surface-bg` | `text-primary` | `border-secondary` (header/footer dividers) |
 | Toast | `brand-primary` | `on-brand` | none |
 | Disabled element | inherit | 50% opacity | inherit at 50% opacity |
 
-**Self-check:** If your token pairings table for a new screen has no `brand-tertiary` or `brand-secondary` entries, revisit — the design likely needs more brand surface color.
+**Self-check:** The page canvas should be `brand-tertiary`. Content cards and panels should be `surface-bg` floating on top. The result should feel minimal and clean — a subtle branded background with crisp white content surfaces layered on it.

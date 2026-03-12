@@ -2,6 +2,15 @@
 
 `@brettmcm/astraui` is a React component library built with Tailwind CSS v4. Components are pre-styled with design tokens and ship with compiled CSS.
 
+## ⚠ Critical Design Rules
+
+Before building any screen, apply these mandatory rules:
+
+1. **Every desktop page MUST include `SidebarNavigation`** — no exceptions (settings, empty states, errors, onboarding, dashboards, editors).
+2. **`brand-tertiary` is the page background canvas.** The main content area next to the sidebar MUST use `bg-brand-tertiary`. This subtle lavender (#eaeaff) is what makes every screen feel like Astra.
+3. **`surface-bg` is for elevated content on top of the canvas.** Cards, panels, form containers, and content sections use `surface-bg` — they float on the branded background to create hierarchy.
+4. **Keep it minimal and clean.** The branded canvas provides identity. Everything on top should be simple, quiet, and restrained. Do not use dark or saturated brand colors as backgrounds on content areas.
+
 For detailed reference, see:
 - **[DesignPrinciples.md](./DesignPrinciples.md)** — Design philosophy, brand surface usage, token pairings, and do/don't patterns
 - **[Components.md](./Components.md)** — Component APIs, props, and usage examples
@@ -27,6 +36,8 @@ import {
   InputField,
   ItemCard,
   Modal,
+  NavList,
+  NavListItem,
   PromptInput,
   PromptPane,
   RadioGroup,

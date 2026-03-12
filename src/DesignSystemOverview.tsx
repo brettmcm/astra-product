@@ -28,6 +28,8 @@ import { Modal } from './AstraLibraryKit/components/modal'
 import { Tabs } from './AstraLibraryKit/components/tabs'
 import { Toolbar } from './AstraLibraryKit/components/toolbar'
 import { ToolbarItem } from './AstraLibraryKit/components/toolbar_item'
+import { NavList } from './AstraLibraryKit/components/nav_list'
+import { NavListItem } from './AstraLibraryKit/components/nav_list_item'
 import { VideoControl } from './AstraLibraryKit/components/video_control'
 import { Home, Film, Book, Folder, Settings, MousePointer, Search, Crop, Scissors, MessageCircle } from './AstraLibraryKit/components/icons'
 
@@ -1359,6 +1361,54 @@ export default function DesignSystemOverview() {
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Export dialog:</strong> Resolution or format selection</li>
               <li><strong>Project settings:</strong> Visibility (private / unlisted / public)</li>
+            </ul>
+          </div>
+        </Section>
+
+        <Section
+          id="nav-list-item"
+          title="Nav List Item"
+          description="Navigation item with icon and label. Active state uses brand-tertiary background with brand-primary text."
+          status="complete"
+        >
+          <ExampleRow label="Active">
+            <div className="w-[223px]">
+              <NavListItem icon={<Home className="size-full" strokeWidth={1.5} />} label="Profile" active />
+            </div>
+          </ExampleRow>
+          <ExampleRow label="Inactive">
+            <div className="w-[223px]">
+              <NavListItem icon={<Film className="size-full" strokeWidth={1.5} />} label="Billing" />
+            </div>
+          </ExampleRow>
+          <ExampleRow label="Inactive (hover to preview)">
+            <div className="w-[223px]">
+              <NavListItem icon={<Book className="size-full" strokeWidth={1.5} />} label="Notifications" />
+            </div>
+          </ExampleRow>
+        </Section>
+
+        <Section
+          id="nav-list"
+          title="Nav List"
+          description="Vertical navigation panel with heading and NavListItem children. Used for secondary navigation within settings or detail views."
+          status="complete"
+        >
+          <ExampleRow label="Settings example">
+            <div className="h-[400px]">
+              <NavList title="Settings">
+                <NavListItem icon={<Home className="size-full" strokeWidth={1.5} />} label="Profile" active />
+                <NavListItem icon={<Film className="size-full" strokeWidth={1.5} />} label="Billing" />
+                <NavListItem icon={<Book className="size-full" strokeWidth={1.5} />} label="Notifications" />
+                <NavListItem icon={<Folder className="size-full" strokeWidth={1.5} />} label="Media" />
+              </NavList>
+            </div>
+          </ExampleRow>
+          <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
+            <p className="font-medium text-text-primary mb-1">Example uses</p>
+            <ul className="list-disc pl-4 space-y-1">
+              <li><strong>Settings pages:</strong> Profile, Billing, Notifications, Media tabs</li>
+              <li><strong>Detail views:</strong> Sub-navigation within a secondary pane</li>
             </ul>
           </div>
         </Section>

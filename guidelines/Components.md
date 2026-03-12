@@ -2,6 +2,18 @@
 
 All components are imported from `@brettmcm/astraui`.
 
+## ⚠ Layout Rules — Read Before Building Any Screen
+
+Astra's aesthetic is **minimal, clean, and simple**. Brand identity comes from the `brand-tertiary` page canvas — a subtle lavender background that all content sits on.
+
+| Rule | Token | Where |
+|---|---|---|
+| **Every desktop page** includes `SidebarNavigation` | `surface-dark` | Left rail, always present |
+| **Page background canvas** is always branded | `brand-tertiary` | `className="bg-brand-tertiary"` on the main content wrapper next to the sidebar |
+| **Cards, panels, and content sections** float on the canvas | `surface-bg` | White/light surfaces layered on top of brand-tertiary to create hierarchy |
+
+**Keep it simple.** The branded canvas provides identity. Content surfaces on top should be clean, minimal, and restrained. Do not use dark or saturated brand colors as section backgrounds.
+
 ## AstraLogo
 
 ```tsx
@@ -99,6 +111,44 @@ Sizes: sm=32px, md=40px, lg=48px.
 | `text` | `string` | required |
 | `userAvatar` | `ReactNode` | — |
 
+## NavListItem
+
+```tsx
+<NavListItem
+  icon={<Home className="size-full" strokeWidth={1.5} />}
+  label="Profile"
+  active
+/>
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `icon` | `ReactNode` | required |
+| `label` | `string` | required |
+| `active` | `boolean` | `false` |
+| `className` | `string` | — |
+
+Also accepts all native `<button>` HTML attributes. Active state uses `brand-tertiary` background with `brand-primary` text. Inactive state shows `text-secondary` with hover to `bg-hover`.
+
+## NavList
+
+```tsx
+<NavList title="Settings">
+  <NavListItem icon={<Home className="size-full" strokeWidth={1.5} />} label="Profile" active />
+  <NavListItem icon={<Film className="size-full" strokeWidth={1.5} />} label="Billing" />
+  <NavListItem icon={<Book className="size-full" strokeWidth={1.5} />} label="Notifications" />
+  <NavListItem icon={<Folder className="size-full" strokeWidth={1.5} />} label="Media" />
+</NavList>
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | `string` | required |
+| `children` | `ReactNode` | required |
+| `className` | `string` | — |
+
+Vertical navigation panel with heading and `NavListItem` children. Uses `surface-secondary-bg` background with a right `border-primary` border. 252px default width, full height. Used for secondary navigation within settings or detail views.
+
 ## PromptInput
 
 ```tsx
@@ -174,6 +224,8 @@ Also accepts all native `<input>` HTML attributes (except `onChange` which uses 
 
 Chat sidebar container. Pass `ChatBubbles` as children for the scrollable message area. The `PromptInput` is built in at the bottom. Prompt input props (`value`, `placeholder`, `onChange`, `onSend`, `onAttach`, `disabled`) are forwarded through.
 
+**Layout rule:** PromptPane sits on the `brand-tertiary` page canvas like all other content. It naturally inherits the branded background — no additional wrapper needed.
+
 ## SearchComponent
 
 ```tsx
@@ -227,12 +279,14 @@ Also accepts all native `<button>` HTML attributes. Icon button for vertical nav
   footer={
     <>
       <SidebarButton icon={<Settings className="size-full" strokeWidth={1.5} />} />
-      <Avatar type="image" src="/photo.jpg" size="medium" shape="circle" />
+      <Avatar type="image" src="/user.jpg" size="medium" shape="circle" />
     </>
   }
 >
   <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
   <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
+  <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
+  <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
 </SidebarNavigation>
 ```
 
@@ -242,7 +296,13 @@ Also accepts all native `<button>` HTML attributes. Icon button for vertical nav
 | `footer` | `ReactNode` | — |
 | `className` | `string` | — |
 
-Vertical navigation rail. AstraLogo is built in at the top. Pass `SidebarButton` components as children for nav items. Use the `footer` slot for settings and user avatar (pinned to the bottom via `mt-auto`). Dark surface background, 60px wide, full height.
+Vertical navigation rail. AstraLogo is built in at the top. Dark surface background, 60px wide, full height.
+
+**Layout rule:** Every desktop page MUST include `SidebarNavigation`. No exceptions — settings pages, empty states, dashboards, editors, and error pages all include the sidebar. It is the persistent application shell.
+
+**Standard nav items — always use this exact configuration:**
+- **Primary (top):** Home, Film, Book, Folder — all four, in this order. Set `selected` on the current page's icon.
+- **Footer (bottom):** Settings icon + user Avatar — always both present.
 
 ## SelectField
 
