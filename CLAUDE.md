@@ -4,6 +4,55 @@
 
 `@brettmcm/astraui` is a React component library built with Tailwind CSS v4. Components are pre-styled with design tokens and ship with compiled CSS.
 
+## Available Exports
+
+Every component and utility exported by `@brettmcm/astraui` is listed below. **Only these names can be imported from the package — do not attempt to import anything else.**
+
+```tsx
+// Components
+import {
+  AstraLogo,
+  Avatar,
+  AvatarGroup,
+  Badge,
+  Button,
+  ButtonGroup,
+  ChatBubbles,
+  Checkbox,
+  DurationBadge,
+  FavoriteButton,
+  InputField,
+  ItemCard,
+  Modal,
+  PromptInput,
+  PromptPane,
+  RadioGroup,
+  SearchComponent,
+  SegmentedControl,
+  SelectField,
+  SidebarButton,
+  SidebarNavigation,
+  SwitchField,
+  Tabs,
+  TextareaField,
+  ThemeProvider,
+  Toast,
+  Toolbar,
+  ToolbarItem,
+  Tooltip,
+  VideoControl,
+} from '@brettmcm/astraui'
+
+// Hooks
+import { useTheme } from '@brettmcm/astraui'
+
+// Utility
+import { cn } from '@brettmcm/astraui'
+
+// Icons — always use lucide-react, NOT @brettmcm/astraui
+import { Search, Home, Settings } from 'lucide-react'
+```
+
 ## Setup
 
 ```tsx
@@ -515,21 +564,13 @@ Reads `localStorage('astra-theme')` on mount, falls back to `prefers-color-schem
 
 ## Icons
 
-The package ships a small set of built-in icons. For any icon not in this set, **use `lucide-react` as the fallback**. The built-in icons follow the same props interface as Lucide, so they are drop-in compatible.
+**Always import icons from `lucide-react`.** Do not import icons from `@brettmcm/astraui`.
 
 ```tsx
-// Built-in icons — import from the package
-import { Search, Home, Settings } from '@brettmcm/astraui'
-
-// Any other icon — import from lucide-react
-import { ChevronDown, Plus, Trash2 } from 'lucide-react'
+import { Search, Home, Settings, ChevronDown, Plus, Trash2 } from 'lucide-react'
 ```
 
-**Built-in icons:** `Play`, `Home`, `Film`, `Book`, `Folder`, `Settings`, `Video`, `Search`, `Scissors`, `Sliders`, `Type`, `Wand2`, `Mic`, `Music`, `Upload`, `X`, `MousePointer`, `Crop`, `MessageCircle`, `Star`.
-
-All icons (both built-in and Lucide) accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`.
-
-**Rule:** Do NOT import from `lucide-react` if the icon exists in `@brettmcm/astraui`. Always check the built-in list first.
+All Lucide icons accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`.
 
 ## Styling Approach
 

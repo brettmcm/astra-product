@@ -1,13 +1,60 @@
 # Astra UI Design System
 
-## Overview
-
 `@brettmcm/astraui` is a React component library built with Tailwind CSS v4. Components are pre-styled with design tokens and ship with compiled CSS.
 
 For detailed reference, see:
-- **[DesignPrinciples.md](./DesignPrinciples.md)** — Design philosophy, token usage guidelines, and do/don't patterns
+- **[DesignPrinciples.md](./DesignPrinciples.md)** — Design philosophy, brand surface usage, token pairings, and do/don't patterns
 - **[Components.md](./Components.md)** — Component APIs, props, and usage examples
 - **[Tokens.md](./Tokens.md)** — Design tokens, typography, theming, and styling architecture
+
+## Available Exports
+
+Every component and utility exported by `@brettmcm/astraui` is listed below. **Only these names can be imported from the package — do not attempt to import anything else.**
+
+```tsx
+// Components
+import {
+  AstraLogo,
+  Avatar,
+  AvatarGroup,
+  Badge,
+  Button,
+  ButtonGroup,
+  ChatBubbles,
+  Checkbox,
+  DurationBadge,
+  FavoriteButton,
+  InputField,
+  ItemCard,
+  Modal,
+  PromptInput,
+  PromptPane,
+  RadioGroup,
+  SearchComponent,
+  SegmentedControl,
+  SelectField,
+  SidebarButton,
+  SidebarNavigation,
+  SwitchField,
+  Tabs,
+  TextareaField,
+  ThemeProvider,
+  Toast,
+  Toolbar,
+  ToolbarItem,
+  Tooltip,
+  VideoControl,
+} from '@brettmcm/astraui'
+
+// Hooks
+import { useTheme } from '@brettmcm/astraui'
+
+// Utility
+import { cn } from '@brettmcm/astraui'
+
+// Icons — always use lucide-react, NOT @brettmcm/astraui
+import { Search, Home, Settings } from 'lucide-react'
+```
 
 ## Setup
 
@@ -33,43 +80,13 @@ import '@brettmcm/astraui/styles.css'
 
 ## Icons
 
-The package ships a small set of built-in icons. For any icon not in this set, **use `lucide-react` as the fallback**. The built-in icons follow the same props interface as Lucide, so they are drop-in compatible.
+**Always import icons from `lucide-react`.** Do not import icons from `@brettmcm/astraui`.
 
 ```tsx
-// Built-in icons — import from the package
-import { Search, Home, Settings } from '@brettmcm/astraui'
-
-// Any other icon — import from lucide-react
-import { ChevronDown, Plus, Trash2 } from 'lucide-react'
+import { Search, Home, Settings, ChevronDown, Plus, Trash2 } from 'lucide-react'
 ```
 
-**Built-in icons:** `Play`, `Home`, `Film`, `Book`, `Folder`, `Settings`, `Video`, `Search`, `Scissors`, `Sliders`, `Type`, `Wand2`, `Mic`, `Music`, `Upload`, `X`, `MousePointer`, `Crop`, `MessageCircle`, `Star`.
-
-All icons (both built-in and Lucide) accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`. The built-in `Star` icon also accepts `fill` (default `"none"`).
-
-**Rule:** Do NOT import from `lucide-react` if the icon exists in `@brettmcm/astraui`. Always check the built-in list first.
-
-## Project Structure
-
-```
-src/
-  index.ts                          # Package entry — exports all components
-  styles.css                        # CSS entry — imports globals
-  styles/
-    globals.css                     # Tailwind v4 config, @theme, light/dark tokens
-    figma-tokens.css                # Figma design token definitions
-  AstraLibraryKit/
-    components/
-      avatar.tsx, avatar_group.tsx, badge.tsx, button.tsx,
-      button_group.tsx, chat_bubbles.tsx, checkbox.tsx,
-      duration_badge.tsx, favorite_button.tsx, icons.tsx,
-      input_field.tsx, item_card.tsx, modal.tsx, prompt_input.tsx,
-      prompt_pane.tsx, radio.tsx, search_component.tsx,
-      segmented_control.tsx, select_field.tsx, share_modal.tsx,
-      sidebar_button.tsx, sidebar_navigation.tsx, switch_field.tsx,
-      tabs.tsx, textarea_field.tsx, toast.tsx, toolbar.tsx,
-      toolbar_item.tsx, tooltip.tsx, video_control.tsx, utils.ts
-```
+All Lucide icons accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`.
 
 ## Build
 

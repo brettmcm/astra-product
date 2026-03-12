@@ -1,22 +1,63 @@
 # Astra UI — Design Principles & Token Usage
 
-These guidelines define how to apply Astra tokens to produce layouts and interfaces that feel on-brand. They complement the token reference in [Tokens.md](./Tokens.md) and the component API in [Components.md](./Components.md).
+These guidelines define how to apply Astra tokens to produce layouts and interfaces that feel distinctly on-brand. They complement the token reference in [Tokens.md](./Tokens.md) and the component API in [Components.md](./Components.md).
 
 ## Core Philosophy
 
-**Clean, minimal, progressive.** Every decision should reduce visual noise. Prefer fewer elements, subtler treatments, and showing complexity only when the user asks for it.
+**Clean, branded, progressive.** Astra's identity comes from its purple-tinted surfaces — not just its accent color. Every screen should feel like it belongs to Astra, not like a generic SaaS template with a purple button. Use brand surface colors actively to create that identity.
 
 ---
 
-## 1. Surface Color Defines Layout — Not Borders
+## 1. Brand Surfaces Are What Make Astra Feel Like Astra
+
+This is the most important principle. Astra does NOT look like a neutral gray/white app with purple accents. It uses **brand-tinted surface colors** throughout the UI to create a cohesive, distinctive feel.
+
+### The brand surface palette
+
+| Token | Role | When to use |
+|---|---|---|
+| `brand-tertiary` | **Default secondary pane fill** | Chat sidebars, inspector panels, settings panels, any secondary content area. This is the go-to background for anything that isn't the primary workspace. |
+| `brand-secondary` | **Emphasis fill for interactive/highlighted elements** | AI chat bubbles, selected/active item backgrounds, highlighted rows, content blocks on a timeline, notification badges. |
+| `brand-primary` | **Small, high-impact accent** | Primary buttons, active tab underlines, progress bars, seek handles. Never as a large area fill. |
+
+### Rules — follow these strictly
+
+- **Secondary panes MUST use `brand-tertiary`** — not `surface-bg`, not `surface-secondary-bg`, not plain white/gray. If a layout has a sidebar, panel, or secondary content area, it gets `brand-tertiary`.
+- **Content blocks and highlighted items use `brand-secondary`** — timeline clips, selected list items, AI chat bubbles, active cards.
+- **Every screen should have visible brand color in its surfaces** — if you've built a screen and it looks like it could belong to any app, you haven't used enough brand surface color.
+- **The workspace/primary content area uses `surface-bg`** — this is the only major area that stays neutral. Everything around it should carry brand tinting.
+
+### Do
+
+```
+✓ Chat sidebar with brand-tertiary background
+✓ Settings panel with brand-tertiary background
+✓ AI chat bubbles with brand-secondary background
+✓ Selected list row with brand-secondary background
+✓ Inspector/detail panel with brand-tertiary background
+✓ Content cards on a branded surface with brand-secondary fills
+```
+
+### Don't
+
+```
+✗ All-white or all-gray layout with brand only on buttons
+✗ Secondary pane using surface-bg or surface-secondary-bg (too neutral)
+✗ Selected states using only gray/opacity changes instead of brand-secondary
+✗ A screen where the only brand color is the logo and one button
+```
+
+---
+
+## 2. Surface Color Defines Layout — Not Borders
 
 The primary tool for creating visual hierarchy and separating regions is **surface color**, not borders or dividers.
 
 ### Do
 
 - Use `surface-dark` for persistent navigation (sidebar rail).
-- Use `surface-secondary-bg` or `brand-tertiary` for secondary panes (chat sidebar, inspector panels).
-- Use `surface-bg` for the primary content area.
+- Use `brand-tertiary` for secondary panes (chat sidebar, inspector panels, settings areas).
+- Use `surface-bg` for the primary content workspace.
 - Let adjacent surfaces with different fills create implicit separation.
 
 ### Don't
@@ -29,17 +70,17 @@ The primary tool for creating visual hierarchy and separating regions is **surfa
 
 ```
 surface-dark          → persistent chrome (sidebar nav)
-surface-secondary-bg  → secondary panes (chat, inspectors)
-  or brand-tertiary
+brand-tertiary        → secondary panes (chat, inspectors, settings panels)
 surface-bg            → primary workspace
 bg-faint              → recessed areas within the workspace (e.g. empty track regions)
 bg-subtle             → subtle grouping within a surface (e.g. metadata rows, input backgrounds)
+brand-secondary       → highlighted/selected elements within any surface
 surface-hover         → hover state for interactive surface regions
 ```
 
 ---
 
-## 2. Borders Are for Interactive Elements
+## 3. Borders Are for Interactive Elements
 
 Borders should communicate interactivity or containment within a component — never layout structure.
 
@@ -58,49 +99,73 @@ Borders should communicate interactivity or containment within a component — n
 
 ---
 
-## 3. Left-Column Navigation Is the Default
+## 4. Every Desktop Screen MUST Include SidebarNavigation
 
-All full-page layouts use a **60px left navigation rail** (`SidebarNavigation`). This is the primary navigation pattern.
+**This is non-negotiable.** Every desktop page layout starts with `SidebarNavigation` on the left. There are no exceptions — settings pages, empty states, onboarding flows, error pages, dashboards, editors — all of them include the sidebar. It is the persistent shell of the application.
 
 - The sidebar is always `surface-dark` — it anchors the interface.
 - Icon-only navigation with `SidebarButton` components.
 - `AstraLogo` at top, settings and avatar pinned to footer.
 - Secondary panes (chat, inspectors) sit between the sidebar and the main workspace.
+- **Never build a desktop page without `SidebarNavigation`.** If you're unsure whether to include it, include it.
 
 ### Layout structure (left to right)
 
 ```
-[ Sidebar 60px ] [ Secondary pane (optional, 300-400px) ] [ Main workspace (flex) ]
-  surface-dark       surface-secondary-bg / brand-tertiary       surface-bg
+[ SidebarNavigation 60px ] [ Secondary pane (optional, 300-400px) ] [ Main workspace (flex) ]
+  surface-dark                 brand-tertiary                            surface-bg
+```
+
+### Skeleton for every page
+
+```tsx
+<div className="flex h-screen">
+  <SidebarNavigation footer={<>...</>}>
+    <SidebarButton icon={<Home />} selected />
+    <SidebarButton icon={<Film />} />
+  </SidebarNavigation>
+  <main className="flex-1">
+    {/* page content */}
+  </main>
+</div>
 ```
 
 ---
 
-## 4. Brand Color Is an Accent — Never a Fill
+## 5. Brand Color Roles
 
-`brand-primary` (#5250f3) is used to draw attention to the single most important interactive element or active state on screen. It should never be used as a large area fill.
+`brand-primary` (#5250f3) is a strong, saturated purple. It draws attention and should be used sparingly for maximum impact. The lighter brand tints (`brand-secondary`, `brand-tertiary`) are designed for larger areas.
 
-### Correct uses of brand-primary
+### brand-primary — small accent only
 
-- **Primary action buttons** (CTA in a modal footer, "Share" button)
-- **Active/selected states** (selected toolbar item background uses `brand-secondary`, active tab underline uses `brand-primary`)
-- **Progress indicators** (playhead, seek bar fill, progress bars)
-- **AI/system identity** (chat bubble background for AI messages uses `brand-secondary`)
+- Primary action buttons (CTA in a modal footer, "Share" button)
+- Active tab underlines
+- Progress indicators (playhead, seek bar fill, progress bars)
+- Focus rings
 
-### Correct uses of brand-secondary / brand-tertiary
+### brand-secondary — emphasis and selection
 
-- `brand-secondary` (`#d1d0f9`) — selected state backgrounds (toolbar item, sidebar button), AI chat bubbles, track control icons
-- `brand-tertiary` (`#eaeaff`) — secondary pane fills, very subtle wash for selected sidebar items
+- AI chat bubble backgrounds
+- Selected/active item highlights (list rows, timeline clips, toolbar items)
+- Content blocks and media segments
+- Notification or status indicators that need brand association
+
+### brand-tertiary — large area tinting
+
+- Secondary pane backgrounds (chat, inspector, settings)
+- Selected sidebar item wash
+- Card backgrounds on branded surfaces
+- Any panel or region that should feel "Astra" without competing with the content
 
 ### Don't
 
-- Don't fill entire sections, headers, or backgrounds with `brand-primary`.
-- Don't use brand colors for text unless it's a link or active tab label.
+- Don't fill entire sections, headers, or backgrounds with `brand-primary` — it's too strong for large areas.
+- Don't use brand colors for body text unless it's a link or active tab label.
 - Don't combine `brand-primary` background with `brand-secondary` text — use `on-brand` (white) on brand fills.
 
 ---
 
-## 5. Text Color Hierarchy
+## 6. Text Color Hierarchy
 
 Use the three-tier text opacity system consistently:
 
@@ -119,7 +184,7 @@ Use the three-tier text opacity system consistently:
 
 ---
 
-## 6. Progressive Disclosure
+## 7. Progressive Disclosure
 
 Show only what's needed at rest. Reveal complexity through interaction.
 
@@ -138,7 +203,7 @@ Show only what's needed at rest. Reveal complexity through interaction.
 
 ---
 
-## 7. Spacing & Density
+## 8. Spacing & Density
 
 Astra uses a compact-but-breathable density. The intent is professional — not cramped, not airy. **Always use spacing tokens instead of raw pixel values.**
 
@@ -171,7 +236,7 @@ Astra uses a compact-but-breathable density. The intent is professional — not 
 
 ---
 
-## 8. Dark Mode
+## 9. Dark Mode
 
 All token-based colors flip automatically via the `.dark` class. When building new UI:
 
@@ -187,11 +252,15 @@ All token-based colors flip automatically via the `.dark` class. When building n
 | Context | Background | Text | Border |
 |---|---|---|---|
 | Primary workspace | `surface-bg` | `text-primary` | none |
-| Secondary pane | `surface-secondary-bg` | `text-primary` | none |
+| Secondary pane (chat, inspector, settings) | **`brand-tertiary`** | `text-primary` | none |
 | Navigation rail | `surface-dark` | `on-brand` | none |
+| AI chat bubble | `brand-secondary` | `text-primary` | none |
+| Selected/active list item | `brand-secondary` | `text-primary` | none |
 | Interactive card | `surface-bg` | `text-primary` | `border-primary` |
-| Input field | `input-bg` | `text-primary` | `border-primary` (on focus) |
+| Input field | `bg-subtle` | `text-primary` | none (border on focus) |
 | Floating toolbar | `surface-bg` | — | `border-primary` + shadow |
 | Modal | `surface-bg` | `text-primary` | `border-secondary` (header/footer dividers) |
 | Toast | `brand-primary` | `on-brand` | none |
 | Disabled element | inherit | 50% opacity | inherit at 50% opacity |
+
+**Self-check:** If your token pairings table for a new screen has no `brand-tertiary` or `brand-secondary` entries, revisit — the design likely needs more brand surface color.
