@@ -33,16 +33,21 @@ import '@brettmcm/astraui/styles.css'
 
 ## Icons
 
-SVG icon components are available from the package:
+The package ships a small set of built-in icons. For any icon not in this set, **use `lucide-react` as the fallback**. The built-in icons follow the same props interface as Lucide, so they are drop-in compatible.
 
 ```tsx
-import { Button } from '@brettmcm/astraui'
-// Icons are used inline within components
+// Built-in icons — import from the package
+import { Search, Home, Settings } from '@brettmcm/astraui'
+
+// Any other icon — import from lucide-react
+import { ChevronDown, Plus, Trash2 } from 'lucide-react'
 ```
 
-Available icons: `Play`, `Home`, `Film`, `Book`, `Folder`, `Settings`, `Video`, `Search`, `Scissors`, `Sliders`, `Type`, `Wand2`, `Mic`, `Music`, `Upload`, `X`, `MousePointer`, `Crop`, `MessageCircle`, `Star`.
+**Built-in icons:** `Play`, `Home`, `Film`, `Book`, `Folder`, `Settings`, `Video`, `Search`, `Scissors`, `Sliders`, `Type`, `Wand2`, `Mic`, `Music`, `Upload`, `X`, `MousePointer`, `Crop`, `MessageCircle`, `Star`.
 
-All icons accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`. The `Star` icon also accepts `fill` (default `"none"`).
+All icons (both built-in and Lucide) accept: `size` (default 24), `color` (default `"currentColor"`), `strokeWidth` (default 2), `className`. The built-in `Star` icon also accepts `fill` (default `"none"`).
+
+**Rule:** Do NOT import from `lucide-react` if the icon exists in `@brettmcm/astraui`. Always check the built-in list first.
 
 ## Project Structure
 
