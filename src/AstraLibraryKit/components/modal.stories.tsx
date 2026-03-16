@@ -11,6 +11,7 @@ const meta = {
   },
   args: {
     isOpen: true,
+    onClose: () => console.log('close'),
     title: 'Confirm Action',
     size: 'medium',
     children: <p className="text-text-secondary">Are you sure you want to proceed? This action cannot be undone.</p>,

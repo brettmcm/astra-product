@@ -12,8 +12,6 @@ const meta = {
     onSuggestionClick: (s: { label: string; prompt: string }) => console.log('suggestionClick', s),
     onSend: () => console.log('send'),
     onChange: (v: string) => console.log('change', v),
-  },
-  args: {
     placeholder: 'Describe your video',
     disabled: false,
     suggestions: [

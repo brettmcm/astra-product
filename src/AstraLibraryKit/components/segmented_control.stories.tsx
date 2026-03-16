@@ -13,6 +13,7 @@ const meta = {
       { id: 'image', icon: <Image size={18} /> },
     ],
     selectedSegment: 'home',
+    onChange: (id: string) => console.log('change', id),
   },
 } satisfies Meta<typeof SegmentedControl>
 

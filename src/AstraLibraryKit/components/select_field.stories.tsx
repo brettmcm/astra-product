@@ -21,6 +21,7 @@ const meta = {
     value: '1080p',
     placeholder: 'Select an option',
     disabled: false,
+    onChange: (val: string) => console.log('change', val),
   },
 } satisfies Meta<typeof SelectField>
 
