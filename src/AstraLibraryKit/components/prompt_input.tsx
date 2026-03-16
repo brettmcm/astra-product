@@ -1,6 +1,8 @@
 import { cn } from './utils';
 import { useState } from 'react';
 import { Badge } from './badge'
+import { IconButton } from './icon_button'
+import { Send } from 'lucide-react'
 
 interface PromptInputProps {
   value?: string;
@@ -75,32 +77,14 @@ export function PromptInput({
       )}
 
       {/* Send Button */}
-      <button
+      <IconButton
+        icon={<Send size={16} />}
+        variant="primary"
+        size="medium"
         onClick={handleSend}
         disabled={disabled || !inputValue.trim()}
-        className="absolute bottom-[10px] right-[10px] size-[42px] hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded-full"
-      >
-        <div className="absolute aspect-[32/32] left-0 right-0 top-0">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 42 42">
-            <circle cx="21" cy="21" fill="var(--brand-primary)" r="21" />
-          </svg>
-        </div>
-        <div className="absolute left-1/2 overflow-clip size-[20px] top-1/2 translate-x-[-50%] translate-y-[-50%]">
-          <div className="absolute inset-[8.333%]">
-            <div className="absolute inset-[-4.5%]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 19 19">
-                <path 
-                  d="M17.6667 1L8.5 10.1667M17.6667 1L11.8333 17.6667L8.5 10.1667M17.6667 1L1 6.83333L8.5 10.1667" 
-                  stroke="white" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth="1.5" 
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </button>
+        className="absolute bottom-[10px] right-[10px] hover:scale-105 transition-transform"
+      />
       
       {/* Attachment Button */}
       <button

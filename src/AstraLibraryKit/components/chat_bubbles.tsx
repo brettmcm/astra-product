@@ -1,5 +1,6 @@
 import { cn } from './utils';
 import { ReactNode } from 'react';
+import { Avatar } from './avatar';
 
 interface ChatBubblesProps {
   type?: 'user' | 'ai';
@@ -8,18 +9,6 @@ interface ChatBubblesProps {
   className?: string;
 }
 
-function DefaultAvatar() {
-  return (
-    <div className="overflow-clip relative rounded-full size-[24px]">
-      <div className="absolute left-1/2 size-[24px] top-1/2 translate-x-[-50%] translate-y-[-50%]">
-        <div className="bg-bg-subtle rounded-full size-full flex items-center justify-center">
-          <span className="text-xs font-medium text-text-secondary">U</span>
-        </div>
-      </div>
-      <div aria-hidden="true" className="absolute border border-border-primary border-solid inset-0 pointer-events-none rounded-full" />
-    </div>
-  );
-}
 
 function AiIcon() {
   return (
@@ -54,7 +43,7 @@ export function ChatBubbles({ type = 'ai', text, userAvatar, className }: ChatBu
             </div>
             <div className="box-border content-stretch flex gap-[10px] items-center pb-0 pt-[6px] px-0 relative shrink-0">
               <div className="relative rounded-full shrink-0 size-[24px]">
-                {userAvatar || <DefaultAvatar />}
+                {userAvatar || <Avatar type="initial" initials="U" size="small" shape="circle" />}
               </div>
             </div>
           </div>

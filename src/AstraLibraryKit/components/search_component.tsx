@@ -1,4 +1,5 @@
 import { cn } from './utils';
+import { Search } from 'lucide-react';
 import { InputHTMLAttributes, KeyboardEvent, useEffect, useState } from 'react';
 
 interface SearchComponentProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'onKeyDown'> {
@@ -62,7 +63,8 @@ export function SearchComponent({
 
   return (
     <div className={cn('content-stretch flex gap-[8px] items-center w-full', className)}>
-      <div className="bg-bg-subtle box-border content-stretch flex gap-[4px] h-[40px] items-center px-[20px] py-[12px] relative rounded-[64px] w-full focus-within:ring-2 focus-within:ring-white/20 transition-all">
+      <div className="bg-surface-bg box-border content-stretch flex gap-[8px] h-[40px] items-center px-[20px] py-[12px] relative rounded-[64px] w-full focus-within:ring-2 focus-within:ring-border-primary transition-all">
+        <Search size={16} className="shrink-0 text-text-secondary" />
         <input
           type="text"
           value={value}
@@ -70,7 +72,7 @@ export function SearchComponent({
           onKeyDown={handleKeyDown}
           placeholder={value ? placeholder : animatedPlaceholder}
           disabled={disabled}
-          className="bg-transparent font-sans font-normal opacity-70 text-input-sm text-text-primary placeholder:opacity-70 border-none outline-none w-full"
+          className="bg-transparent font-sans font-normal text-input-sm text-text-primary placeholder:text-text-secondary border-none outline-none w-full"
 
           {...props}
         />
