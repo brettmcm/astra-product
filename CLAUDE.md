@@ -399,30 +399,30 @@ Features animated placeholder typing through: 'anything', 'clips', 'audio'.
 ```tsx
 <SegmentedControl
   segments={[{ id: 'home', icon: <Home /> }, { id: 'video', icon: <Film /> }]}
-  activeSegment="home"
-  onSegmentChange={(id) => {}}
+  selectedSegment="home"
+  onChange={(id) => {}}
 />
 ```
 
 | Prop | Type | Default |
 |---|---|---|
 | `segments` | `{ id: string, icon: ReactNode }[]` | required |
-| `activeSegment` | `string` | required |
-| `onSegmentChange` | `(segmentId: string) => void` | required |
+| `selectedSegment` | `string` | required |
+| `onChange` | `(segmentId: string) => void` | required |
 
 ### SidebarButton
 
 ```tsx
-<SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+<SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} active />
 ```
 
 | Prop | Type | Default |
 |---|---|---|
 | `icon` | `ReactNode` | required |
-| `selected` | `boolean` | `false` |
+| `active` | `boolean` | `false` |
 | `className` | `string` | — |
 
-Also accepts all native `<button>` HTML attributes. Default state: 50% opacity icon, no background. Selected state: `brand-tertiary` background, 85% opacity icon.
+Also accepts all native `<button>` HTML attributes. Default state: 50% opacity icon, no background. Active state: `brand-tertiary` background, 85% opacity icon.
 
 ### SidebarNavigation
 
@@ -430,7 +430,7 @@ Also accepts all native `<button>` HTML attributes. Default state: 50% opacity i
 <SidebarNavigation
   footer={<><SidebarButton icon={<Settings />} /><Avatar src="/photo.jpg" size="medium" /></>}
 >
-  <SidebarButton icon={<Home />} selected />
+  <SidebarButton icon={<Home />} active />
   <SidebarButton icon={<Film />} />
 </SidebarNavigation>
 ```
@@ -451,7 +451,7 @@ Vertical navigation rail. AstraLogo built in at top. Pass `SidebarButton` childr
   description="Description"
   options={[{ value: '1', label: 'Option 1' }, { value: '2', label: 'Option 2' }]}
   value="1"
-  onSelect={(val) => {}}
+  onChange={(val) => {}}
   placeholder="Select an option"
 />
 ```
@@ -460,7 +460,7 @@ Vertical navigation rail. AstraLogo built in at top. Pass `SidebarButton` childr
 |---|---|---|
 | `options` | `{ value: string, label: string }[]` | required |
 | `value` | `string` | `''` |
-| `onSelect` | `(value: string) => void` | required |
+| `onChange` | `(value: string) => void` | required |
 | `placeholder` | `string` | `'Select an option'` |
 | `label` | `string` | — |
 | `description` | `string` | — |

@@ -136,6 +136,8 @@ const NAV_ITEMS = [
   { id: 'radio-group', label: 'Radio Group' },
   { id: 'toolbar-item', label: 'Toolbar Item' },
   { id: 'toolbar', label: 'Toolbar' },
+  { id: 'secondary-nav-item', label: 'SecondaryNavItem' },
+  { id: 'secondary-nav', label: 'SecondaryNav' },
   { id: 'video-control', label: 'Video Control' },
   { id: 'completeness', label: 'Completeness Audit' },
 ]
@@ -144,7 +146,7 @@ const NAV_ITEMS = [
 
 export default function DesignSystemOverview() {
   const { theme, toggleTheme } = useTheme()
-  const [activeSegment, setActiveSegment] = useState('seg-1')
+  const [selectedSegment, setSelectedSegment] = useState('seg-1')
   const [inputValue, setInputValue] = useState('')
   const [selectValue, setSelectValue] = useState('')
   const [textareaValue, setTextareaValue] = useState('')
@@ -798,8 +800,8 @@ export default function DesignSystemOverview() {
                 { id: 'seg-2', icon: <span className="text-[14px]">B</span> },
                 { id: 'seg-3', icon: <span className="text-[14px]">C</span> },
               ]}
-              activeSegment={activeSegment}
-              onSegmentChange={setActiveSegment}
+              selectedSegment={selectedSegment}
+              onChange={setSelectedSegment}
             />
           </ExampleRow>
           <div className="mt-2 bg-bg-faint border border-border-secondary rounded-lg p-4 text-[12px] text-text-secondary">
@@ -814,7 +816,7 @@ export default function DesignSystemOverview() {
         <Section
           id="sidebar-button"
           title="Sidebar Button"
-          description="Icon button for vertical navigation rails. Two states: default (dimmed) and selected (brand-tertiary background)."
+          description="Icon button for vertical navigation rails. Two states: default (dimmed) and active (brand-tertiary background)."
           status="complete"
         >
           <ExampleRow label="States">
@@ -824,14 +826,14 @@ export default function DesignSystemOverview() {
                 <span className="text-video-title text-text-tertiary">Default</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
-                <span className="text-video-title text-text-tertiary">Selected</span>
+                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} active />
+                <span className="text-video-title text-text-tertiary">Active</span>
               </div>
             </div>
           </ExampleRow>
           <ExampleRow label="Navigation rail">
             <div className="bg-surface-bg border border-border-primary rounded-lg flex flex-col items-center gap-2 py-3 w-[60px]">
-              <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+              <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} active />
               <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
               <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
               <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
@@ -863,7 +865,7 @@ export default function DesignSystemOverview() {
                   </>
                 }
               >
-                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+                <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} active />
                 <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
                 <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
                 <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
@@ -964,7 +966,7 @@ export default function DesignSystemOverview() {
                   { value: '4k', label: '4K (Ultra HD)' },
                 ]}
                 value={selectValue}
-                onSelect={setSelectValue}
+                onChange={setSelectValue}
                 placeholder="Select resolution..."
               />
             </div>

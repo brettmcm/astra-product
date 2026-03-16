@@ -9,7 +9,7 @@ interface SelectOption {
 interface SelectFieldProps {
   options: SelectOption[];
   value?: string;
-  onSelect: (value: string) => void;
+  onChange: (value: string) => void;
   placeholder?: string;
   label?: string;
   description?: string;
@@ -21,7 +21,7 @@ interface SelectFieldProps {
 export function SelectField({
   options,
   value = "",
-  onSelect,
+  onChange,
   placeholder = "Select an option",
   label,
   description,
@@ -137,7 +137,7 @@ export function SelectField({
   }, [isOpen, focusedIndex, options, disabled]);
 
   const handleOptionClick = (optionValue: string) => {
-    onSelect(optionValue);
+    onChange(optionValue);
     closeDropdown();
   };
 

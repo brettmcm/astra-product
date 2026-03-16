@@ -6,13 +6,17 @@ All components are imported from `@brettmcm/astraui`.
 
 Astra's aesthetic is **minimal, clean, and simple**. Brand identity comes from the `brand-tertiary` page canvas — a subtle lavender background that all content sits on.
 
-| Rule | Token | Where |
+| Rule | Token / Class | Where |
 |---|---|---|
-| **Every desktop page** includes `SidebarNavigation` | `surface-dark` | Left rail, always present |
-| **Page background canvas** is always branded | `brand-tertiary` | `className="bg-brand-tertiary"` on the main content wrapper next to the sidebar |
-| **Cards, panels, and content sections** float on the canvas | `surface-bg` | White/light surfaces layered on top of brand-tertiary to create hierarchy |
+| **`SidebarNavigation`** is ALWAYS present | `surface-dark` | 60px dark icon rail on the far left. Separate component from `SecondaryNav`. |
+| **Page background** is ALWAYS `brand-tertiary` | `bg-brand-tertiary` | On `<main>`. Never white or gray. |
+| **Page padding** is ALWAYS `p-2xl` | `p-2xl` (24px) | On `<main>`. Content must never touch edges. |
+| **Each section = separate `surface-bg` card** | `bg-surface-bg rounded-corner-lg p-xl` | Each logical section (e.g. Profile Photo, Security) gets its own card. Never combine unrelated sections. |
+| **Cards MUST have vertical spacing** | `flex flex-col gap-xl` (16px) | On the card stack wrapper. Cards must never touch — always `gap-xl` between them. |
+| **Fields inside cards MUST have spacing** | `flex flex-col gap-lg` (12px) | On the field wrapper inside each card. Fields must never touch — always `gap-lg` between them. |
+| **Side-by-side fields** | `flex gap-xl` + `flex-1` children | For field pairs like First Name / Last Name. |
 
-**Keep it simple.** The branded canvas provides identity. Content surfaces on top should be clean, minimal, and restrained. Do not use dark or saturated brand colors as section backgrounds.
+**Spacing is critical.** If elements are touching with no gap, the layout is wrong. Always use flexbox with gap tokens — never rely on default margins or stack elements without explicit spacing.
 
 ## AstraLogo
 
@@ -249,30 +253,30 @@ Features animated placeholder typing through: 'anything', 'clips', 'audio'.
 ```tsx
 <SegmentedControl
   segments={[{ id: 'home', icon: <Home /> }, { id: 'video', icon: <Film /> }]}
-  activeSegment="home"
-  onSegmentChange={(id) => {}}
+  selectedSegment="home"
+  onChange={(id) => {}}
 />
 ```
 
 | Prop | Type | Default |
 |---|---|---|
 | `segments` | `{ id: string, icon: ReactNode }[]` | required |
-| `activeSegment` | `string` | required |
-| `onSegmentChange` | `(segmentId: string) => void` | required |
+| `selectedSegment` | `string` | required |
+| `onChange` | `(segmentId: string) => void` | required |
 
 ## SidebarButton
 
 ```tsx
-<SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+<SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} active />
 ```
 
 | Prop | Type | Default |
 |---|---|---|
 | `icon` | `ReactNode` | required |
-| `selected` | `boolean` | `false` |
+| `active` | `boolean` | `false` |
 | `className` | `string` | — |
 
-Also accepts all native `<button>` HTML attributes. Icon button for vertical navigation rails. Default state shows the icon at 50% opacity; selected state adds a `brand-tertiary` background and raises opacity to 85%.
+Also accepts all native `<button>` HTML attributes. Icon button for vertical navigation rails. Default state shows the icon at 50% opacity; active state adds a `brand-tertiary` background and raises opacity to 85%.
 
 ## SidebarNavigation
 
@@ -285,7 +289,7 @@ Also accepts all native `<button>` HTML attributes. Icon button for vertical nav
     </>
   }
 >
-  <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+  <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} active />
   <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
   <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
   <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
@@ -303,7 +307,7 @@ Vertical navigation rail. AstraLogo is built in at the top. Dark surface backgro
 **Layout rule:** Every desktop page MUST include `SidebarNavigation`. No exceptions — settings pages, empty states, dashboards, editors, and error pages all include the sidebar. It is the persistent application shell.
 
 **Standard nav items — always use this exact configuration:**
-- **Primary (top):** Home, Film, Book, Folder — all four, in this order. Set `selected` on the current page's icon.
+- **Primary (top):** Home, Film, Book, Folder — all four, in this order. Set `active` on the current page's icon.
 - **Footer (bottom):** Settings icon + user Avatar — always both present.
 
 ## SelectField
@@ -314,7 +318,7 @@ Vertical navigation rail. AstraLogo is built in at the top. Dark surface backgro
   description="Description"
   options={[{ value: '1', label: 'Option 1' }, { value: '2', label: 'Option 2' }]}
   value="1"
-  onSelect={(val) => {}}
+  onChange={(val) => {}}
   placeholder="Select an option"
 />
 ```
@@ -323,7 +327,7 @@ Vertical navigation rail. AstraLogo is built in at the top. Dark surface backgro
 |---|---|---|
 | `options` | `{ value: string, label: string }[]` | required |
 | `value` | `string` | `''` |
-| `onSelect` | `(value: string) => void` | required |
+| `onChange` | `(value: string) => void` | required |
 | `placeholder` | `string` | `'Select an option'` |
 | `label` | `string` | — |
 | `description` | `string` | — |

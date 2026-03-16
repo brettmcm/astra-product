@@ -6,15 +6,15 @@ interface SegmentedControlProps {
     id: string;
     icon: ReactNode;
   }>;
-  activeSegment: string;
-  onSegmentChange: (segmentId: string) => void;
+  selectedSegment: string;
+  onChange: (segmentId: string) => void;
   className?: string;
 }
 
 export function SegmentedControl({
   segments,
-  activeSegment,
-  onSegmentChange,
+  selectedSegment,
+  onChange,
   className,
 }: SegmentedControlProps) {
   return (
@@ -25,12 +25,12 @@ export function SegmentedControl({
       )}
     >
       {segments.map((segment) => {
-        const isActive = segment.id === activeSegment;
+        const isActive = segment.id === selectedSegment;
 
         return (
           <button
             key={segment.id}
-            onClick={() => onSegmentChange(segment.id)}
+            onClick={() => onChange(segment.id)}
             className={cn(
               "flex items-center justify-center p-3 rounded-lg size-12 transition-colors",
               isActive ? "bg-brand-muted" : "hover:bg-surface-dark-hover",

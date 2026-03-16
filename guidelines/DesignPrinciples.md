@@ -143,10 +143,11 @@ Astra has three levels of navigation. Use them in order — never skip a level.
 
 ### Standard sidebar items
 
-The sidebar always has the same four primary nav items and two footer items. Set `selected` on the item matching the current page.
+The sidebar always has the same four primary nav items and two footer items. Set `active` on the item matching the current page.
 
 ```tsx
 <div className="flex h-screen">
+  {/* PRIMARY NAV — always present, always dark, always 60px */}
   <SidebarNavigation
     footer={
       <>
@@ -155,13 +156,13 @@ The sidebar always has the same four primary nav items and two footer items. Set
       </>
     }
   >
-    <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} selected />
+    <SidebarButton icon={<Home className="size-full" strokeWidth={1.5} />} />
     <SidebarButton icon={<Film className="size-full" strokeWidth={1.5} />} />
     <SidebarButton icon={<Book className="size-full" strokeWidth={1.5} />} />
     <SidebarButton icon={<Folder className="size-full" strokeWidth={1.5} />} />
   </SidebarNavigation>
 
-  {/* Optional: secondary nav for pages with sub-sections */}
+  {/* SECONDARY NAV — optional, for pages with sub-sections */}
   <SecondaryNav title="Settings">
     <SecondaryNavItem icon={<User className="size-full" strokeWidth={1.5} />} label="Profile" active />
     <SecondaryNavItem icon={<CreditCard className="size-full" strokeWidth={1.5} />} label="Billing" />
@@ -169,15 +170,199 @@ The sidebar always has the same four primary nav items and two footer items. Set
     <SecondaryNavItem icon={<Video className="size-full" strokeWidth={1.5} />} label="Media" />
   </SecondaryNav>
 
-  <main className="flex-1 bg-brand-tertiary">
-    {/* surface-bg cards and panels float on the branded canvas */}
-    {/* Tabs go HERE if needed — as tertiary nav within this content area */}
+  {/* MAIN CONTENT — always brand-tertiary background */}
+  <main className="flex-1 bg-brand-tertiary p-2xl overflow-y-auto">
+    {/* Content sits inside surface-bg cards that float on the branded canvas */}
+    <div className="max-w-2xl">
+      <h1 className="text-title text-text-primary mb-xs">Profile</h1>
+      <p className="text-label-sm text-text-secondary mb-xl">Manage your personal information</p>
+
+      <div className="bg-surface-bg rounded-corner-lg p-xl space-y-xl">
+        {/* Form fields go inside surface-bg containers */}
+        <InputField label="Full Name" value="John Doe" />
+        <InputField label="Email" value="john@example.com" />
+        <TextareaField label="Bio" placeholder="Tell us about yourself..." />
+        <SelectField label="Time Zone" options={timezones} />
+      </div>
+
+      <div className="flex justify-end gap-lg mt-xl">
+        <Button variant="neutral">Cancel</Button>
+        <Button variant="primary">Save Changes</Button>
+      </div>
+    </div>
   </main>
 </div>
 ```
 
+**Key points about this template:**
+- `SidebarNavigation` is a **separate dark rail** (60px) — it is NEVER combined with `SecondaryNav`. They are two distinct side-by-side panels.
+- `<main>` uses `bg-brand-tertiary` — this lavender background is what makes it feel like Astra. **Never use white or gray.**
+- Form content is wrapped in a `bg-surface-bg rounded-corner-lg p-xl` container — a white card floating on the lavender canvas.
+- Page heading and actions sit directly on the `brand-tertiary` canvas outside the card.
+
 **Primary nav (top):** Home, Film, Book, Folder — always in this order, always all four present.
 **Footer (bottom):** Settings icon + user Avatar — always both present.
+
+### Main content area — layout and spacing
+
+The `<main>` content area uses flexbox for all layout. Every element must be explicitly spaced using Astra's spacing tokens — never rely on default margins or arbitrary values. The goal is a clear vertical rhythm with generous breathing room.
+
+#### Core structure rules
+
+1. **`<main>` is always a flex column** with `p-2xl` padding and `overflow-y-auto`. All content inside flows vertically.
+2. **Each logical section gets its own `surface-bg` card.** Never put multiple unrelated sections (e.g. "Personal Information" and "Security") inside a single card. Each section is a separate `bg-surface-bg rounded-corner-lg p-xl` container.
+3. **Cards are separated by `gap-xl`** (16px). Use `flex flex-col gap-xl` on the content wrapper — never stack cards with no gap.
+4. **Inside each card, fields are separated by `gap-lg`** (12px). Use `flex flex-col gap-lg` inside the card.
+5. **Side-by-side fields use `flex gap-xl`** with equal `flex-1` children.
+6. **Section headings go inside their card**, not floating between cards. Use `text-label text-text-primary font-semibold` for card section headings.
+7. **Page header sits directly on the canvas** above the cards — not inside a card.
+
+#### Do
+
+```
+✓ Each form section in its own surface-bg card (Profile Photo, Personal Info, Security, Danger Zone = 4 cards)
+✓ flex flex-col gap-xl between cards
+✓ flex flex-col gap-lg between fields inside a card
+✓ flex gap-xl for side-by-side fields (First Name + Last Name)
+✓ p-xl padding inside every card
+✓ p-2xl padding on the main content area
+✓ Section headings inside their card as the first element
+```
+
+#### Don't
+
+```
+✗ Putting all form sections in one giant card with no separation
+✗ Inconsistent or tight spacing between fields (cramming content)
+✗ Floating section headings between cards without clear ownership
+✗ Using arbitrary pixel values instead of spacing tokens
+✗ Missing padding on cards or the main wrapper
+✗ Letting content touch the edges of cards or the page
+```
+
+#### Settings / form page template
+
+```tsx
+<main className="flex-1 bg-brand-tertiary p-2xl overflow-y-auto">
+  {/* Page header — directly on canvas */}
+  <div className="mb-xl">
+    <h1 className="text-title text-text-primary">Profile</h1>
+    <p className="text-label-sm text-text-secondary mt-xs">Manage your personal information and account details.</p>
+  </div>
+
+  {/* Cards stack — each section is its own card */}
+  <div className="flex flex-col gap-xl max-w-3xl">
+
+    {/* Section 1: Profile Photo */}
+    <div className="bg-surface-bg rounded-corner-lg p-xl">
+      <h2 className="text-label text-text-primary font-semibold mb-lg">Profile Photo</h2>
+      <div className="flex items-center gap-lg">
+        <Avatar type="initial" initials="SC" size="large" />
+        <Button variant="neutral" size="small">Change Photo</Button>
+        <button className="text-label-sm text-brand-primary">Remove</button>
+      </div>
+    </div>
+
+    {/* Section 2: Personal Information */}
+    <div className="bg-surface-bg rounded-corner-lg p-xl">
+      <h2 className="text-label text-text-primary font-semibold mb-lg">Personal Information</h2>
+      <div className="flex flex-col gap-lg">
+        <div className="flex gap-xl">
+          <div className="flex-1">
+            <InputField label="First Name" value="Sarah" />
+          </div>
+          <div className="flex-1">
+            <InputField label="Last Name" value="Chen" />
+          </div>
+        </div>
+        <InputField label="Email Address" value="sarah.chen@example.com" description="This is your primary contact email" />
+        <InputField label="Username" value="sarahchen" description="Your unique username across Astra" />
+      </div>
+    </div>
+
+    {/* Section 3: Security */}
+    <div className="bg-surface-bg rounded-corner-lg p-xl">
+      <h2 className="text-label text-text-primary font-semibold mb-lg">Security</h2>
+      <div className="flex flex-col gap-lg">
+        <InputField label="Current Password" type="password" value="••••••••" />
+        <div className="flex gap-xl">
+          <div className="flex-1">
+            <InputField label="New Password" placeholder="I am a placeholder..." />
+          </div>
+          <div className="flex-1">
+            <InputField label="Confirm Password" placeholder="I am a placeholder..." />
+          </div>
+        </div>
+        <div>
+          <Button variant="primary">Update Password</Button>
+        </div>
+      </div>
+    </div>
+
+    {/* Section 4: Danger Zone */}
+    <div className="bg-surface-bg rounded-corner-lg p-xl">
+      <h2 className="text-label text-danger font-semibold mb-lg">Danger Zone</h2>
+      <p className="text-label-sm text-text-secondary mb-lg">Once you delete your account, there is no going back. Please be certain.</p>
+      <button className="text-label-sm text-danger">Delete Account</button>
+    </div>
+
+  </div>
+</main>
+```
+
+#### Dashboard / multi-card page template
+
+```tsx
+<main className="flex-1 bg-brand-tertiary p-2xl overflow-y-auto">
+  <div className="flex flex-col gap-2xl">
+
+    {/* Header row — title + actions */}
+    <div className="flex items-center justify-between">
+      <h1 className="text-title text-text-primary">Welcome back, Jamie</h1>
+      <div className="flex items-center gap-lg">
+        <SearchComponent placeholder="Search" />
+        <Button variant="primary">New Project</Button>
+      </div>
+    </div>
+
+    {/* Two-column feature row */}
+    <div className="flex gap-xl">
+      <div className="flex-1 bg-surface-bg rounded-corner-lg p-xl">
+        {/* Hero card content */}
+      </div>
+      <div className="w-[320px] bg-surface-bg rounded-corner-lg p-xl">
+        {/* Activity panel */}
+      </div>
+    </div>
+
+    {/* Card grid section */}
+    <div>
+      <h2 className="text-heading text-text-primary mb-lg">Recently Viewed</h2>
+      <div className="grid grid-cols-4 gap-xl">
+        <ItemCard title="..." duration="0:01:30" />
+        <ItemCard title="..." duration="0:01:30" />
+        <ItemCard title="..." duration="0:01:30" />
+        <ItemCard title="..." duration="0:01:30" />
+      </div>
+    </div>
+
+  </div>
+</main>
+```
+
+#### Spacing reference
+
+| Context | Token | Value | Tailwind |
+|---|---|---|---|
+| Main content padding | `space-2xl` | 24px | `p-2xl` |
+| Between section cards | `space-xl` | 16px | `gap-xl` |
+| Between dashboard sections | `space-2xl` | 24px | `gap-2xl` |
+| Inside cards (padding) | `space-xl` | 16px | `p-xl` |
+| Between fields inside a card | `space-lg` | 12px | `gap-lg` |
+| Between side-by-side fields | `space-xl` | 16px | `gap-xl` |
+| Below section heading in card | `space-lg` | 12px | `mb-lg` |
+| Below page header | `space-xl` | 16px | `mb-xl` |
+| Page header title → subtitle | `space-xs` | 4px | `mt-xs` |
 
 ---
 
@@ -254,6 +439,7 @@ Show only what's needed at rest. Reveal complexity through interaction.
 ## 8. Spacing & Density
 
 Astra uses a compact-but-breathable density. The intent is professional — not cramped, not airy. **Always use spacing tokens instead of raw pixel values.**
+**Always use spacing between internal layout elements like cards, form fields, items, etc.**
 
 ### Spacing Tokens
 
