@@ -77,6 +77,56 @@ import { Plus, ArrowRight, Trash2 } from 'lucide-react'
 
 ---
 
+# IconButton
+
+## When to use
+
+Use IconButton for icon-only actions where a text label isn't needed — toolbars, compact controls, close buttons. Shares the same variant and size system as Button but renders as a circle with no label.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `icon` | `ReactNode` | required |
+| `variant` | `'primary' \| 'neutral' \| 'subtle'` | `'primary'` |
+| `size` | `'medium' \| 'small'` | `'medium'` |
+| `disabled` | `boolean` | `false` |
+| `className` | `string` | — |
+
+Also accepts all native `<button>` HTML attributes.
+
+## Sizing
+
+| Size | Dimensions |
+|---|---|
+| `medium` | 40×40px |
+| `small` | 32×32px |
+
+## Usage notes
+
+- Always circular (`rounded-full`) — not pill-shaped like Button
+- Use `subtle` variant for most icon-only actions to keep the UI minimal
+- Pair with `Tooltip` so users can discover the action on hover
+- Prefer `Button` with a label when there's room — icon-only buttons are harder to understand
+
+## Example
+
+```tsx
+import { IconButton } from '@brettmcm/astraui'
+import { Plus, X, Settings } from 'lucide-react'
+
+{/* Primary action */}
+<IconButton icon={<Plus size={16} />} variant="primary" />
+
+{/* Subtle close button */}
+<IconButton icon={<X size={16} />} variant="subtle" size="small" />
+
+{/* Neutral with outline */}
+<IconButton icon={<Settings size={16} />} variant="neutral" />
+```
+
+---
+
 # ButtonGroup
 
 ## When to use

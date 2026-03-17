@@ -8,6 +8,31 @@ Astra has three levels of navigation. Use them in order — never skip a level.
 | **Secondary** | `SecondaryNav` + `SecondaryNavItem` | Section-level navigation (e.g. Settings sub-sections). |
 | **Tertiary** | `Tabs` | Content-level switching within a section. See [tabs.md](tabs.md). |
 
+## AstraLogo
+
+The `AstraLogo` component renders the Astra brand mark as an inline SVG. It uses `var(--brand-primary)` for the background fill so it adapts to light/dark mode automatically.
+
+| Prop | Type | Default |
+|---|---|---|
+| `size` | `number` | `32` |
+| `className` | `string` | — |
+
+### Usage notes
+
+- Built into `SidebarNavigation` at the top — you do not need to add it manually when using the sidebar
+- Use standalone only for branding outside of navigation (e.g. loading screens, empty states)
+- The `size` prop controls both width and height in pixels
+
+### Example
+
+```tsx
+import { AstraLogo } from '@brettmcm/astraui'
+
+<AstraLogo size={32} />
+```
+
+---
+
 ## Navigation hierarchy decision tree
 
 ```

@@ -1,14 +1,59 @@
-# Chat & AI
+# AI Agent
 
 ## Components
 
 | Component | Purpose |
 |---|---|
+| `AIVideoCreation` | Entry point for creating a new AI-generated video — prompt input with suggestion chips |
 | `ChatBubbles` | Individual AI or user chat message bubble |
 | `PromptInput` | Text input with send/attach buttons for AI prompts |
 | `PromptPane` | Full chat container with scrollable messages + input |
 
-These components work together: `PromptPane` contains `ChatBubbles` as children and has `PromptInput` built in at the bottom.
+These components make up the AI agent interaction experience. `AIVideoCreation` is the starting point — where a user kicks off a new video. Once a session is underway, `PromptPane` with `ChatBubbles` handles the ongoing conversation. `PromptInput` is the shared text entry used by both.
+
+---
+
+## AIVideoCreation
+
+### When to use
+
+Use AIVideoCreation as the primary entry point for starting a new AI video generation. It combines a prompt input with clickable suggestion badges to help users get started quickly.
+
+### Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `value` | `string` | `''` |
+| `placeholder` | `string` | `'Describe your video'` |
+| `onChange` | `(value: string) => void` | — |
+| `onSend` | `() => void` | — |
+| `onAttach` | `() => void` | — |
+| `suggestions` | `{ label: string, prompt: string }[]` | 3 default suggestions |
+| `onSuggestionClick` | `(suggestion: { label: string, prompt: string }) => void` | — |
+| `disabled` | `boolean` | `false` |
+| `className` | `string` | — |
+
+### Usage notes
+
+- Clicking a suggestion badge populates the prompt input with that suggestion's `prompt` text
+- Default suggestions are provided (Sizzle reel, Documentary, Ad) — override with `suggestions` prop for different contexts
+- Pass an empty `suggestions` array to hide suggestion badges entirely
+- Uses `brand-secondary` background to visually distinguish it as an AI-powered entry point
+- Contains a `PromptInput` internally — do not nest inside a `PromptPane`
+
+### Example
+
+```tsx
+import { AIVideoCreation } from '@brettmcm/astraui'
+
+<AIVideoCreation
+  value={input}
+  placeholder="Describe your video"
+  onChange={(val) => setInput(val)}
+  onSend={() => handleCreate()}
+  onSuggestionClick={(s) => console.log('Selected:', s.label)}
+/>
+```
 
 ---
 
@@ -133,8 +178,10 @@ import { PromptPane, ChatBubbles, Avatar } from '@brettmcm/astraui'
 
 ## Rules
 
-- Use PromptPane for full chat interfaces — it handles the message area and input together
-- Do not add a separate PromptInput inside PromptPane — it's built in
+- Use `AIVideoCreation` for new video creation entry points — it provides the prompt + suggestions pattern
+- Use `PromptPane` for ongoing chat interfaces — it handles the message area and input together
+- Do not nest `AIVideoCreation` inside `PromptPane` — they serve different stages of the interaction
+- Do not add a separate `PromptInput` inside `PromptPane` — it's built in
 - Always specify `type` on ChatBubbles to distinguish AI vs user messages
 - Provide `userAvatar` on user-type ChatBubbles for visual identity
 - PromptPane sits on the `brand-tertiary` canvas like other content — no special wrapper needed
