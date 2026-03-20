@@ -1,5 +1,5 @@
 {
-  "name": "@astra-demo-kit/astraui",
+  "name": "@brettmcm/astraui",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.cjs",
