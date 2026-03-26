@@ -163,7 +163,7 @@ export default function DesignSystemOverview() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-              <path d="M0 12.8C0 8.32 0 6.08.87 4.37A8 8 0 0 1 4.37.87C6.08 0 8.32 0 12.8 0h6.4c4.48 0 6.72 0 8.43.87a8 8 0 0 1 3.5 3.5C32 6.08 32 8.32 32 12.8v6.4c0 4.48 0 6.72-.87 8.43a8 8 0 0 1-3.5 3.5C25.92 32 23.68 32 19.2 32h-6.4c-4.48 0-6.72 0-8.43-.87a8 8 0 0 1-3.5-3.5C0 25.92 0 23.68 0 19.2V12.8Z" fill="var(--brand-primary)" />
+              <path d="M0 12.8C0 8.32 0 6.08.87 4.37A8 8 0 0 1 4.37.87C6.08 0 8.32 0 12.8 0h6.4c4.48 0 6.72 0 8.43.87a8 8 0 0 1 3.5 3.5C32 6.08 32 8.32 32 12.8v6.4c0 4.48 0 6.72-.87 8.43a8 8 0 0 1-3.5 3.5C25.92 32 23.68 32 19.2 32h-6.4c-4.48 0-6.72 0-8.43-.87a8 8 0 0 1-3.5-3.5C0 25.92 0 23.68 0 19.2V12.8Z" fill="var(--ads-brand-primary)" />
               <path d="M16.35 4c1.01 7.28 4.37 10.64 11.65 11.65v.7c-7.28 1.01-10.64 4.37-11.65 11.65h-.7C14.64 20.72 11.28 17.36 4 16.35v-.7C11.28 14.64 14.64 11.28 15.65 4h.7Z" stroke="#fff" />
             </svg>
             <span className="text-[15px] font-semibold text-text-primary">Astra UI</span>
@@ -216,32 +216,32 @@ export default function DesignSystemOverview() {
           status="complete"
         >
           <ExampleRow label="Brand">
-            <TokenSwatch color="var(--brand-primary)" name="--brand-primary" value="bg-brand-primary" />
-            <TokenSwatch color="var(--brand-hover)" name="--brand-hover" value="bg-brand-hover" />
-            <TokenSwatch color="var(--brand-dark)" name="--brand-dark" value="bg-brand-dark" />
-            <TokenSwatch color="var(--brand-secondary)" name="--brand-secondary" value="bg-brand-secondary" />
-            <TokenSwatch color="var(--brand-tertiary)" name="--brand-tertiary" value="bg-brand-tertiary" />
-            <TokenSwatch color="var(--brand-muted)" name="--brand-muted" value="bg-brand-muted" />
+            <TokenSwatch color="var(--ads-brand-primary)" name="--ads-brand-primary" value="bg-brand-primary" />
+            <TokenSwatch color="var(--ads-brand-hover)" name="--ads-brand-hover" value="bg-brand-hover" />
+            <TokenSwatch color="var(--ads-brand-dark)" name="--ads-brand-dark" value="bg-brand-dark" />
+            <TokenSwatch color="var(--ads-brand-secondary)" name="--ads-brand-secondary" value="bg-brand-secondary" />
+            <TokenSwatch color="var(--ads-brand-tertiary)" name="--ads-brand-tertiary" value="bg-brand-tertiary" />
+            <TokenSwatch color="var(--ads-brand-muted)" name="--ads-brand-muted" value="bg-brand-muted" />
           </ExampleRow>
           <ExampleRow label="Status">
-            <TokenSwatch color="var(--success)" name="--success" value="bg-success" />
-            <TokenSwatch color="var(--warning)" name="--warning" value="bg-warning" />
-            <TokenSwatch color="var(--danger)" name="--danger" value="bg-danger" />
+            <TokenSwatch color="var(--ads-success)" name="--ads-success" value="bg-success" />
+            <TokenSwatch color="var(--ads-warning)" name="--ads-warning" value="bg-warning" />
+            <TokenSwatch color="var(--ads-danger)" name="--ads-danger" value="bg-danger" />
             <TokenSwatch color="var(--destructive)" name="--destructive" value="bg-destructive" />
           </ExampleRow>
           <ExampleRow label="Surfaces">
-            <TokenSwatch color="var(--surface-dark)" name="--surface-dark" value="bg-surface-dark" />
-            <TokenSwatch color="var(--surface-dark-hover)" name="--surface-dark-hover" value="bg-surface-dark-hover" />
-            <TokenSwatch color="var(--surface-darkest)" name="--surface-darkest" value="bg-surface-darkest" />
+            <TokenSwatch color="var(--ads-surface-dark)" name="--ads-surface-dark" value="bg-surface-dark" />
+            <TokenSwatch color="var(--ads-surface-dark-hover)" name="--ads-surface-dark-hover" value="bg-surface-dark-hover" />
+            <TokenSwatch color="var(--ads-surface-darkest)" name="--ads-surface-darkest" value="bg-surface-darkest" />
           </ExampleRow>
           <ExampleRow label="Text & Borders (opacity-based)">
-            <TokenSwatch color="var(--text-primary)" name="--text-primary" value="text-text-primary" />
-            <TokenSwatch color="var(--text-secondary)" name="--text-secondary" value="text-text-secondary" />
-            <TokenSwatch color="var(--border-primary)" name="--border-primary" value="border-border-primary" />
-            <TokenSwatch color="var(--border-secondary)" name="--border-secondary" value="border-border-secondary" />
-            <TokenSwatch color="var(--bg-faint)" name="--bg-faint" value="bg-bg-faint" />
-            <TokenSwatch color="var(--bg-subtle)" name="--bg-subtle" value="bg-bg-subtle" />
-            <TokenSwatch color="var(--bg-hover)" name="--bg-hover" value="bg-bg-hover" />
+            <TokenSwatch color="var(--ads-text-primary)" name="--ads-text-primary" value="text-text-primary" />
+            <TokenSwatch color="var(--ads-text-secondary)" name="--ads-text-secondary" value="text-text-secondary" />
+            <TokenSwatch color="var(--ads-border-primary)" name="--ads-border-primary" value="border-border-primary" />
+            <TokenSwatch color="var(--ads-border-secondary)" name="--ads-border-secondary" value="border-border-secondary" />
+            <TokenSwatch color="var(--ads-bg-faint)" name="--ads-bg-faint" value="bg-bg-faint" />
+            <TokenSwatch color="var(--ads-bg-subtle)" name="--ads-bg-subtle" value="bg-bg-subtle" />
+            <TokenSwatch color="var(--ads-bg-hover)" name="--ads-bg-hover" value="bg-bg-hover" />
           </ExampleRow>
 
           <div className="mt-3 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-[12px] text-emerald-800">

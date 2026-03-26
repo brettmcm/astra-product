@@ -72,7 +72,7 @@ export function ShareModal({ isOpen, onClose, projectName = 'this project' }: Sh
             onClick={onClose}
             className="size-[24px] flex items-center justify-center rounded hover:bg-bg-hover transition-colors"
           >
-            <X className="size-[16px]" color="var(--text-secondary)" />
+            <X className="size-[16px]" color="var(--ads-text-secondary)" />
           </button>
         </div>
 

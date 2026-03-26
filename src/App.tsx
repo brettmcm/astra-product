@@ -52,9 +52,9 @@ function AppleIcon({ className }: { className?: string }) {
 function Divider({ text }: { text: string }) {
   return (
     <div className="flex items-center gap-3 my-2">
-      <div className="flex-1 h-px bg-[var(--border-secondary)]" />
-      <span className="text-[12px] text-[var(--text-tertiary)] font-medium uppercase tracking-wider">{text}</span>
-      <div className="flex-1 h-px bg-[var(--border-secondary)]" />
+      <div className="flex-1 h-px bg-[var(--ads-border-secondary)]" />
+      <span className="text-[12px] text-[var(--ads-text-tertiary)] font-medium uppercase tracking-wider">{text}</span>
+      <div className="flex-1 h-px bg-[var(--ads-border-secondary)]" />
     </div>
   )
 }
@@ -72,7 +72,7 @@ function PasswordStrength({ password }: { password: string }) {
 
   if (!password) return null
 
-  const colors = ['bg-[var(--danger)]', 'bg-[var(--danger)]', 'bg-[var(--warning)]', 'bg-[var(--warning)]', 'bg-[var(--success)]']
+  const colors = ['bg-[var(--ads-danger)]', 'bg-[var(--ads-danger)]', 'bg-[var(--ads-warning)]', 'bg-[var(--ads-warning)]', 'bg-[var(--ads-success)]']
 
   return (
     <div className="space-y-2">
@@ -80,13 +80,13 @@ function PasswordStrength({ password }: { password: string }) {
         {[0, 1, 2, 3].map(i => (
           <div
             key={i}
-            className={`h-[3px] flex-1 rounded-full transition-colors ${i < score ? colors[score] : 'bg-[var(--bg-subtle)]'}`}
+            className={`h-[3px] flex-1 rounded-full transition-colors ${i < score ? colors[score] : 'bg-[var(--ads-bg-subtle)]'}`}
           />
         ))}
       </div>
       <div className="flex flex-wrap gap-x-3 gap-y-1">
         {checks.map(c => (
-          <span key={c.label} className={`text-[11px] ${c.pass ? 'text-[var(--text-secondary)]' : 'text-[var(--text-tertiary)]'}`}>
+          <span key={c.label} className={`text-[11px] ${c.pass ? 'text-[var(--ads-text-secondary)]' : 'text-[var(--ads-text-tertiary)]'}`}>
             {c.pass ? '✓' : '○'} {c.label}
           </span>
         ))}
@@ -175,16 +175,16 @@ export default function App() {
 
   if (submitState === 'success') {
     return (
-      <div className="min-h-screen bg-[var(--surface-bg)] flex items-center justify-center p-6">
+      <div className="min-h-screen bg-[var(--ads-surface-bg)] flex items-center justify-center p-6">
         <div className="w-full max-w-[400px] text-center space-y-6">
-          <div className="inline-flex items-center justify-center size-16 rounded-2xl bg-[var(--brand-tertiary)]">
+          <div className="inline-flex items-center justify-center size-16 rounded-2xl bg-[var(--ads-brand-tertiary)]">
             <AstraLogo size={40} />
           </div>
           <div>
-            <h1 className="text-[24px] font-semibold text-[var(--text-primary)] font-[var(--font-display)]">
+            <h1 className="text-[24px] font-semibold text-[var(--ads-text-primary)] font-[var(--font-display)]">
               {view === 'forgot-password' ? 'Check your email' : 'Welcome to Astra'}
             </h1>
-            <p className="text-[14px] text-[var(--text-secondary)] mt-2">
+            <p className="text-[14px] text-[var(--ads-text-secondary)] mt-2">
               {view === 'forgot-password'
                 ? `We sent a reset link to ${email}`
                 : view === 'signup'
@@ -210,9 +210,9 @@ export default function App() {
   // ─── Auth forms ─────────────────────────────────────────────────────────
 
   return (
-    <div className="min-h-screen bg-[var(--surface-bg)] flex">
+    <div className="min-h-screen bg-[var(--ads-surface-bg)] flex">
       {/* Left brand panel */}
-      <div className="hidden lg:flex lg:w-[480px] xl:w-[560px] bg-[var(--brand-primary)] flex-col justify-between p-12 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-[480px] xl:w-[560px] bg-[var(--ads-brand-primary)] flex-col justify-between p-12 relative overflow-hidden">
         {/* Decorative star shapes */}
         <div className="absolute inset-0 opacity-[0.06]">
           <svg className="absolute -top-20 -left-20 size-[300px]" viewBox="0 0 32 32" fill="white">
@@ -246,13 +246,13 @@ export default function App() {
 
           {/* Header */}
           <div className="space-y-1">
-            <h1 className="text-[24px] font-semibold text-[var(--text-primary)]">
+            <h1 className="text-[24px] font-semibold text-[var(--ads-text-primary)]">
               {view === 'login' && 'Sign in to Astra'}
               {view === 'signup' && 'Create your account'}
               {view === 'sso' && 'Sign in with SSO'}
               {view === 'forgot-password' && 'Reset your password'}
             </h1>
-            <p className="text-[14px] text-[var(--text-secondary)]">
+            <p className="text-[14px] text-[var(--ads-text-secondary)]">
               {view === 'login' && 'Welcome back. Enter your credentials to continue.'}
               {view === 'signup' && 'Get started with Astra for free.'}
               {view === 'sso' && 'Enter your organization to continue.'}
@@ -276,7 +276,7 @@ export default function App() {
                 placeholder="your-company"
                 value={ssoOrg}
                 onChange={setSsoOrg}
-                prefix={<Building2 size={16} className="text-[var(--text-tertiary)]" />}
+                prefix={<Building2 size={16} className="text-[var(--ads-text-tertiary)]" />}
                 suffix=".sso.astra.ai"
               />
               <Button
@@ -290,7 +290,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => switchView('login')}
-                className="w-full text-center text-[13px] text-[var(--brand-primary)] hover:underline cursor-pointer"
+                className="w-full text-center text-[13px] text-[var(--ads-brand-primary)] hover:underline cursor-pointer"
               >
                 Back to sign in
               </button>
@@ -306,10 +306,10 @@ export default function App() {
                   placeholder="you@example.com"
                   value={email}
                   onChange={setEmail}
-                  prefix={<Mail size={16} className="text-[var(--text-tertiary)]" />}
+                  prefix={<Mail size={16} className="text-[var(--ads-text-tertiary)]" />}
                   onBlur={() => handleBlur('email')}
                 />
-                {emailError && <p className="text-[12px] text-[var(--danger)] mt-1">{emailError}</p>}
+                {emailError && <p className="text-[12px] text-[var(--ads-danger)] mt-1">{emailError}</p>}
               </div>
               <Button
                 variant="primary"
@@ -322,7 +322,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => switchView('login')}
-                className="w-full text-center text-[13px] text-[var(--brand-primary)] hover:underline cursor-pointer"
+                className="w-full text-center text-[13px] text-[var(--ads-brand-primary)] hover:underline cursor-pointer"
               >
                 Back to sign in
               </button>
@@ -334,33 +334,33 @@ export default function App() {
             <>
               {/* Social buttons */}
               <div className="space-y-3">
-                <button
-                  type="button"
+                <Button
+                  variant="neutral"
                   onClick={() => handleSocialLogin('google')}
                   disabled={submitState === 'loading'}
-                  className="w-full flex items-center justify-center gap-3 h-[44px] rounded-lg border border-[var(--border-primary)] bg-[var(--surface-bg)] hover:bg-[var(--surface-hover)] transition-colors text-[14px] font-medium text-[var(--text-primary)] disabled:opacity-50 cursor-pointer"
+                  iconStart={<GoogleIcon className="size-5" />}
+                  className="w-full"
                 >
-                  <GoogleIcon className="size-5" />
                   Continue with Google
-                </button>
-                <button
-                  type="button"
+                </Button>
+                <Button
+                  variant="neutral"
                   onClick={() => handleSocialLogin('apple')}
                   disabled={submitState === 'loading'}
-                  className="w-full flex items-center justify-center gap-3 h-[44px] rounded-lg border border-[var(--border-primary)] bg-[var(--surface-bg)] hover:bg-[var(--surface-hover)] transition-colors text-[14px] font-medium text-[var(--text-primary)] disabled:opacity-50 cursor-pointer"
+                  iconStart={<AppleIcon className="size-5" />}
+                  className="w-full"
                 >
-                  <AppleIcon className="size-5" />
                   Continue with Apple
-                </button>
-                <button
-                  type="button"
+                </Button>
+                <Button
+                  variant="neutral"
                   onClick={() => switchView('sso')}
                   disabled={submitState === 'loading'}
-                  className="w-full flex items-center justify-center gap-3 h-[44px] rounded-lg border border-[var(--border-primary)] bg-[var(--surface-bg)] hover:bg-[var(--surface-hover)] transition-colors text-[14px] font-medium text-[var(--text-primary)] disabled:opacity-50 cursor-pointer"
+                  iconStart={<Building2 size={18} className="text-[var(--ads-text-secondary)]" />}
+                  className="w-full"
                 >
-                  <Building2 size={18} className="text-[var(--text-secondary)]" />
                   Continue with SSO
-                </button>
+                </Button>
               </div>
 
               <Divider text="or" />
@@ -373,10 +373,10 @@ export default function App() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={setEmail}
-                    prefix={<Mail size={16} className="text-[var(--text-tertiary)]" />}
+                    prefix={<Mail size={16} className="text-[var(--ads-text-tertiary)]" />}
                     onBlur={() => handleBlur('email')}
                   />
-                  {emailError && <p className="text-[12px] text-[var(--danger)] mt-1">{emailError}</p>}
+                  {emailError && <p className="text-[12px] text-[var(--ads-danger)] mt-1">{emailError}</p>}
                 </div>
 
                 <div>
@@ -386,12 +386,12 @@ export default function App() {
                       placeholder={view === 'signup' ? 'Create a password' : 'Enter your password'}
                       value={password}
                       onChange={setPassword}
-                      prefix={<Lock size={16} className="text-[var(--text-tertiary)]" />}
+                      prefix={<Lock size={16} className="text-[var(--ads-text-tertiary)]" />}
                       suffix={
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] transition-colors cursor-pointer"
+                          className="text-[var(--ads-text-tertiary)] hover:text-[var(--ads-text-secondary)] transition-colors cursor-pointer"
                           tabIndex={-1}
                         >
                           {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -401,7 +401,7 @@ export default function App() {
                       type={showPassword ? 'text' : 'password'}
                     />
                   </div>
-                  {passwordError && <p className="text-[12px] text-[var(--danger)] mt-1">{passwordError}</p>}
+                  {passwordError && <p className="text-[12px] text-[var(--ads-danger)] mt-1">{passwordError}</p>}
                   {view === 'signup' && <div className="mt-2"><PasswordStrength password={password} /></div>}
                 </div>
 
@@ -412,11 +412,11 @@ export default function App() {
                       placeholder="Re-enter your password"
                       value={confirmPassword}
                       onChange={setConfirmPassword}
-                      prefix={<Lock size={16} className="text-[var(--text-tertiary)]" />}
+                      prefix={<Lock size={16} className="text-[var(--ads-text-tertiary)]" />}
                       onBlur={() => handleBlur('confirmPassword')}
                       type={showPassword ? 'text' : 'password'}
                     />
-                    {confirmError && <p className="text-[12px] text-[var(--danger)] mt-1">{confirmError}</p>}
+                    {confirmError && <p className="text-[12px] text-[var(--ads-danger)] mt-1">{confirmError}</p>}
                   </div>
                 )}
 
@@ -425,7 +425,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => switchView('forgot-password')}
-                      className="text-[13px] text-[var(--brand-primary)] hover:underline cursor-pointer"
+                      className="text-[13px] text-[var(--ads-brand-primary)] hover:underline cursor-pointer"
                     >
                       Forgot password?
                     </button>
@@ -446,12 +446,12 @@ export default function App() {
               </form>
 
               {/* Toggle login/signup */}
-              <p className="text-center text-[13px] text-[var(--text-secondary)]">
+              <p className="text-center text-[13px] text-[var(--ads-text-secondary)]">
                 {view === 'login' ? "Don't have an account? " : 'Already have an account? '}
                 <button
                   type="button"
                   onClick={() => switchView(view === 'login' ? 'signup' : 'login')}
-                  className="text-[var(--brand-primary)] font-medium hover:underline cursor-pointer"
+                  className="text-[var(--ads-brand-primary)] font-medium hover:underline cursor-pointer"
                 >
                   {view === 'login' ? 'Sign up' : 'Sign in'}
                 </button>

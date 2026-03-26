@@ -7,48 +7,48 @@
   --font-weight-normal: 400;
 
   /* ── Astra brand ── */
-  --brand-primary: #5250f3;
-  --brand-hover: #4240d4;
-  --brand-dark: #3B3AC3;
-  --brand-secondary: #d1d0f9;
-  --brand-tertiary: #eaeaff;
-  --brand-muted: #7b7ab8;
+  --ads-brand-primary: #5250f3;
+  --ads-brand-hover: #4240d4;
+  --ads-brand-dark: #3B3AC3;
+  --ads-brand-secondary: #d1d0f9;
+  --ads-brand-tertiary: #eaeaff;
+  --ads-brand-muted: #7b7ab8;
 
   /* ── Semantic status ── */
-  --success: #47fc74;
-  --warning: #f8d33f;
-  --danger: #cf2828;
+  --ads-success: #47fc74;
+  --ads-warning: #f8d33f;
+  --ads-danger: #cf2828;
 
   /* ── Surfaces ── */
-  --surface-bg: #ffffff;
-  --surface-secondary-bg: rgba(255, 255, 255, 0.5);
-  --surface-hover: #f5f5f7;
-  --surface-dark: #22222c;
-  --surface-dark-hover: #333341;
-  --surface-darkest: #1e1e1e;
+  --ads-surface-bg: #ffffff;
+  --ads-surface-secondary-bg: rgba(255, 255, 255, 0.5);
+  --ads-surface-hover: #f5f5f7;
+  --ads-surface-dark: #22222c;
+  --ads-surface-dark-hover: #333341;
+  --ads-surface-darkest: #1e1e1e;
 
   /* ── Text (opacity-based for consistency across backgrounds) ── */
-  --text-primary: rgba(0, 0, 0, 0.85);
-  --text-secondary: rgba(0, 0, 0, 0.5);
-  --text-tertiary: rgba(0, 0, 0, 0.3);
+  --ads-text-primary: rgba(0, 0, 0, 0.85);
+  --ads-text-secondary: rgba(0, 0, 0, 0.5);
+  --ads-text-tertiary: rgba(0, 0, 0, 0.3);
 
   /* ── On-surface / reverse ── */
-  --on-brand: #ffffff;
-  --on-reverse: #1e1e1e;
+  --ads-on-brand: #ffffff;
+  --ads-on-reverse: #1e1e1e;
 
   /* ── Borders ── */
-  --border-primary: rgba(0, 0, 0, 0.15);
-  --border-secondary: rgba(0, 0, 0, 0.05);
-  --border-selected: rgba(0, 0, 0, 0.8);
+  --ads-border-primary: rgba(0, 0, 0, 0.15);
+  --ads-border-secondary: rgba(0, 0, 0, 0.05);
+  --ads-border-selected: rgba(0, 0, 0, 0.8);
 
   /* ── Input ── */
-  --input-bg: rgba(0, 0, 0, 0.05);
+  --ads-input-bg: rgba(0, 0, 0, 0.05);
 
   /* ── Background tints ── */
-  --bg-faint: rgba(0, 0, 0, 0.02);
-  --bg-subtle: rgba(0, 0, 0, 0.05);
-  --bg-hover: rgba(0, 0, 0, 0.08);
-  --modal-scrim: rgba(0, 0, 0, 0.75);
+  --ads-bg-faint: rgba(0, 0, 0, 0.02);
+  --ads-bg-subtle: rgba(0, 0, 0, 0.05);
+  --ads-bg-hover: rgba(0, 0, 0, 0.08);
+  --ads-modal-scrim: rgba(0, 0, 0, 0.75);
 
   /* ── Spacing ── */
   --space-xs: 4px;
@@ -65,60 +65,60 @@
   --corner-full: 999px;
 
   /* ── Toast cancel (dark-on-brand context) ── */
-  --toast-cancel: #093077;
-  --toast-cancel-hover: #0a3a85;
-  --toast-cancel-active: #072961;
+  --ads-toast-cancel: #093077;
+  --ads-toast-cancel-hover: #0a3a85;
+  --ads-toast-cancel-active: #072961;
 }
 
 .dark {
   /* ── Astra brand (dark) ── */
-  --brand-primary: #5250f3;
-  --brand-hover: #5d5be8;
-  --brand-dark: #4f4dd9;
-  --brand-secondary: #7B7AB8;
-  --brand-tertiary: #161621;
-  --brand-muted: #9594c8;
+  --ads-brand-primary: #5250f3;
+  --ads-brand-hover: #5d5be8;
+  --ads-brand-dark: #4f4dd9;
+  --ads-brand-secondary: #7B7AB8;
+  --ads-brand-tertiary: #161621;
+  --ads-brand-muted: #9594c8;
 
   /* ── Semantic status (dark) ── */
-  --success: #47fc74;
-  --warning: #f8d33f;
-  --danger: #cf2828;
+  --ads-success: #47fc74;
+  --ads-warning: #f8d33f;
+  --ads-danger: #cf2828;
 
   /* ── Surfaces (dark) ── */
-  --surface-bg: #161621;
-  --surface-secondary-bg: rgba(255, 255, 255, 0.03);
-  --surface-hover: #2a2a3a;
-  --surface-dark: #1a1a24;
-  --surface-dark-hover: #26263a;
-  --surface-darkest: #111118;
+  --ads-surface-bg: #161621;
+  --ads-surface-secondary-bg: rgba(255, 255, 255, 0.03);
+  --ads-surface-hover: #2a2a3a;
+  --ads-surface-dark: #1a1a24;
+  --ads-surface-dark-hover: #26263a;
+  --ads-surface-darkest: #111118;
 
   /* ── Text (dark – inverted to white-based opacity) ── */
-  --text-primary: rgba(255, 255, 255, 0.85);
-  --text-secondary: rgba(255, 255, 255, 0.5);
-  --text-tertiary: rgba(255, 255, 255, 0.3);
+  --ads-text-primary: rgba(255, 255, 255, 0.85);
+  --ads-text-secondary: rgba(255, 255, 255, 0.5);
+  --ads-text-tertiary: rgba(255, 255, 255, 0.3);
 
   /* ── On-surface / reverse (dark) ── */
-  --on-brand: #ffffff;
-  --on-reverse: #1e1e1e;
+  --ads-on-brand: #ffffff;
+  --ads-on-reverse: #1e1e1e;
 
   /* ── Borders (dark) ── */
-  --border-primary: rgba(255, 255, 255, 0.15);
-  --border-secondary: rgba(255, 255, 255, 0.05);
-  --border-selected: rgba(0, 0, 0, 0.8);
+  --ads-border-primary: rgba(255, 255, 255, 0.15);
+  --ads-border-secondary: rgba(255, 255, 255, 0.05);
+  --ads-border-selected: rgba(0, 0, 0, 0.8);
 
   /* ── Input (dark) ── */
-  --input-bg: rgba(255, 255, 255, 0.05);
+  --ads-input-bg: rgba(255, 255, 255, 0.05);
 
   /* ── Background tints (dark – white-based for visibility on dark) ── */
-  --bg-faint: rgba(255, 255, 255, 0.03);
-  --bg-subtle: rgba(255, 255, 255, 0.06);
-  --bg-hover: rgba(255, 255, 255, 0.1);
-  --modal-scrim: rgba(0, 0, 0, 0.75);
+  --ads-bg-faint: rgba(255, 255, 255, 0.03);
+  --ads-bg-subtle: rgba(255, 255, 255, 0.06);
+  --ads-bg-hover: rgba(255, 255, 255, 0.1);
+  --ads-modal-scrim: rgba(0, 0, 0, 0.75);
 
   /* ── Toast cancel (dark) ── */
-  --toast-cancel: #1a3f8a;
-  --toast-cancel-hover: #224ba0;
-  --toast-cancel-active: #13326e;
+  --ads-toast-cancel: #1a3f8a;
+  --ads-toast-cancel-hover: #224ba0;
+  --ads-toast-cancel-active: #13326e;
 }
 
 @theme inline {
@@ -163,53 +163,53 @@
   --text-caption--line-height: 1.4;
 
   /* ── Astra brand ── */
-  --color-brand-primary: var(--brand-primary);
-  --color-brand-hover: var(--brand-hover);
-  --color-brand-dark: var(--brand-dark);
-  --color-brand-secondary: var(--brand-secondary);
-  --color-brand-tertiary: var(--brand-tertiary);
-  --color-brand-muted: var(--brand-muted);
+  --color-brand-primary: var(--ads-brand-primary);
+  --color-brand-hover: var(--ads-brand-hover);
+  --color-brand-dark: var(--ads-brand-dark);
+  --color-brand-secondary: var(--ads-brand-secondary);
+  --color-brand-tertiary: var(--ads-brand-tertiary);
+  --color-brand-muted: var(--ads-brand-muted);
 
   /* ── Semantic status ── */
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
+  --color-success: var(--ads-success);
+  --color-warning: var(--ads-warning);
+  --color-danger: var(--ads-danger);
 
   /* ── Surfaces ── */
-  --color-surface-bg: var(--surface-bg);
-  --color-surface-secondary-bg: var(--surface-secondary-bg);
-  --color-surface-hover: var(--surface-hover);
-  --color-surface-dark: var(--surface-dark);
-  --color-surface-dark-hover: var(--surface-dark-hover);
-  --color-surface-darkest: var(--surface-darkest);
+  --color-surface-bg: var(--ads-surface-bg);
+  --color-surface-secondary-bg: var(--ads-surface-secondary-bg);
+  --color-surface-hover: var(--ads-surface-hover);
+  --color-surface-dark: var(--ads-surface-dark);
+  --color-surface-dark-hover: var(--ads-surface-dark-hover);
+  --color-surface-darkest: var(--ads-surface-darkest);
 
   /* ── Text ── */
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
+  --color-text-primary: var(--ads-text-primary);
+  --color-text-secondary: var(--ads-text-secondary);
+  --color-text-tertiary: var(--ads-text-tertiary);
 
   /* ── On-surface / reverse ── */
-  --color-on-brand: var(--on-brand);
-  --color-on-reverse: var(--on-reverse);
+  --color-on-brand: var(--ads-on-brand);
+  --color-on-reverse: var(--ads-on-reverse);
 
   /* ── Borders ── */
-  --color-border-primary: var(--border-primary);
-  --color-border-secondary: var(--border-secondary);
-  --color-border-selected: var(--border-selected);
+  --color-border-primary: var(--ads-border-primary);
+  --color-border-secondary: var(--ads-border-secondary);
+  --color-border-selected: var(--ads-border-selected);
 
   /* ── Input ── */
-  --color-input-bg: var(--input-bg);
+  --color-input-bg: var(--ads-input-bg);
 
   /* ── Background tints ── */
-  --color-bg-faint: var(--bg-faint);
-  --color-bg-subtle: var(--bg-subtle);
-  --color-bg-hover: var(--bg-hover);
-  --color-modal-scrim: var(--modal-scrim);
+  --color-bg-faint: var(--ads-bg-faint);
+  --color-bg-subtle: var(--ads-bg-subtle);
+  --color-bg-hover: var(--ads-bg-hover);
+  --color-modal-scrim: var(--ads-modal-scrim);
 
   /* ── Toast cancel ── */
-  --color-toast-cancel: var(--toast-cancel);
-  --color-toast-cancel-hover: var(--toast-cancel-hover);
-  --color-toast-cancel-active: var(--toast-cancel-active);
+  --color-toast-cancel: var(--ads-toast-cancel);
+  --color-toast-cancel-hover: var(--ads-toast-cancel-hover);
+  --color-toast-cancel-active: var(--ads-toast-cancel-active);
 }
 
 html {

@@ -16,7 +16,7 @@ export function DurationBadge({
         className
       )}
     >
-      <span className="text-input-sm whitespace-nowrap" style={{ color: 'var(--on-brand)' }}>
+      <span className="text-input-sm whitespace-nowrap" style={{ color: 'var(--ads-on-brand)' }}>
         {duration}
       </span>
     </div>

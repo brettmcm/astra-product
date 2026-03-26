@@ -36,8 +36,8 @@ export function FavoriteButton({
       <Star
         size={14}
         strokeWidth={2}
-        color={favorited ? 'var(--brand-primary)' : 'currentColor'}
-        fill={favorited ? 'var(--brand-primary)' : 'none'}
+        color={favorited ? 'var(--ads-brand-primary)' : 'currentColor'}
+        fill={favorited ? 'var(--ads-brand-primary)' : 'none'}
       />
     </button>
   );

@@ -26,12 +26,12 @@ export function Badge({
   };
 
   const iconColors = {
-    default: 'var(--text-primary)',
-    success: 'var(--surface-darkest)',
-    warning: 'var(--surface-darkest)',
-    danger: 'var(--surface-darkest)',
+    default: 'var(--ads-text-primary)',
+    success: 'var(--ads-surface-darkest)',
+    warning: 'var(--ads-surface-darkest)',
+    danger: 'var(--ads-surface-darkest)',
     brand: 'white',
-    secondary: 'var(--text-primary)'
+    secondary: 'var(--ads-text-primary)'
   };
 
   const handleRemove = () => {

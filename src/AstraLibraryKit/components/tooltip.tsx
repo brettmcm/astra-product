@@ -71,7 +71,7 @@ export function Tooltip({
               'animate-in fade-in duration-150',
               className
             )}
-            style={{ color: 'var(--on-brand)' }}
+            style={{ color: 'var(--ads-on-brand)' }}
           >
             {content}
             <div

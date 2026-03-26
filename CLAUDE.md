@@ -79,54 +79,54 @@ All design tokens are CSS custom properties defined in the package's CSS. They s
 #### Brand Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--brand-primary` | `#5250f3` | `#5250f3` |
-| `--brand-hover` | `#4240d4` | `#5d5be8` |
-| `--brand-dark` | `#3B3AC3` | `#4f4dd9` |
-| `--brand-secondary` | `#d1d0f9` | `#7B7AB8` |
-| `--brand-tertiary` | `#eaeaff` | `#161621` |
-| `--brand-muted` | `#7b7ab8` | `#9594c8` |
+| `--ads-brand-primary` | `#5250f3` | `#5250f3` |
+| `--ads-brand-hover` | `#4240d4` | `#5d5be8` |
+| `--ads-brand-dark` | `#3B3AC3` | `#4f4dd9` |
+| `--ads-brand-secondary` | `#d1d0f9` | `#7B7AB8` |
+| `--ads-brand-tertiary` | `#eaeaff` | `#161621` |
+| `--ads-brand-muted` | `#7b7ab8` | `#9594c8` |
 
 #### Status Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--success` | `#47fc74` | `#47fc74` |
-| `--warning` | `#f8d33f` | `#f8d33f` |
-| `--danger` | `#cf2828` | `#cf2828` |
+| `--ads-success` | `#47fc74` | `#47fc74` |
+| `--ads-warning` | `#f8d33f` | `#f8d33f` |
+| `--ads-danger` | `#cf2828` | `#cf2828` |
 
 #### Surface Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--surface-bg` | `#ffffff` | `#161621` |
-| `--surface-secondary-bg` | `rgba(255,255,255,0.5)` | `rgba(255,255,255,0.03)` |
-| `--surface-hover` | `#f5f5f7` | `#2a2a3a` |
-| `--surface-dark` | `#22222c` | `#1a1a24` |
-| `--surface-dark-hover` | `#333341` | `#26263a` |
-| `--surface-darkest` | `#1e1e1e` | `#111118` |
+| `--ads-surface-bg` | `#ffffff` | `#161621` |
+| `--ads-surface-secondary-bg` | `rgba(255,255,255,0.5)` | `rgba(255,255,255,0.03)` |
+| `--ads-surface-hover` | `#f5f5f7` | `#2a2a3a` |
+| `--ads-surface-dark` | `#22222c` | `#1a1a24` |
+| `--ads-surface-dark-hover` | `#333341` | `#26263a` |
+| `--ads-surface-darkest` | `#1e1e1e` | `#111118` |
 
 #### Text Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--text-primary` | `rgba(0,0,0,0.85)` | `rgba(255,255,255,0.85)` |
-| `--text-secondary` | `rgba(0,0,0,0.5)` | `rgba(255,255,255,0.5)` |
-| `--text-tertiary` | `rgba(0,0,0,0.3)` | `rgba(255,255,255,0.3)` |
+| `--ads-text-primary` | `rgba(0,0,0,0.85)` | `rgba(255,255,255,0.85)` |
+| `--ads-text-secondary` | `rgba(0,0,0,0.5)` | `rgba(255,255,255,0.5)` |
+| `--ads-text-tertiary` | `rgba(0,0,0,0.3)` | `rgba(255,255,255,0.3)` |
 
 #### Border Colors
 | Token | Light | Dark |
 |---|---|---|
-| `--border-secondary` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.05)` |
-| `--border-primary` | `rgba(0,0,0,0.15)` | `rgba(255,255,255,0.15)` |
-| `--border-selected` | `rgba(0,0,0,0.8)` | `rgba(0,0,0,0.8)` |
+| `--ads-border-secondary` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.05)` |
+| `--ads-border-primary` | `rgba(0,0,0,0.15)` | `rgba(255,255,255,0.15)` |
+| `--ads-border-selected` | `rgba(0,0,0,0.8)` | `rgba(0,0,0,0.8)` |
 
 #### Background Tints
 | Token | Light | Dark |
 |---|---|---|
-| `--bg-faint` | `rgba(0,0,0,0.02)` | `rgba(255,255,255,0.03)` |
-| `--bg-subtle` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.06)` |
-| `--bg-hover` | `rgba(0,0,0,0.08)` | `rgba(255,255,255,0.1)` |
-| `--on-brand` | `#ffffff` | `#ffffff` |
-| `--on-reverse` | `#1e1e1e` | `#1e1e1e` |
-| `--input-bg` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.05)` |
-| `--modal-scrim` | `rgba(0,0,0,0.75)` | `rgba(0,0,0,0.75)` |
+| `--ads-bg-faint` | `rgba(0,0,0,0.02)` | `rgba(255,255,255,0.03)` |
+| `--ads-bg-subtle` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.06)` |
+| `--ads-bg-hover` | `rgba(0,0,0,0.08)` | `rgba(255,255,255,0.1)` |
+| `--ads-on-brand` | `#ffffff` | `#ffffff` |
+| `--ads-on-reverse` | `#1e1e1e` | `#1e1e1e` |
+| `--ads-input-bg` | `rgba(0,0,0,0.05)` | `rgba(255,255,255,0.05)` |
+| `--ads-modal-scrim` | `rgba(0,0,0,0.75)` | `rgba(0,0,0,0.75)` |
 
 ### Tailwind Theme Mapping
 

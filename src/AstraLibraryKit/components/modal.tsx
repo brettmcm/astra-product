@@ -68,7 +68,7 @@ export function Modal({
               onClick={onClose}
               className="size-6 flex items-center justify-center rounded-md hover:bg-bg-hover transition-colors"
             >
-              <X size={16} color="var(--text-secondary)" />
+              <X size={16} color="var(--ads-text-secondary)" />
             </button>
           </div>
         )}
