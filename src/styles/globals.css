@@ -68,6 +68,59 @@
   --ads-toast-cancel: #093077;
   --ads-toast-cancel-hover: #0a3a85;
   --ads-toast-cancel-active: #072961;
+
+  /* ═══════════════════════════════════════════
+     Semantic layer — intent-based aliases
+     These reference primitives via var() so
+     dark mode swaps automatically.
+     ═══════════════════════════════════════════ */
+
+  /* ── Semantic: Action (buttons, links, interactive controls) ── */
+  --ads-action-bg: var(--ads-brand-primary);
+  --ads-action-bg-hover: var(--ads-brand-hover);
+  --ads-action-bg-active: var(--ads-brand-dark);
+  --ads-action-bg-secondary: var(--ads-brand-secondary);
+  --ads-action-text: var(--ads-on-brand);
+  --ads-action-border: var(--ads-brand-primary);
+
+  /* ── Semantic: Field (inputs, selects, textareas) ── */
+  --ads-field-bg: var(--ads-input-bg);
+  --ads-field-border: var(--ads-border-primary);
+  --ads-field-border-focus: var(--ads-brand-primary);
+  --ads-field-text: var(--ads-text-primary);
+  --ads-field-placeholder: var(--ads-text-secondary);
+
+  /* ── Semantic: Navigation (sidebar, tabs, secondary nav) ── */
+  --ads-nav-bg: var(--ads-surface-dark);
+  --ads-nav-item-active-bg: var(--ads-brand-tertiary);
+  --ads-nav-item-active-text: var(--ads-brand-primary);
+  --ads-nav-item-text: var(--ads-text-secondary);
+  --ads-nav-item-hover: var(--ads-bg-hover);
+
+  /* ── Semantic: Content (cards, containers, page surfaces) ── */
+  --ads-content-bg: var(--ads-surface-bg);
+  --ads-content-bg-secondary: var(--ads-surface-secondary-bg);
+  --ads-content-border: var(--ads-border-secondary);
+  --ads-content-text: var(--ads-text-primary);
+  --ads-content-text-muted: var(--ads-text-secondary);
+  --ads-content-text-faint: var(--ads-text-tertiary);
+
+  /* ── Semantic: Overlay (modals, tooltips, dropdowns) ── */
+  --ads-overlay-bg: var(--ads-surface-dark);
+  --ads-overlay-text: var(--ads-on-brand);
+  --ads-overlay-scrim: var(--ads-modal-scrim);
+  --ads-overlay-surface: var(--ads-surface-bg);
+  --ads-overlay-border: var(--ads-border-primary);
+
+  /* ── Semantic: Feedback (status, toasts, validation) ── */
+  --ads-feedback-success: var(--ads-success);
+  --ads-feedback-warning: var(--ads-warning);
+  --ads-feedback-error: var(--ads-danger);
+
+  /* ── Semantic: Tint (subtle background fills) ── */
+  --ads-tint-faint: var(--ads-bg-faint);
+  --ads-tint-subtle: var(--ads-bg-subtle);
+  --ads-tint-hover: var(--ads-bg-hover);
 }
 
 .dark {
@@ -210,6 +263,53 @@
   --color-toast-cancel: var(--ads-toast-cancel);
   --color-toast-cancel-hover: var(--ads-toast-cancel-hover);
   --color-toast-cancel-active: var(--ads-toast-cancel-active);
+
+  /* ── Semantic: Action ── */
+  --color-action-bg: var(--ads-action-bg);
+  --color-action-bg-hover: var(--ads-action-bg-hover);
+  --color-action-bg-active: var(--ads-action-bg-active);
+  --color-action-bg-secondary: var(--ads-action-bg-secondary);
+  --color-action-text: var(--ads-action-text);
+  --color-action-border: var(--ads-action-border);
+
+  /* ── Semantic: Field ── */
+  --color-field-bg: var(--ads-field-bg);
+  --color-field-border: var(--ads-field-border);
+  --color-field-border-focus: var(--ads-field-border-focus);
+  --color-field-text: var(--ads-field-text);
+  --color-field-placeholder: var(--ads-field-placeholder);
+
+  /* ── Semantic: Navigation ── */
+  --color-nav-bg: var(--ads-nav-bg);
+  --color-nav-item-active-bg: var(--ads-nav-item-active-bg);
+  --color-nav-item-active-text: var(--ads-nav-item-active-text);
+  --color-nav-item-text: var(--ads-nav-item-text);
+  --color-nav-item-hover: var(--ads-nav-item-hover);
+
+  /* ── Semantic: Content ── */
+  --color-content-bg: var(--ads-content-bg);
+  --color-content-bg-secondary: var(--ads-content-bg-secondary);
+  --color-content-border: var(--ads-content-border);
+  --color-content-text: var(--ads-content-text);
+  --color-content-text-muted: var(--ads-content-text-muted);
+  --color-content-text-faint: var(--ads-content-text-faint);
+
+  /* ── Semantic: Overlay ── */
+  --color-overlay-bg: var(--ads-overlay-bg);
+  --color-overlay-text: var(--ads-overlay-text);
+  --color-overlay-scrim: var(--ads-overlay-scrim);
+  --color-overlay-surface: var(--ads-overlay-surface);
+  --color-overlay-border: var(--ads-overlay-border);
+
+  /* ── Semantic: Feedback ── */
+  --color-feedback-success: var(--ads-feedback-success);
+  --color-feedback-warning: var(--ads-feedback-warning);
+  --color-feedback-error: var(--ads-feedback-error);
+
+  /* ── Semantic: Tint ── */
+  --color-tint-faint: var(--ads-tint-faint);
+  --color-tint-subtle: var(--ads-tint-subtle);
+  --color-tint-hover: var(--ads-tint-hover);
 }
 
 html {

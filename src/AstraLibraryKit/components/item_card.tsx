@@ -22,13 +22,13 @@ export function ItemCard({
   return (
     <div
       className={cn(
-        'flex flex-col items-start overflow-clip rounded-lg border border-border-primary bg-surface-bg w-[305px]',
+        'flex flex-col items-start overflow-clip rounded-corner-md w-[305px]',
         className
       )}
     >
-      {/* Media */}
+      {/* Thumbnail */}
       <div
-        className="relative w-full aspect-[316/177] overflow-clip"
+        className="relative w-full aspect-[305/170] overflow-clip rounded-corner-md"
         style={!thumbnail ? {
           backgroundImage: 'linear-gradient(168deg, rgb(26, 58, 42) 8%, rgb(45, 90, 58) 42%, rgb(74, 122, 74) 92%)'
         } : undefined}
@@ -39,18 +39,16 @@ export function ItemCard({
           </div>
         )}
         {duration && (
-          <DurationBadge duration={duration} className="absolute bottom-3 right-3 z-10" />
+          <DurationBadge duration={duration} className="absolute bottom-4 right-4 z-10" />
         )}
       </div>
 
-      {/* Description */}
-      <div className="flex flex-col gap-1 items-start w-full px-3 py-3">
-        <p className="text-label text-text-primary w-full">{title}</p>
-        <div className="flex items-center gap-1.5 h-[13px]">
-          <span className="text-video-title text-text-primary whitespace-nowrap">{updated}</span>
-          <div className="size-[3px] rounded-sm bg-on-reverse shrink-0" />
-          <span className="text-video-title text-text-primary whitespace-nowrap">{spec}</span>
-        </div>
+      {/* Info */}
+      <div className="flex flex-col gap-1 items-start w-full py-3 text-content-text">
+        <p className="text-label font-medium whitespace-nowrap">{title}</p>
+        <p className="text-video-title whitespace-nowrap">
+          {updated} · {spec}
+        </p>
       </div>
     </div>
   );

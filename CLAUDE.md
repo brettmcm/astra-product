@@ -23,6 +23,7 @@ import {
   FavoriteButton,
   InputField,
   ItemCard,
+  ItemCardFeatured,
   Modal,
   SecondaryNav,
   SecondaryNavItem,
@@ -577,6 +578,32 @@ Auto-loops a progress animation when `progress <= 0`.
 | `onSettings` | `() => void` | — |
 | `onBackward` | `() => void` | — |
 | `onForward` | `() => void` | — |
+
+### ItemCardFeatured
+
+```tsx
+<ItemCardFeatured
+  variant="overlay"
+  title="My Video"
+  updated="Edited 2m ago"
+  spec="4K"
+  duration="0:01:30"
+  tags={['Tag Label']}
+/>
+```
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'overlay' \| 'stacked'` | `'overlay'` |
+| `title` | `string` | `'Item Title'` |
+| `updated` | `string` | `'Edited 2m ago'` |
+| `spec` | `string` | `'4K'` |
+| `duration` | `string` | `'0:01:30'` |
+| `tags` | `string[]` | `['Tag Label']` |
+| `thumbnail` | `ReactNode` | — |
+| `className` | `string` | — |
+
+Wider featured card (522px). **Overlay** variant renders title, metadata, and tags over the thumbnail with a backdrop blur. **Stacked** variant places info below the thumbnail. Uses `Badge` (secondary) for tags and `DurationBadge` for duration.
 
 ### ThemeProvider
 

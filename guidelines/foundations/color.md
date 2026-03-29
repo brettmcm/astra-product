@@ -174,6 +174,48 @@ Icons inherit text color via currentColor. Follow the text hierarchy:
 - Active sidebar item: 85% opacity via component
 - Status: `text-danger`, `text-success`
 
+## Semantic token layer
+
+Semantic tokens describe **UI intent** rather than visual category. They alias the primitive tokens above, so dark mode works automatically. Use these when building new components or migrating existing ones.
+
+| Category | Token | Resolves to | Tailwind class |
+|---|---|---|---|
+| **Action** | `--ads-action-bg` | `brand-primary` | `bg-action-bg` |
+| | `--ads-action-bg-hover` | `brand-hover` | `bg-action-bg-hover` |
+| | `--ads-action-bg-active` | `brand-dark` | `bg-action-bg-active` |
+| | `--ads-action-bg-secondary` | `brand-secondary` | `bg-action-bg-secondary` |
+| | `--ads-action-text` | `on-brand` | `text-action-text` |
+| | `--ads-action-border` | `brand-primary` | `border-action-border` |
+| **Field** | `--ads-field-bg` | `input-bg` | `bg-field-bg` |
+| | `--ads-field-border` | `border-primary` | `border-field-border` |
+| | `--ads-field-border-focus` | `brand-primary` | `border-field-border-focus` |
+| | `--ads-field-text` | `text-primary` | `text-field-text` |
+| | `--ads-field-placeholder` | `text-secondary` | `text-field-placeholder` |
+| **Navigation** | `--ads-nav-bg` | `surface-dark` | `bg-nav-bg` |
+| | `--ads-nav-item-active-bg` | `brand-tertiary` | `bg-nav-item-active-bg` |
+| | `--ads-nav-item-active-text` | `brand-primary` | `text-nav-item-active-text` |
+| | `--ads-nav-item-text` | `text-secondary` | `text-nav-item-text` |
+| | `--ads-nav-item-hover` | `bg-hover` | `bg-nav-item-hover` |
+| **Content** | `--ads-content-bg` | `surface-bg` | `bg-content-bg` |
+| | `--ads-content-bg-secondary` | `surface-secondary-bg` | `bg-content-bg-secondary` |
+| | `--ads-content-border` | `border-secondary` | `border-content-border` |
+| | `--ads-content-text` | `text-primary` | `text-content-text` |
+| | `--ads-content-text-muted` | `text-secondary` | `text-content-text-muted` |
+| | `--ads-content-text-faint` | `text-tertiary` | `text-content-text-faint` |
+| **Overlay** | `--ads-overlay-bg` | `surface-dark` | `bg-overlay-bg` |
+| | `--ads-overlay-text` | `on-brand` | `text-overlay-text` |
+| | `--ads-overlay-scrim` | `modal-scrim` | `bg-overlay-scrim` |
+| | `--ads-overlay-surface` | `surface-bg` | `bg-overlay-surface` |
+| | `--ads-overlay-border` | `border-primary` | `border-overlay-border` |
+| **Feedback** | `--ads-feedback-success` | `success` | `bg-feedback-success` |
+| | `--ads-feedback-warning` | `warning` | `bg-feedback-warning` |
+| | `--ads-feedback-error` | `danger` | `bg-feedback-error` |
+| **Tint** | `--ads-tint-faint` | `bg-faint` | `bg-tint-faint` |
+| | `--ads-tint-subtle` | `bg-subtle` | `bg-tint-subtle` |
+| | `--ads-tint-hover` | `bg-hover` | `bg-tint-hover` |
+
+The primitive classes (`bg-brand-primary`, `text-text-secondary`, etc.) remain available as aliases. Components can be migrated incrementally.
+
 ## Common mistake: "on-" roles
 
 Use `on-brand` for text on solid brand backgrounds:
