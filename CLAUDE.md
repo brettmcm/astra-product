@@ -588,7 +588,6 @@ Auto-loops a progress animation when `progress <= 0`.
   updated="Edited 2m ago"
   spec="4K"
   duration="0:01:30"
-  tags={['Tag Label']}
 />
 ```
 
@@ -599,11 +598,10 @@ Auto-loops a progress animation when `progress <= 0`.
 | `updated` | `string` | `'Edited 2m ago'` |
 | `spec` | `string` | `'4K'` |
 | `duration` | `string` | `'0:01:30'` |
-| `tags` | `string[]` | `['Tag Label']` |
 | `thumbnail` | `ReactNode` | — |
 | `className` | `string` | — |
 
-Wider featured card (522px). **Overlay** variant renders title, metadata, and tags over the thumbnail with a backdrop blur. **Stacked** variant places info below the thumbnail. Uses `Badge` (secondary) for tags and `DurationBadge` for duration.
+Featured card with locked aspect ratio (522:291). **Overlay** variant renders title and metadata over the thumbnail with a backdrop blur. **Stacked** variant places info below the thumbnail. Uses `DurationBadge` for duration.
 
 ### ThemeProvider
 

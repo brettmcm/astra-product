@@ -9,7 +9,6 @@ const meta = {
     updated: 'Edited 2m ago',
     spec: '4K',
     duration: '0:01:30',
-    tags: ['Tag Label'],
   },
 } satisfies Meta<typeof ItemCardFeatured>
 
@@ -25,13 +24,6 @@ export const Overlay: Story = {
 export const Stacked: Story = {
   args: {
     variant: 'stacked',
-  },
-}
-
-export const MultipleTags: Story = {
-  args: {
-    variant: 'overlay',
-    tags: ['Cinematic', '4K', 'Short Film'],
   },
 }
 

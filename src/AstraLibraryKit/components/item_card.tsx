@@ -29,9 +29,7 @@ export function ItemCard({
       {/* Thumbnail */}
       <div
         className="relative w-full aspect-[305/170] overflow-clip rounded-corner-md"
-        style={!thumbnail ? {
-          backgroundImage: 'linear-gradient(168deg, rgb(26, 58, 42) 8%, rgb(45, 90, 58) 42%, rgb(74, 122, 74) 92%)'
-        } : undefined}
+        style={!thumbnail ? { backgroundColor: '#868686' } : undefined}
       >
         {thumbnail && (
           <div className="absolute inset-0">

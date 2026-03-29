@@ -3,6 +3,7 @@ import { Button } from './AstraLibraryKit/components/button'
 import { InputField } from './AstraLibraryKit/components/input_field'
 import { AstraLogo } from './AstraLibraryKit/components/astra_logo'
 import { Mail, Lock, Eye, EyeOff, ArrowRight, Building2 } from 'lucide-react'
+import Dashboard from './Dashboard'
 
 // ─── Validation helpers ──────────────────────────────────────────────────────
 
@@ -174,37 +175,38 @@ export default function App() {
   // ─── Success state ──────────────────────────────────────────────────────
 
   if (submitState === 'success') {
-    return (
-      <div className="min-h-screen bg-[var(--ads-surface-bg)] flex items-center justify-center p-6">
-        <div className="w-full max-w-[400px] text-center space-y-6">
-          <div className="inline-flex items-center justify-center size-16 rounded-2xl bg-[var(--ads-brand-tertiary)]">
-            <AstraLogo size={40} />
+    // Forgot-password shows a confirmation; all other auth flows go to Dashboard
+    if (view === 'forgot-password') {
+      return (
+        <div className="min-h-screen bg-[var(--ads-surface-bg)] flex items-center justify-center p-6">
+          <div className="w-full max-w-[400px] text-center space-y-6">
+            <div className="inline-flex items-center justify-center size-16 rounded-2xl bg-[var(--ads-brand-tertiary)]">
+              <AstraLogo size={40} />
+            </div>
+            <div>
+              <h1 className="text-[24px] font-semibold text-[var(--ads-text-primary)] font-[var(--font-display)]">
+                Check your email
+              </h1>
+              <p className="text-[14px] text-[var(--ads-text-secondary)] mt-2">
+                We sent a reset link to {email}
+              </p>
+            </div>
+            <Button
+              variant="primary"
+              size="medium"
+              onClick={() => {
+                resetForm()
+                setView('login')
+              }}
+            >
+              Back to login
+            </Button>
           </div>
-          <div>
-            <h1 className="text-[24px] font-semibold text-[var(--ads-text-primary)] font-[var(--font-display)]">
-              {view === 'forgot-password' ? 'Check your email' : 'Welcome to Astra'}
-            </h1>
-            <p className="text-[14px] text-[var(--ads-text-secondary)] mt-2">
-              {view === 'forgot-password'
-                ? `We sent a reset link to ${email}`
-                : view === 'signup'
-                  ? 'Your account has been created successfully.'
-                  : 'You have been signed in successfully.'}
-            </p>
-          </div>
-          <Button
-            variant="primary"
-            size="medium"
-            onClick={() => {
-              resetForm()
-              setView('login')
-            }}
-          >
-            {view === 'forgot-password' ? 'Back to login' : 'Continue to Astra'}
-          </Button>
         </div>
-      </div>
-    )
+      )
+    }
+
+    return <Dashboard />
   }
 
   // ─── Auth forms ─────────────────────────────────────────────────────────
